@@ -15,6 +15,7 @@
 package com.ericsson.gerrit.plugins.gcconductor;
 
 import com.google.common.annotations.VisibleForTesting;
+import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
 import java.io.File;
@@ -82,6 +83,20 @@ public class EvaluationTask implements Runnable {
     if (!isAlreadyInQueue() && isDirty()) {
       insertRepository();
     }
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hashCode(EvaluationTask.class, repositoryPath);
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (!(obj instanceof EvaluationTask)) {
+      return false;
+    }
+    EvaluationTask other = (EvaluationTask) obj;
+    return repositoryPath == other.repositoryPath;
   }
 
   private boolean isAlreadyInQueue() {
