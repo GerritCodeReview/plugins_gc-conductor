@@ -24,7 +24,9 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.io.IOException;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import org.eclipse.jgit.errors.RepositoryNotFoundException;
@@ -46,6 +48,8 @@ class Evaluator implements UploadValidationListener, PostUploadHook, GitReferenc
   private final EvaluationTask.Factory evaluationTaskFactory;
   private final GitRepositoryManager repoManager;
   private final Map<String, Long> timestamps;
+  private final Set<EvaluationTask> queuedEvaluationTasks =
+      Collections.newSetFromMap(new ConcurrentHashMap<>());
 
   private long expireTime;
 
@@ -92,8 +96,8 @@ class Evaluator implements UploadValidationListener, PostUploadHook, GitReferenc
   @Override
   public void onPostUpload(PackStatistics stats) {
     String repositoryPath = uploadRepositoryPath.get();
-    if (repositoryPath != null && needsCheck(repositoryPath)) {
-      executor.execute(evaluationTaskFactory.create(repositoryPath));
+    if (repositoryPath != null) {
+      queueEvaluationIfNecessary(repositoryPath);
       uploadRepositoryPath.remove();
     }
   }
@@ -104,9 +108,7 @@ class Evaluator implements UploadValidationListener, PostUploadHook, GitReferenc
     Project.NameKey projectNameKey = new Project.NameKey(projectName);
     try (Repository repository = repoManager.openRepository(projectNameKey)) {
       String repositoryPath = repository.getDirectory().getAbsolutePath();
-      if (needsCheck(repositoryPath)) {
-        executor.execute(evaluationTaskFactory.create(repositoryPath));
-      }
+      queueEvaluationIfNecessary(repositoryPath);
     } catch (RepositoryNotFoundException e) {
       log.error("Project not found {}", projectName, e);
     } catch (IOException e) {
@@ -114,7 +116,20 @@ class Evaluator implements UploadValidationListener, PostUploadHook, GitReferenc
     }
   }
 
-  private boolean needsCheck(String repositoryPath) {
+  private void queueEvaluationIfNecessary(String repositoryPath) {
+    if (lastCheckExpired(repositoryPath)) {
+      EvaluationTask evaluationTask = evaluationTaskFactory.create(repositoryPath);
+      if (queuedEvaluationTasks.add(evaluationTask)) {
+        try {
+          executor.execute(evaluationTask);
+        } finally {
+          queuedEvaluationTasks.remove(evaluationTask);
+        }
+      }
+    }
+  }
+
+  private boolean lastCheckExpired(String repositoryPath) {
     long now = System.currentTimeMillis();
     if (!timestamps.containsKey(repositoryPath)
         || now >= timestamps.get(repositoryPath) + expireTime) {
