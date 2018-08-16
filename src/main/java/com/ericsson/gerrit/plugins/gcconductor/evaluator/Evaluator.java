@@ -123,6 +123,7 @@ class Evaluator implements UploadValidationListener, PostUploadHook, GitReferenc
         executor.execute(
             () -> {
               evaluationTask.run();
+              timestamps.put(repositoryPath, System.currentTimeMillis());
               queuedEvaluationTasks.remove(evaluationTask);
             });
       }
@@ -133,7 +134,7 @@ class Evaluator implements UploadValidationListener, PostUploadHook, GitReferenc
     long now = System.currentTimeMillis();
     if (!timestamps.containsKey(repositoryPath)
         || now >= timestamps.get(repositoryPath) + expireTime) {
-      timestamps.put(repositoryPath, now);
+
       return true;
     }
     return false;
