@@ -1,0 +1,120 @@
+#!/bin/bash
+#
+# controlling script for gc-executor
+export LC_ALL="en_US.UTF-8"
+
+# assume that the current script is in the bin folder
+readonly SERVICE_HOME=$(dirname "$(dirname "$(readlink -f "$0")")")
+readonly SERVICE_NAME=gc-executor
+readonly CONFIG=${SERVICE_HOME}/gc.config
+readonly PATH_TO_JAR="${SERVICE_HOME}/${SERVICE_NAME}.jar"
+readonly PID_FILE="${SERVICE_HOME}/bin/${SERVICE_NAME}-pid"
+
+usage() {
+  me=$(basename "$0")
+  echo "Usage: $me {start|stop [--now]|restart [--now]|status|check}" >&2
+  exit 1
+}
+
+is_running() {
+  [[ -f ${PID_FILE} && $(cat "${PID_FILE}") == $(pgrep -f "${SERVICE_NAME}.jar") ]]
+}
+
+get_config() {
+  if [[ -f "${CONFIG}" ]]; then
+    git config --file "${CONFIG}" "$1" "$2"
+  fi
+}
+
+start() {
+  echo "Starting ${SERVICE_NAME} ..."
+  if is_running; then
+    echo "${SERVICE_NAME} is already running"
+  else
+    java_home=$(get_config --get jvm.javaHome)
+    if [[ -z "${java_home}" ]]; then
+      java_home="/opt/gerrit/jdk8"
+    fi
+    java_options=($(get_config --get-all jvm.javaOptions))
+
+    nohup "${java_home}/bin/java" "${java_options[@]}" -DconfigFile="${CONFIG}" \
+      -jar "${PATH_TO_JAR}" > "${SERVICE_HOME}"/startup.log 2>&1&
+    echo "${!}" > "${PID_FILE}"
+    echo "${SERVICE_NAME} started"
+  fi
+}
+
+stop(){
+  if is_running; then
+    PID=$(cat "${PID_FILE}");
+    echo -n "${SERVICE_NAME} stopping ..."
+    kill "${kill_options}" "${PID}";
+    # wait for the process to die
+    while kill -0 "${PID}" >/dev/null 2>&1; do
+      sleep 1
+      echo -n "."
+    done
+    echo -e "\n${SERVICE_NAME} stopped"
+    rm -f "${PID_FILE}"
+  else
+    echo "${SERVICE_NAME} is not running"
+  fi
+}
+
+restart(){
+  stop
+  start
+}
+
+status(){
+  if is_running; then
+    echo "${SERVICE_NAME} is up."
+  else
+    echo "Looks like ${SERVICE_NAME} is down!"
+  fi
+}
+
+check(){
+  tail -100f /opt/gerrit/review_site/logs/gc/gc.log
+}
+
+main(){
+  action=$1
+  shift
+  kill_options="-TERM"
+
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+    --now)
+      kill_options="-KILL"
+      shift
+      ;;
+    *)
+      usage
+    esac
+  done
+
+  case "${action}" in
+    start)
+      start
+      ;;
+    stop)
+      stop
+      ;;
+    restart)
+      restart
+      ;;
+    status)
+      status
+      ;;
+    check)
+      check
+      ;;
+    *)
+      echo "${action} is not a known command."
+      usage
+  esac
+  exit 0
+}
+
+main "$@"
