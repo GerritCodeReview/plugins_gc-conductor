@@ -43,7 +43,6 @@ public class EvaluatorTest {
   private static final String REPOSITORY_PATH = "/path/someRepo.git";
   private static final Project.NameKey NAME_KEY = new Project.NameKey("testProject");
 
-  @Mock private EvaluationTask task;
   @Mock private GitReferenceUpdatedListener.Event event;
   @Mock private GitRepositoryManager repoManager;
   @Mock private Repository repository;
@@ -52,6 +51,7 @@ public class EvaluatorTest {
   @Mock private Config gerritConfig;
 
   private Evaluator evaluator;
+  private EvaluationTask task;
 
   @Before
   public void createEvaluator() {
