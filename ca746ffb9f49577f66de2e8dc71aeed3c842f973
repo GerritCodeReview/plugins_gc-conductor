@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74db6e83_6fbf9508",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/EvaluationTask.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2018-08-30T01:29:05Z",
+      "side": 1,
+      "message": "Does this need to be included in the hash?",
+      "range": {
+        "startLine": 90,
+        "startChar": 28,
+        "endLine": 90,
+        "endChar": 48
+      },
+      "revId": "ca746ffb9f49577f66de2e8dc71aeed3c842f973",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
