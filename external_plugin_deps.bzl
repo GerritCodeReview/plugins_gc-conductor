@@ -65,63 +65,6 @@ def external_plugin_deps():
     )
 
     maven_jar(
-        name = "dbcp",
-        artifact = "commons-dbcp:commons-dbcp:1.4",
-        sha1 = "30be73c965cc990b153a100aaaaafcf239f82d39",
-    )
-
-    maven_jar(
-        name = "pool",
-        artifact = "commons-pool:commons-pool:1.5.5",
-        sha1 = "7d8ffbdc47aa0c5a8afe5dc2aaf512f369f1d19b",
-    )
-
-    maven_jar(
-        name = "guava",
-        artifact = "com.google.guava:guava:25.1-jre",
-        sha1 = "6c57e4b22b44e89e548b5c9f70f0c45fe10fb0b4",
-    )
-
-    GUICE_VERS = "4.2.0"
-
-    maven_jar(
-        name = "guice",
-        artifact = "com.google.inject:guice:" + GUICE_VERS,
-        sha1 = "25e1f4c1d528a1cffabcca0d432f634f3132f6c8",
-    )
-
-    maven_jar(
-        name = "guice-assistedinject",
-        artifact = "com.google.inject.extensions:guice-assistedinject:" + GUICE_VERS,
-        sha1 = "e7270305960ad7db56f7e30cb9df6be9ff1cfb45",
-    )
-
-    maven_jar(
-        name = "aopalliance",
-        artifact = "aopalliance:aopalliance:1.0",
-        sha1 = "0235ba8b489512805ac13a8f9ea77a1ca5ebe3e8",
-    )
-
-    maven_jar(
-        name = "javax_inject",
-        artifact = "javax.inject:javax.inject:1",
-        sha1 = "6975da39a7040257bd51d21a231b76c915872d38",
-    )
-
-    maven_jar(
-        name = "jgit",
-        artifact =
-            "org.eclipse.jgit:org.eclipse.jgit:4.7.2.201807261330-r",
-        sha1 = "6c08ef848fa5f7d5d49776fa25ec24d738ee457d",
-    )
-
-    maven_jar(
-        name = "javaewah",
-        artifact = "com.googlecode.javaewah:JavaEWAH:1.1.6",
-        sha1 = "94ad16d728b374d65bd897625f3fbb3da223a2b6",
-    )
-
-    maven_jar(
         name = "retry",
         artifact = "tech.huffman.re-retrying:re-retrying:3.0.0",
         sha1 = "bd3ce1aaafc0f357354e76890f0a8199a0f42f3a",

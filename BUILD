@@ -1,24 +1,16 @@
 load("//tools/bzl:junit.bzl", "junit_tests")
 load(
     "//tools/bzl:plugin.bzl",
+    "PLUGIN_DEPS",
     "PLUGIN_TEST_DEPS",
     "gerrit_plugin",
 )
 
 CONDUCTOR_DEPS = [
     "@postgresql//jar",
-    "@dbcp//jar",
-    "@pool//jar",
 ]
 
-EXECUTOR_DEPS = CONDUCTOR_DEPS + [
-    "@jgit//jar",
-    "@javaewah//jar",
-    "@guava//jar",
-    "@guice//jar",
-    "@guice-assistedinject//jar",
-    "@javax_inject//jar",
-    "@aopalliance//jar",
+EXECUTOR_DEPS = PLUGIN_DEPS + CONDUCTOR_DEPS + [
     "@slf4j-api//jar",
     "@log4j-slf4j-impl//jar",
     "@log4j-api//jar",
