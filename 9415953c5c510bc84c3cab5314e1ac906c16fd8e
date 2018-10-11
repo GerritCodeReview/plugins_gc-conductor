@@ -22,6 +22,30 @@
       "revId": "9415953c5c510bc84c3cab5314e1ac906c16fd8e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcb0a8ae_7fd7fdcf",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2018-10-11T11:19:08Z",
+      "side": 1,
+      "message": "OK.  Can we at least keep the same dependency versions as core uses?",
+      "parentUuid": "96410839_14241c4f",
+      "range": {
+        "startLine": 13,
+        "startChar": 16,
+        "endLine": 13,
+        "endChar": 28
+      },
+      "revId": "9415953c5c510bc84c3cab5314e1ac906c16fd8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
