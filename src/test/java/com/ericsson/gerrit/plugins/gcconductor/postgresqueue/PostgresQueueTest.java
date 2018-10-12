@@ -34,7 +34,10 @@ import org.apache.commons.dbcp.BasicDataSource;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.junit.MockitoJUnitRunner;
 
+@RunWith(MockitoJUnitRunner.class)
 public class PostgresQueueTest {
 
   private static final String TEST_DATABASE_NAME = "gc_test_queue";

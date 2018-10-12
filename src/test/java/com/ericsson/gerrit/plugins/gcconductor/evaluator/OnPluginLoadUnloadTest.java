@@ -21,7 +21,10 @@ import static org.mockito.Mockito.verifyZeroInteractions;
 import com.ericsson.gerrit.plugins.gcconductor.ShutdownNotifier;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.junit.MockitoJUnitRunner;
 
+@RunWith(MockitoJUnitRunner.class)
 public class OnPluginLoadUnloadTest {
 
   private OnPluginLoadUnload onPluginLoadUnload;
