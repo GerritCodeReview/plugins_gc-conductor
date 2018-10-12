@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a98a68bb_dc62f459",
+        "filename": "src/test/java/com/ericsson/gerrit/plugins/gcconductor/evaluator/OnPluginLoadUnloadTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2018-10-12T12:41:31Z",
+      "side": 1,
+      "message": "The annotation was not missing. Running the test with MockitoJUnitRunner is required if test is using field injected mock.\n\nIf we use the MockitoJUnitRunner, we should do this:\n\nprivate OnPluginLoadUnload onPluginLoadUnload;\n@Mock\nprivate ShutdownNotifier shutdownNotifierMock;\n\n  @Before\n  public void setUp() {\n    onPluginLoadUnload \u003d new OnPluginLoadUnload(shutdownNotifierMock);\n  }",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 34
+      },
+      "revId": "c4c1ccc4277a5cc36d72f71a1f5a1245d9649588",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
