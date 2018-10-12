@@ -22,6 +22,30 @@
       "revId": "c4c1ccc4277a5cc36d72f71a1f5a1245d9649588",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58eaaca5_7533fa84",
+        "filename": "src/test/java/com/ericsson/gerrit/plugins/gcconductor/evaluator/OnPluginLoadUnloadTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2018-10-12T12:45:07Z",
+      "side": 1,
+      "message": "OK, I\u0027ve misunderstood how this works.",
+      "parentUuid": "a98a68bb_dc62f459",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 34
+      },
+      "revId": "c4c1ccc4277a5cc36d72f71a1f5a1245d9649588",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
