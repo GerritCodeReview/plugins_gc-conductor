@@ -24,8 +24,9 @@ import static org.mockito.Mockito.when;
 import com.ericsson.gerrit.plugins.gcconductor.evaluator.EvaluatorConfig;
 import java.sql.SQLException;
 import org.apache.commons.dbcp.BasicDataSource;
-import org.junit.Test;
+import org.junit.Ignore;
 
+@Ignore
 public class TestUtil {
 
   private static final String DATABASE_SERVER_URL = "jdbc:postgresql://localhost:5432/";
@@ -52,12 +53,5 @@ public class TestUtil {
     } finally {
       ds.close();
     }
-  }
-
-  @Test
-  public void fakeTest() {
-    // Hackish way of avoiding bazel test mark this class as failed
-    // because of the lack of executable methods
-    return;
   }
 }

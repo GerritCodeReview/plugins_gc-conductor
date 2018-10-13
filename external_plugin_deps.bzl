@@ -3,14 +3,27 @@ load("//tools/bzl:maven_jar.bzl", "maven_jar")
 def external_plugin_deps():
     maven_jar(
         name = "mockito",
-        artifact = "org.mockito:mockito-core:2.20.1",
-        sha1 = "a0f57a2efd118bd0f4735cb213f76874cb87b78b",
+        artifact = "org.mockito:mockito-core:2.23.0",
+        sha1 = "497ddb32fd5d01f9dbe99a2ec790aeb931dff1b1",
+        deps = [
+            "@byte-buddy//jar",
+            "@byte-buddy-agent//jar",
+            "@objenesis//jar",
+        ],
     )
+
+    BYTE_BUDDY_VERSION = "1.9.0"
 
     maven_jar(
         name = "byte-buddy",
-        artifact = "net.bytebuddy:byte-buddy:1.8.15",
-        sha1 = "cb36fe3c70ead5fcd016856a7efff908402d86b8",
+        artifact = "net.bytebuddy:byte-buddy:" + BYTE_BUDDY_VERSION,
+        sha1 = "8cb0d5baae526c9df46ae17693bbba302640538b",
+    )
+
+    maven_jar(
+        name = "byte-buddy-agent",
+        artifact = "net.bytebuddy:byte-buddy-agent:" + BYTE_BUDDY_VERSION,
+        sha1 = "37b5703b4a6290be3fffc63ae9c6bcaaee0ff856",
     )
 
     maven_jar(
