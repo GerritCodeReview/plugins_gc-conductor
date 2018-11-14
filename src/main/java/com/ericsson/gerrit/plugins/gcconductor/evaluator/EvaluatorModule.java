@@ -25,7 +25,7 @@ import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.gerrit.server.git.validators.UploadValidationListener;
 import com.google.inject.Provides;
 import com.google.inject.internal.UniqueAnnotations;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.ExecutorService;
 import org.eclipse.jgit.transport.PostUploadHook;
 
 /** Configures bindings of the evaluator. */
@@ -35,7 +35,7 @@ public class EvaluatorModule extends LifecycleModule {
     install(new CommonModule(EvaluatorConfig.class));
     listener().to(OnPluginLoadUnload.class);
 
-    bind(ScheduledThreadPoolExecutor.class)
+    bind(ExecutorService.class)
         .annotatedWith(EvaluatorExecutor.class)
         .toProvider(EvaluatorExecutorProvider.class);
     bind(ShutdownListener.class)

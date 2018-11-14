@@ -20,11 +20,11 @@ import com.google.gerrit.server.git.WorkQueue;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.Singleton;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.ExecutorService;
 
 @Singleton
-class EvaluatorExecutorProvider implements Provider<ScheduledThreadPoolExecutor>, ShutdownListener {
-  private WorkQueue.Executor executor;
+class EvaluatorExecutorProvider implements Provider<ExecutorService>, ShutdownListener {
+  private ExecutorService executor;
 
   @Inject
   EvaluatorExecutorProvider(
@@ -35,12 +35,11 @@ class EvaluatorExecutorProvider implements Provider<ScheduledThreadPoolExecutor>
   @Override
   public void onShutdown() {
     executor.shutdownNow();
-    executor.unregisterWorkQueue();
     executor = null;
   }
 
   @Override
-  public ScheduledThreadPoolExecutor get() {
+  public ExecutorService get() {
     return executor;
   }
 }
