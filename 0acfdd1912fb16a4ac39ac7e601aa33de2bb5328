@@ -22,6 +22,30 @@
       "revId": "0acfdd1912fb16a4ac39ac7e601aa33de2bb5328",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b79f5061_f15c020e",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-11-22T20:28:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b97b1d8e_571f7f02",
+      "range": {
+        "startLine": 127,
+        "startChar": 16,
+        "endLine": 127,
+        "endChar": 56
+      },
+      "revId": "0acfdd1912fb16a4ac39ac7e601aa33de2bb5328",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
