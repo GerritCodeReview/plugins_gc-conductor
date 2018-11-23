@@ -46,6 +46,30 @@
       "revId": "0acfdd1912fb16a4ac39ac7e601aa33de2bb5328",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f1013c8_cb4882ee",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2018-11-23T04:12:01Z",
+      "side": 1,
+      "message": "And this is the only plugin that I didn\u0027t build :/\n\nThanks for fixing it.",
+      "parentUuid": "b79f5061_f15c020e",
+      "range": {
+        "startLine": 127,
+        "startChar": 16,
+        "endLine": 127,
+        "endChar": 56
+      },
+      "revId": "0acfdd1912fb16a4ac39ac7e601aa33de2bb5328",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
