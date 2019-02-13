@@ -82,6 +82,9 @@ java_library(
     testonly = 1,
     visibility = ["//visibility:public"],
     exports = EXECUTOR_DEPS + PLUGIN_TEST_DEPS + [
+        "//gerrit-extension-api:api",
+        "//gerrit-reviewdb:server",
+        "//gerrit-server:server",
         ":gc-conductor__plugin",
         ":gc-executor_lib",
         "@byte-buddy//jar",
