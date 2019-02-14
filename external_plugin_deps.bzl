@@ -78,8 +78,8 @@ def external_plugin_deps():
 
     maven_jar(
         name = "guava",
-        artifact = "com.google.guava:guava:25.1-jre",
-        sha1 = "6c57e4b22b44e89e548b5c9f70f0c45fe10fb0b4",
+        artifact = "com.google.guava:guava:26.0-jre",
+        sha1 = "6a806eff209f36f635f943e16d97491f00f6bfab",
     )
 
     GUICE_VERS = "4.2.0"
@@ -111,8 +111,8 @@ def external_plugin_deps():
     maven_jar(
         name = "jgit",
         artifact =
-            "org.eclipse.jgit:org.eclipse.jgit:4.7.2.201807261330-r",
-        sha1 = "6c08ef848fa5f7d5d49776fa25ec24d738ee457d",
+            "org.eclipse.jgit:org.eclipse.jgit:5.1.5.201812261915-r",
+        sha1 = "e64c71932a2a8fdc2b86cf7d5d61c3399c64b8b1",
     )
 
     maven_jar(
