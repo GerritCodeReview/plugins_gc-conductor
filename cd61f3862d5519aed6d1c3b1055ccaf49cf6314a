@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e9ad8167_5c76d4f0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-02-14T22:06:01Z",
+      "side": 1,
+      "message": "I currently see 4.7.7.201812240805-r as _JGIT_VERS in v2.14.18\u0027s lib/jgit/jgit.bzl.",
+      "range": {
+        "startLine": 7,
+        "startChar": 16,
+        "endLine": 7,
+        "endChar": 36
+      },
+      "revId": "cd61f3862d5519aed6d1c3b1055ccaf49cf6314a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
