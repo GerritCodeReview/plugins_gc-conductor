@@ -15,6 +15,7 @@ EXECUTOR_DEPS = CONDUCTOR_DEPS + [
     "@jgit//jar",
     "@javaewah//jar",
     "@guava//jar",
+    "@guava-failureaccess//jar",
     "@guice//jar",
     "@guice-assistedinject//jar",
     "@javax_inject//jar",
