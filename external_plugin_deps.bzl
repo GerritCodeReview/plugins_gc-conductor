@@ -77,9 +77,15 @@ def external_plugin_deps():
     )
 
     maven_jar(
+        name = "guava-failureaccess",
+        artifact = "com.google.guava:failureaccess:1.0.1",
+        sha1 = "1dcf1de382a0bf95a3d8b0849546c88bac1292c9",
+    )
+
+    maven_jar(
         name = "guava",
-        artifact = "com.google.guava:guava:26.0-jre",
-        sha1 = "6a806eff209f36f635f943e16d97491f00f6bfab",
+        artifact = "com.google.guava:guava:27.0.1-jre",
+        sha1 = "bd41a290787b5301e63929676d792c507bbc00ae",
     )
 
     GUICE_VERS = "4.2.2"
