@@ -15,8 +15,8 @@
 package com.ericsson.gerrit.plugins.gcconductor.postgresqueue;
 
 import static com.ericsson.gerrit.plugins.gcconductor.postgresqueue.TestUtil.configMockFor;
-import static com.ericsson.gerrit.plugins.gcconductor.postgresqueue.TestUtil.deleteDatabase;
 import static com.google.common.truth.Truth.assertThat;
+import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -33,19 +33,28 @@ import java.util.concurrent.TimeUnit;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
+import org.testcontainers.containers.PostgreSQLContainer;
 
 public class PostgresQueueTest {
 
-  private static final String TEST_DATABASE_NAME = "gc_test_queue";
   private BasicDataSource dataSource;
   private PostgresQueue queue;
 
+  private static PostgreSQLContainer<?> container;
+
+  @BeforeClass
+  public static void startPostgres() {
+    container = new PostgreSQLContainer<>();
+    container.start();
+  }
+
   @Before
-  public void setUp() throws SQLException {
-    dataSource =
-        new PostgresModule(null).provideGcDatabaseAccess(configMockFor(TEST_DATABASE_NAME));
+  public void setUp() throws SQLException, GcQueueException {
+    dataSource = new PostgresModule(null).provideGcDatabaseAccess(configMockFor(container));
     queue = new PostgresQueue(dataSource);
+    emptyQueue();
   }
 
   @After
@@ -53,7 +62,6 @@ public class PostgresQueueTest {
     if (dataSource != null) {
       dataSource.close();
     }
-    deleteDatabase(TEST_DATABASE_NAME);
   }
 
   @Test
@@ -492,5 +500,19 @@ public class PostgresQueueTest {
     when(resultSetMock.next()).thenThrow(new SQLException());
 
     return dataSouceMock;
+  }
+
+  private void emptyQueue() throws GcQueueException {
+    queue.list().stream()
+        .map(RepositoryInfo::getPath)
+        .forEach(
+            repository -> {
+              try {
+                queue.remove(repository);
+              } catch (GcQueueException e) {
+                fail();
+              }
+            });
+    assertThat(queue.list()).isEmpty();
   }
 }

@@ -15,7 +15,6 @@
 package com.ericsson.gerrit.plugins.gcconductor.postgresqueue;
 
 import static com.ericsson.gerrit.plugins.gcconductor.postgresqueue.DatabaseConstants.DRIVER;
-import static com.ericsson.gerrit.plugins.gcconductor.postgresqueue.DatabaseConstants.INITIAL_DATABASE;
 import static com.ericsson.gerrit.plugins.gcconductor.postgresqueue.DatabaseConstants.createDatabase;
 import static com.ericsson.gerrit.plugins.gcconductor.postgresqueue.DatabaseConstants.databaseExists;
 import static com.ericsson.gerrit.plugins.gcconductor.postgresqueue.DatabaseConstants.executeStatement;
@@ -64,7 +63,7 @@ public class PostgresModule extends AbstractModule {
   @Provides
   @Singleton
   BasicDataSource provideGcDatabaseAccess(CommonConfig cfg) throws SQLException {
-    BasicDataSource adminDataSource = createDataSource(cfg, INITIAL_DATABASE);
+    BasicDataSource adminDataSource = createDataSource(cfg);
     try (Connection conn = adminDataSource.getConnection();
         Statement stat = conn.createStatement();
         ResultSet resultSet = stat.executeQuery(databaseExists(cfg.getDatabaseName()))) {
@@ -74,13 +73,13 @@ public class PostgresModule extends AbstractModule {
     } finally {
       adminDataSource.close();
     }
-    return createDataSource(cfg, cfg.getDatabaseName());
+    return createDataSource(cfg);
   }
 
-  private static BasicDataSource createDataSource(CommonConfig cfg, String database) {
+  private static BasicDataSource createDataSource(CommonConfig cfg) {
     BasicDataSource ds = new BasicDataSource();
     ds.setDriverClassName(DRIVER);
-    ds.setUrl(cfg.getDatabaseUrl() + database + cfg.getDatabaseUrlOptions());
+    ds.setUrl(cfg.getDatabaseUrl() + cfg.getDatabaseName() + cfg.getDatabaseUrlOptions());
     ds.setUsername(cfg.getUsername());
     ds.setPassword(cfg.getPassword());
     ds.setMinEvictableIdleTimeMillis(EVICT_IDLE_TIME_MS);
