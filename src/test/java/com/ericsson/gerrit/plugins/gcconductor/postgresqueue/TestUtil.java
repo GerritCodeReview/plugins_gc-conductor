@@ -25,12 +25,23 @@ import com.ericsson.gerrit.plugins.gcconductor.evaluator.EvaluatorConfig;
 import java.sql.SQLException;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.junit.Ignore;
+import org.testcontainers.containers.PostgreSQLContainer;
 
 @Ignore
 public class TestUtil {
 
   private static final String DATABASE_SERVER_URL = "jdbc:postgresql://localhost:5432/";
   private static final String DEFAULT_USER_AND_PASSWORD = "gc";
+
+  static EvaluatorConfig configMockFor(PostgreSQLContainer<?> container) {
+    EvaluatorConfig configMock = mock(EvaluatorConfig.class);
+    when(configMock.getDatabaseUrl()).thenReturn(urlWithoutDatabase(container));
+    when(configMock.getDatabaseUrlOptions()).thenReturn("");
+    when(configMock.getDatabaseName()).thenReturn(container.getDatabaseName());
+    when(configMock.getUsername()).thenReturn(container.getUsername());
+    when(configMock.getPassword()).thenReturn(container.getPassword());
+    return configMock;
+  }
 
   static EvaluatorConfig configMockFor(String databaseName) {
     EvaluatorConfig configMock = mock(EvaluatorConfig.class);
@@ -53,5 +64,10 @@ public class TestUtil {
     } finally {
       ds.close();
     }
+  }
+
+  private static String urlWithoutDatabase(PostgreSQLContainer<?> container) {
+    String urlWithDatabase = container.getJdbcUrl();
+    return urlWithDatabase.substring(0, urlWithDatabase.lastIndexOf('/') + 1);
   }
 }

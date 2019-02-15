@@ -26,6 +26,7 @@ import java.sql.SQLException;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class PostgresModuleTest {
@@ -50,12 +51,14 @@ public class PostgresModuleTest {
     deleteDatabase(TEST_DATABASE_NAME);
   }
 
+  @Ignore
   @Test
   public void shouldCreateGcDatabase() {
     assertThat(dataSource).isNotNull();
     assertThat(dataSource.isClosed()).isFalse();
   }
 
+  @Ignore
   @Test
   public void shouldNotComplainsIfGcDatabaseAlreadyExists() throws SQLException {
     dataSource.close();
@@ -64,11 +67,13 @@ public class PostgresModuleTest {
     assertThat(dataSource.isClosed()).isFalse();
   }
 
+  @Ignore
   @Test(expected = SQLException.class)
   public void shouldFailIfDatabaseNameIsInvalid() throws SQLException {
     module.provideGcDatabaseAccess(configMockFor("invalid!@#$@$%^-name"));
   }
 
+  @Ignore
   @Test
   public void shouldCloseDatabaseAccessOnStop() {
     DatabaseAccessCleanUp dbCleanUp = new DatabaseAccessCleanUp(dataSource);
@@ -78,6 +83,7 @@ public class PostgresModuleTest {
     assertThat(dataSource.isClosed()).isTrue();
   }
 
+  @Ignore
   @Test(expected = RuntimeException.class)
   public void shouldThrowExceptionIfFailsToCloseDatabaseAccess() throws SQLException {
     BasicDataSource dataSouceMock = mock(BasicDataSource.class);
