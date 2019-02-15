@@ -87,5 +87,12 @@ java_library(
         "@byte-buddy//jar",
         "@mockito//jar",
         "@objenesis//jar",
+        "@testcontainers-database-commons//jar",
+        "@testcontainers-jdbc//jar",
+        "@testcontainers-postgres//jar",
+        "@testcontainers//jar",
+        "@duct_tape//jar",
+        "@visible_assertions//jar",
+        "@jna//jar",
     ],
 )

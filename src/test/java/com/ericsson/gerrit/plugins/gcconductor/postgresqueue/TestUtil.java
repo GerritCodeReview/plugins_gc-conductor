@@ -25,6 +25,7 @@ import com.ericsson.gerrit.plugins.gcconductor.evaluator.EvaluatorConfig;
 import java.sql.SQLException;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.junit.Ignore;
+import org.testcontainers.containers.PostgreSQLContainer;
 
 @Ignore
 public class TestUtil {
@@ -40,6 +41,29 @@ public class TestUtil {
     when(configMock.getUsername()).thenReturn(DEFAULT_USER_AND_PASSWORD);
     when(configMock.getPassword()).thenReturn(DEFAULT_USER_AND_PASSWORD);
     return configMock;
+  }
+
+  static EvaluatorConfig configMockFor(PostgreSQLContainer<?> container) {
+    EvaluatorConfig configMock = mock(EvaluatorConfig.class);
+    when(configMock.getDatabaseUrl()).thenReturn(container.getJdbcUrl());
+    when(configMock.getDatabaseUrlOptions()).thenReturn("");
+    when(configMock.getDatabaseName()).thenReturn(container.getDatabaseName());
+    when(configMock.getUsername()).thenReturn(container.getUsername());
+    when(configMock.getPassword()).thenReturn(container.getPassword());
+    return configMock;
+  }
+
+  static void deleteDatabase(PostgreSQLContainer<?> container) throws SQLException {
+    BasicDataSource ds = new BasicDataSource();
+    try {
+      ds.setDriverClassName(container.getDriverClassName());
+      ds.setUrl(container.getJdbcUrl());
+      ds.setUsername(container.getUsername());
+      ds.setPassword(container.getPassword());
+      executeStatement(ds, dropDatabase(container.getDatabaseName()));
+    } finally {
+      ds.close();
+    }
   }
 
   static void deleteDatabase(String databaseName) throws SQLException {

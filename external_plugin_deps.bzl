@@ -126,3 +126,47 @@ def external_plugin_deps():
         artifact = "tech.huffman.re-retrying:re-retrying:3.0.0",
         sha1 = "bd3ce1aaafc0f357354e76890f0a8199a0f42f3a",
     )
+
+    maven_jar(
+        name = "duct_tape",
+        artifact = "org.rnorth.duct-tape:duct-tape:1.0.7",
+        sha1 = "a26b5d90d88c91321dc7a3734ea72d2fc019ebb6",
+    )
+
+    maven_jar(
+        name = "visible_assertions",
+        artifact = "org.rnorth.visible-assertions:visible-assertions:2.1.0",
+        sha1 = "f2fcff2862860828ac38a5e1f14d941787c06b13",
+    )
+
+    maven_jar(
+        name = "jna",
+        artifact = "net.java.dev.jna:jna:4.5.1",
+        sha1 = "65bd0cacc9c79a21c6ed8e9f588577cd3c2f85b9",
+    )
+
+    TEST_CONTAINERS_VERS = "1.10.6"
+
+    maven_jar(
+        name = "testcontainers",
+        artifact = "org.testcontainers:testcontainers:" + TEST_CONTAINERS_VERS,
+        sha1 = "435c94ec099e229e62295cec4feec91c192aa764",
+    )
+
+    maven_jar(
+        name = "testcontainers-database-commons",
+        artifact = "org.testcontainers:database-commons:" + TEST_CONTAINERS_VERS,
+        sha1 = "36b1a0f88358b433c1d10d74829d4180ca9cb2ec",
+    )
+
+    maven_jar(
+        name = "testcontainers-jdbc",
+        artifact = "org.testcontainers:jdbc:" + TEST_CONTAINERS_VERS,
+        sha1 = "449d18d09dc8d04f9c90b0bdc1930afdf4558a7e",
+    )
+
+    maven_jar(
+        name = "testcontainers-postgres",
+        artifact = "org.testcontainers:postgresql:" + TEST_CONTAINERS_VERS,
+        sha1 = "a73d73b200b60da821745acca2785874ae65e5b9",
+    )

@@ -33,18 +33,27 @@ import java.util.concurrent.TimeUnit;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
+import org.testcontainers.containers.PostgreSQLContainer;
 
 public class PostgresQueueTest {
 
-  private static final String TEST_DATABASE_NAME = "gc_test_queue";
+  // private static final String TEST_DATABASE_NAME = "gc_test_queue";
   private BasicDataSource dataSource;
   private PostgresQueue queue;
 
+  private static PostgreSQLContainer<?> container;
+
+  @BeforeClass
+  public static void startPostgres() throws Exception {
+    container = new PostgreSQLContainer<>();
+    container.start();
+  }
+
   @Before
   public void setUp() throws SQLException {
-    dataSource =
-        new PostgresModule(null).provideGcDatabaseAccess(configMockFor(TEST_DATABASE_NAME));
+    dataSource = new PostgresModule(null).provideGcDatabaseAccess(configMockFor(container));
     queue = new PostgresQueue(dataSource);
   }
 
@@ -53,7 +62,7 @@ public class PostgresQueueTest {
     if (dataSource != null) {
       dataSource.close();
     }
-    deleteDatabase(TEST_DATABASE_NAME);
+    deleteDatabase(container);
   }
 
   @Test
