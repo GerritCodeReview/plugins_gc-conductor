@@ -9,6 +9,12 @@ This plugin is built with Bazel and two build modes are supported:
 Standalone build mode is recommended, as this mode doesn't require local Gerrit
 tree to exist.
 
+Successfully running some of the tests requires Docker,
+which are skipped if Docker is not available.
+
+Bazel currently does not show
+link:https://github.com/bazelbuild/bazel/issues/3476[skipped tests].
+
 ## Build standalone
 
 To build the plugin, issue the following command:
