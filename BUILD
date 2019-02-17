@@ -1,6 +1,7 @@
 load("//tools/bzl:junit.bzl", "junit_tests")
 load(
     "//tools/bzl:plugin.bzl",
+    "PLUGIN_DEPS",
     "PLUGIN_TEST_DEPS",
     "gerrit_plugin",
 )
@@ -82,7 +83,7 @@ java_library(
     name = "gc-conductor__plugin_test_deps",
     testonly = 1,
     visibility = ["//visibility:public"],
-    exports = EXECUTOR_DEPS + PLUGIN_TEST_DEPS + [
+    exports = EXECUTOR_DEPS + PLUGIN_DEPS + PLUGIN_TEST_DEPS + [
         ":gc-conductor__plugin",
         ":gc-executor_lib",
         "@byte-buddy//jar",
