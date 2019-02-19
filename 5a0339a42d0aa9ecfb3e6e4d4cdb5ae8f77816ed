@@ -70,6 +70,24 @@
       "revId": "5a0339a42d0aa9ecfb3e6e4d4cdb5ae8f77816ed",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d905203d_52a1574a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-02-19T23:15:48Z",
+      "side": 1,
+      "message": "I meant stable-2.16 of course...",
+      "parentUuid": "3310bd21_50a08688",
+      "revId": "5a0339a42d0aa9ecfb3e6e4d4cdb5ae8f77816ed",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
