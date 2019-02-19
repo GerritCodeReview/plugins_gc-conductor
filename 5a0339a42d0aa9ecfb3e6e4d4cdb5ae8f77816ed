@@ -34,6 +34,24 @@
       "revId": "5a0339a42d0aa9ecfb3e6e4d4cdb5ae8f77816ed",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31093fd0_23deff52",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-02-19T17:59:00Z",
+      "side": 1,
+      "message": "Gerrit core stable-2.16 has 4.2.1 as its GUICE_VERS, hence this question of mine about potentially bumping to 4.2.1 also in this plugin\u0027s 2.16 branch. -Similar to the other alignments done through this very change and related ones. Not sure how this is related to that abandoned change/scope linked above(?)",
+      "parentUuid": "aca3fc98_6b1da141",
+      "revId": "5a0339a42d0aa9ecfb3e6e4d4cdb5ae8f77816ed",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
