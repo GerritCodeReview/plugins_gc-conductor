@@ -184,16 +184,19 @@ public class PostgresQueueTest {
     assertThat(queue.list().get(0).getPath()).isEqualTo(repoPath);
     assertThat(queue.list().get(0).getExecutor()).isEqualTo(executor);
     assertThat(queue.list().get(0).getQueuedAt()).isAtLeast(before);
-    assertThat(queue.list().get(0).getQueuedAt())
-        .isAtMost(new Timestamp(System.currentTimeMillis()));
+    assertTimestampDiff(queue.list().get(0).getQueuedAt());
     assertThat(queue.list().get(0).getQueuedFrom()).isEqualTo(hostname);
 
     assertThat(queue.list().get(1).getPath()).isEqualTo(repoPath2);
     assertThat(queue.list().get(1).getExecutor()).isNull();
     assertThat(queue.list().get(1).getQueuedAt()).isAtLeast(queue.list().get(0).getQueuedAt());
-    assertThat(queue.list().get(1).getQueuedAt())
-        .isAtMost(new Timestamp(System.currentTimeMillis()));
+    assertTimestampDiff(queue.list().get(1).getQueuedAt());
     assertThat(queue.list().get(1).getQueuedFrom()).isEqualTo(hostname);
+  }
+
+  private void assertTimestampDiff(Timestamp actual) {
+    long timestampDiff = Math.abs(actual.getTime() - System.currentTimeMillis());
+    assertThat(timestampDiff).isAtMost(TimeUnit.SECONDS.toMillis(1));
   }
 
   @Test(expected = GcQueueException.class)
