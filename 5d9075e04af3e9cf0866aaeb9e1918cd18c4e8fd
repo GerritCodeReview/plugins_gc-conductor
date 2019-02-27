@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f6daf22d_8d0b4b1e",
+        "filename": "src/test/java/com/ericsson/gerrit/plugins/gcconductor/postgresqueue/PostgresQueueTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-02-27T16:02:15Z",
+      "side": 1,
+      "message": "Timing on my linux host then is different from yours or macOS, yes.",
+      "parentUuid": "313f61f8_269ad481",
+      "range": {
+        "startLine": 195,
+        "startChar": 4,
+        "endLine": 196,
+        "endChar": 61
+      },
+      "revId": "5d9075e04af3e9cf0866aaeb9e1918cd18c4e8fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "193c4a0f_ab23d8de",
         "filename": "src/test/java/com/ericsson/gerrit/plugins/gcconductor/postgresqueue/PostgresQueueTest.java",
         "patchSetId": 5
@@ -36,6 +60,24 @@
       "writtenOn": "2019-02-27T05:36:49Z",
       "side": 1,
       "message": "What version of gjf are you using?  With 1.6 this line is wrapped.",
+      "revId": "5d9075e04af3e9cf0866aaeb9e1918cd18c4e8fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6aff91ad_98226f8c",
+        "filename": "src/test/java/com/ericsson/gerrit/plugins/gcconductor/postgresqueue/PostgresQueueTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-02-27T16:02:15Z",
+      "side": 1,
+      "message": "I use the 1.7 plugin in latest IntelliJ. Version 1.7 of base gjf notes a different behavior indeed for .stream(), as per [1].\n\nNow, [2] does not link to a 1.7 jar yet, but 2.14\u0027s tools/setup_gjf.sh ([3]) supports 1.7.\n\nShould I re-align to 1.6, albeit older than 1.7 by \u003e7 months ([1])?\n\n[1] https://github.com/google/google-java-format/releases\n[2] https://github.com/google/google-java-format#eclipse\n[3] https://gerrit-review.googlesource.com/Documentation/dev-contributing.html#style",
+      "parentUuid": "193c4a0f_ab23d8de",
       "revId": "5d9075e04af3e9cf0866aaeb9e1918cd18c4e8fd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
