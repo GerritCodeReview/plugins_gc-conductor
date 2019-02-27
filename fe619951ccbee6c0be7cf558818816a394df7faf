@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "859a0ce3_d77f1d40",
+        "filename": "BUILD",
+        "patchSetId": 6
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-02-27T16:21:11Z",
+      "side": 1,
+      "message": "Good catch!",
+      "range": {
+        "startLine": 77,
+        "startChar": 8,
+        "endLine": 77,
+        "endChar": 17
+      },
+      "revId": "fe619951ccbee6c0be7cf558818816a394df7faf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
