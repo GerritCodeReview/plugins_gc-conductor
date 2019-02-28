@@ -15,7 +15,7 @@
 package com.ericsson.gerrit.plugins.gcconductor.postgresqueue;
 
 import static com.ericsson.gerrit.plugins.gcconductor.postgresqueue.TestUtil.configMockFor;
-import static com.ericsson.gerrit.plugins.gcconductor.postgresqueue.TestUtil.deleteDatabase;
+import static com.ericsson.gerrit.plugins.gcconductor.postgresqueue.TestUtil.invalidConfigMockFor;
 import static com.google.common.truth.Truth.assertThat;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
@@ -26,18 +26,27 @@ import java.sql.SQLException;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
+import org.testcontainers.containers.PostgreSQLContainer;
 
 public class PostgresModuleTest {
 
-  private static final String TEST_DATABASE_NAME = "gc_test_module";
   private EvaluatorConfig configMock;
   private PostgresModule module;
   private BasicDataSource dataSource;
 
+  private static PostgreSQLContainer<?> container;
+
+  @BeforeClass
+  public static void startPostgres() {
+    container = new PostgreSQLContainer<>();
+    container.start();
+  }
+
   @Before
   public void setUp() throws SQLException {
-    configMock = configMockFor(TEST_DATABASE_NAME);
+    configMock = configMockFor(container);
     module = new PostgresModule(null);
     dataSource = module.provideGcDatabaseAccess(configMock);
   }
@@ -47,7 +56,6 @@ public class PostgresModuleTest {
     if (dataSource != null) {
       dataSource.close();
     }
-    deleteDatabase(TEST_DATABASE_NAME);
   }
 
   @Test
@@ -66,7 +74,7 @@ public class PostgresModuleTest {
 
   @Test(expected = SQLException.class)
   public void shouldFailIfDatabaseNameIsInvalid() throws SQLException {
-    module.provideGcDatabaseAccess(configMockFor("invalid!@#$@$%^-name"));
+    module.provideGcDatabaseAccess(invalidConfigMockFor(container));
   }
 
   @Test
