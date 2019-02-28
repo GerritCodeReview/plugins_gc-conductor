@@ -14,44 +14,34 @@
 
 package com.ericsson.gerrit.plugins.gcconductor.postgresqueue;
 
-import static com.ericsson.gerrit.plugins.gcconductor.postgresqueue.DatabaseConstants.DRIVER;
-import static com.ericsson.gerrit.plugins.gcconductor.postgresqueue.DatabaseConstants.INITIAL_DATABASE;
-import static com.ericsson.gerrit.plugins.gcconductor.postgresqueue.DatabaseConstants.dropDatabase;
-import static com.ericsson.gerrit.plugins.gcconductor.postgresqueue.DatabaseConstants.executeStatement;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import com.ericsson.gerrit.plugins.gcconductor.evaluator.EvaluatorConfig;
-import java.sql.SQLException;
-import org.apache.commons.dbcp.BasicDataSource;
 import org.junit.Ignore;
+import org.testcontainers.containers.PostgreSQLContainer;
 
 @Ignore
 public class TestUtil {
 
-  private static final String DATABASE_SERVER_URL = "jdbc:postgresql://localhost:5432/";
-  private static final String DEFAULT_USER_AND_PASSWORD = "gc";
-
-  static EvaluatorConfig configMockFor(String databaseName) {
+  static EvaluatorConfig configMockFor(PostgreSQLContainer<?> container) {
     EvaluatorConfig configMock = mock(EvaluatorConfig.class);
-    when(configMock.getDatabaseUrl()).thenReturn(DATABASE_SERVER_URL);
+    when(configMock.getDatabaseUrl()).thenReturn(urlWithoutDatabase(container));
     when(configMock.getDatabaseUrlOptions()).thenReturn("");
-    when(configMock.getDatabaseName()).thenReturn(databaseName);
-    when(configMock.getUsername()).thenReturn(DEFAULT_USER_AND_PASSWORD);
-    when(configMock.getPassword()).thenReturn(DEFAULT_USER_AND_PASSWORD);
+    when(configMock.getDatabaseName()).thenReturn(container.getDatabaseName());
+    when(configMock.getUsername()).thenReturn(container.getUsername());
+    when(configMock.getPassword()).thenReturn(container.getPassword());
     return configMock;
   }
 
-  static void deleteDatabase(String databaseName) throws SQLException {
-    BasicDataSource ds = new BasicDataSource();
-    try {
-      ds.setDriverClassName(DRIVER);
-      ds.setUrl(DATABASE_SERVER_URL + INITIAL_DATABASE);
-      ds.setUsername(DEFAULT_USER_AND_PASSWORD);
-      ds.setPassword(DEFAULT_USER_AND_PASSWORD);
-      executeStatement(ds, dropDatabase(databaseName));
-    } finally {
-      ds.close();
-    }
+  static EvaluatorConfig invalidConfigMockFor(PostgreSQLContainer<?> container) {
+    EvaluatorConfig configMock = configMockFor(container);
+    when(configMock.getDatabaseName()).thenReturn(container.getDatabaseName() + "not");
+    return configMock;
+  }
+
+  private static String urlWithoutDatabase(PostgreSQLContainer<?> container) {
+    String urlWithDatabase = container.getJdbcUrl();
+    return urlWithDatabase.substring(0, urlWithDatabase.lastIndexOf('/') + 1);
   }
 }
