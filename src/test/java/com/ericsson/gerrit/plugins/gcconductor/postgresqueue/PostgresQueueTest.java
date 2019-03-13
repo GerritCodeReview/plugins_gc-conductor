@@ -506,9 +506,7 @@ public class PostgresQueueTest {
   }
 
   private void emptyQueue() throws GcQueueException {
-    queue
-        .list()
-        .stream()
+    queue.list().stream()
         .map(RepositoryInfo::getPath)
         .forEach(
             repository -> {
