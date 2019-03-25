@@ -38,18 +38,18 @@ def external_plugin_deps():
         sha1 = "639033469776fd37c08358c6b92a4761feb2af4b",
     )
 
-    SLF4J_VERS = "1.7.25"
+    SLF4J_VERS = "1.7.26"
 
     maven_jar(
         name = "slf4j-api",
         artifact = "org.slf4j:slf4j-api:" + SLF4J_VERS,
-        sha1 = "da76ca59f6a57ee3102f8f9bd9cee742973efa8a",
+        sha1 = "77100a62c2e6f04b53977b9f541044d7d722693d",
     )
 
     maven_jar(
         name = "slf4j-ext",
         artifact = "org.slf4j:slf4j-ext:" + SLF4J_VERS,
-        sha1 = "d1685f86e2becda32ad8bb823b8cc4990eb45f69",
+        sha1 = "31cdf122e000322e9efcb38913e9ab07825b17ef",
     )
 
     LOG4J2_VERS = "2.11.1"
@@ -143,14 +143,14 @@ def external_plugin_deps():
 
     maven_jar(
         name = "visible_assertions",
-        artifact = "org.rnorth.visible-assertions:visible-assertions:2.1.0",
-        sha1 = "f2fcff2862860828ac38a5e1f14d941787c06b13",
+        artifact = "org.rnorth.visible-assertions:visible-assertions:2.1.2",
+        sha1 = "20d31a578030ec8e941888537267d3123c2ad1c1",
     )
 
     maven_jar(
         name = "jna",
-        artifact = "net.java.dev.jna:jna:4.5.1",
-        sha1 = "65bd0cacc9c79a21c6ed8e9f588577cd3c2f85b9",
+        artifact = "net.java.dev.jna:jna:5.2.0",
+        sha1 = "ed8b772eb077a9cb50e44e90899c66a9a6c00e67",
     )
 
     TEST_CONTAINERS_VERS = "1.11.0"
