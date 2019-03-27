@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8421f224_d52901a9",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/EvaluationTask.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-03-27T21:02:59Z",
+      "side": 1,
+      "message": "atSevere",
+      "range": {
+        "startLine": 105,
+        "startChar": 10,
+        "endLine": 105,
+        "endChar": 16
+      },
+      "revId": "4f88b4e1f36e835cee36cd25f76fb7565fd59d72",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ca17d71_03c9e693",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/executor/GcExecutor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-03-27T21:02:59Z",
+      "side": 1,
+      "message": "%s, rather?",
+      "range": {
+        "startLine": 74,
+        "startChar": 77,
+        "endLine": 74,
+        "endChar": 79
+      },
+      "revId": "4f88b4e1f36e835cee36cd25f76fb7565fd59d72",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
