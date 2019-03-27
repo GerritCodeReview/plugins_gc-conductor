@@ -15,14 +15,13 @@
 package com.ericsson.gerrit.plugins.gcconductor.executor;
 
 import com.ericsson.gerrit.plugins.gcconductor.ShutdownNotifier;
+import com.google.common.flogger.FluentLogger;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @Singleton
 class RuntimeShutdown {
-  private static final Logger log = LoggerFactory.getLogger(RuntimeShutdown.class);
+  private static final FluentLogger log = FluentLogger.forEnclosingClass();
 
   private final ShutdownHook hook;
   private final ShutdownNotifier shutdownNotifier;
@@ -47,9 +46,9 @@ class RuntimeShutdown {
 
     @Override
     public void run() {
-      log.debug("Graceful shutdown requested");
+      log.atFine().log("Graceful shutdown requested");
       shutdownNotifier.notifyAllListeners();
-      log.debug("Shutdown complete");
+      log.atFine().log("Shutdown complete");
       synchronized (this) {
         completed = true;
         notifyAll();

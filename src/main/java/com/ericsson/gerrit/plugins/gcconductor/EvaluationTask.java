@@ -16,6 +16,7 @@ package com.ericsson.gerrit.plugins.gcconductor;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Objects;
+import com.google.common.flogger.FluentLogger;
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
 import java.io.File;
@@ -38,12 +39,10 @@ import org.eclipse.jgit.lib.RepositoryCache.FileKey;
 import org.eclipse.jgit.revwalk.ObjectWalk;
 import org.eclipse.jgit.revwalk.RevObject;
 import org.eclipse.jgit.util.FS;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /** Evaluate the dirtiness of a repository. */
 public class EvaluationTask implements Runnable {
-  private static final Logger log = LoggerFactory.getLogger(EvaluationTask.class);
+  private static final FluentLogger log = FluentLogger.forEnclosingClass();
 
   private final CommonConfig cfg;
   private final GcQueue queue;
@@ -103,7 +102,8 @@ public class EvaluationTask implements Runnable {
     try {
       return queue.contains(repositoryPath);
     } catch (GcQueueException e) {
-      log.error("Error checking if repository is already in queue {}", repositoryPath, e);
+      log.atFine().withCause(e).log(
+          "Error checking if repository is already in queue %s", repositoryPath);
       return true;
     }
   }
@@ -114,10 +114,9 @@ public class EvaluationTask implements Runnable {
             RepositoryCache.open(FileKey.exact(new File(repositoryPath), FS.DETECTED))) {
       RepoStatistics statistics = new GC(repository).getStatistics();
       if (statistics.numberOfPackFiles >= cfg.getPackedThreshold()) {
-        log.debug(
-            "The number of packs ({}) exceeds the configured limit of {}",
-            statistics.numberOfPackFiles,
-            cfg.getPackedThreshold());
+        log.atFine().log(
+            "The number of packs (%d) exceeds the configured limit of %d",
+            statistics.numberOfPackFiles, cfg.getPackedThreshold());
         return true;
       }
       long looseObjects = statistics.numberOfLooseObjects;
@@ -130,18 +129,15 @@ public class EvaluationTask implements Runnable {
         unreferencedLooseObjects = getUnreferencedLooseObjectsCount(repository);
         duration = System.currentTimeMillis() - start;
         referencedLooseObjects = looseObjects - unreferencedLooseObjects;
-        log.debug(
-            "{} of {} loose objects in repository {} were unreferenced. Evaluating unreferenced objects took {}ms.",
-            unreferencedLooseObjects,
-            looseObjects,
-            repositoryPath,
-            duration);
+        log.atFine().log(
+            "%d of %d loose objects in repository %s were unreferenced. Evaluating unreferenced objects took %dms.",
+            unreferencedLooseObjects, looseObjects, repositoryPath, duration);
         return referencedLooseObjects >= looseThreshold;
       }
     } catch (RepositoryNotFoundException rnfe) {
-      log.debug("Repository no longer exist, aborting evaluation.");
+      log.atFine().log("Repository no longer exist, aborting evaluation.");
     } catch (IOException e) {
-      log.error("Error gathering '{}' statistics.", repositoryPath, e);
+      log.atSevere().withCause(e).log("Error gathering '%s' statistics.", repositoryPath);
     }
     return false;
   }
@@ -234,7 +230,7 @@ public class EvaluationTask implements Runnable {
     try {
       queue.add(repositoryPath, hostname);
     } catch (GcQueueException e) {
-      log.error("Error adding repository in queue {}", repositoryPath, e);
+      log.atSevere().withCause(e).log("Error adding repository in queue %s", repositoryPath);
     }
   }
 

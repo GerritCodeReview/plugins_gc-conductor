@@ -21,15 +21,14 @@ import com.github.rholder.retry.Retryer;
 import com.github.rholder.retry.RetryerBuilder;
 import com.github.rholder.retry.StopStrategies;
 import com.github.rholder.retry.WaitStrategies;
+import com.google.common.flogger.FluentLogger;
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 class GcWorker extends Thread {
-  private static final Logger log = LoggerFactory.getLogger(GcWorker.class);
+  private static final FluentLogger log = FluentLogger.forEnclosingClass();
 
   private final GcQueue queue;
   private final GarbageCollector gc;
@@ -73,11 +72,11 @@ class GcWorker extends Thread {
       if (repoPath != null) {
         runGc(repoPath);
       } else {
-        log.debug("No repository picked, going to sleep");
+        log.atFine().log("No repository picked, going to sleep");
         try {
           Thread.sleep(5000);
         } catch (InterruptedException e) {
-          log.debug("Gc task was interrupted while waiting to pick a repository");
+          log.atFine().log("Gc task was interrupted while waiting to pick a repository");
           Thread.currentThread().interrupt();
           return;
         }
@@ -92,31 +91,26 @@ class GcWorker extends Thread {
         return repoInfo.getPath();
       }
     } catch (GcQueueException e) {
-      log.error("Unable to pick repository from the queue", e);
+      log.atSevere().withCause(e).log("Unable to pick repository from the queue");
     }
     return null;
   }
 
   private void runGc(String repoPath) {
     try {
-      log.info("Starting gc on repository {}", repoPath);
+      log.atInfo().log("Starting gc on repository %s", repoPath);
       gc.setRepositoryPath(repoPath);
       gc.setPm(cpm);
       retryer.call(gc);
-      log.info("Gc completed on repository {}", repoPath);
+      log.atInfo().log("Gc completed on repository %s", repoPath);
     } catch (Throwable e) {
       if (!cpm.isCancelled()) {
-        log.error(
-            "Gc failed on repository {}. Error Message: {} Cause: {}: {}",
-            repoPath,
-            e.getMessage(),
-            e.getCause(),
-            e.getCause().getStackTrace(),
-            e);
+        log.atSevere().withCause(e).log(
+            "Gc failed on repository %s. Error Message: %s", repoPath, e.getMessage());
       }
     } finally {
       if (cpm.isCancelled()) {
-        log.warn("Gc on repository {} was cancelled", repoPath);
+        log.atWarning().log("Gc on repository %s was cancelled", repoPath);
         unpickRepository(repoPath);
       } else {
         removeRepoFromQueue(repoPath);
@@ -132,18 +126,18 @@ class GcWorker extends Thread {
   private void unpickRepository(String repoPath) {
     try {
       queue.unpick(repoPath);
-      log.debug("Executor was removed for repository {}", repoPath);
+      log.atFine().log("Executor was removed for repository %s", repoPath);
     } catch (GcQueueException e) {
-      log.error("Unable to remove executor for repository {}", repoPath, e);
+      log.atSevere().withCause(e).log("Unable to remove executor for repository %s", repoPath);
     }
   }
 
   private void removeRepoFromQueue(String repoPath) {
     try {
       queue.remove(repoPath);
-      log.debug("Repository {} was removed", repoPath);
+      log.atFine().log("Repository %s was removed", repoPath);
     } catch (GcQueueException e) {
-      log.error("Unable to remove repository {} from the queue", repoPath, e);
+      log.atSevere().withCause(e).log("Unable to remove repository %s from the queue", repoPath);
     }
   }
 }
