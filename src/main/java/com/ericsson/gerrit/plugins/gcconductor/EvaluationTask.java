@@ -197,7 +197,7 @@ public class EvaluationTask implements Runnable {
 
   private Collection<Ref> getAllRefs(FileRepository repo) throws IOException {
     RefDatabase refdb = repo.getRefDatabase();
-    Collection<Ref> refs = refdb.getRefs(RefDatabase.ALL).values();
+    Collection<Ref> refs = refdb.getRefs();
     List<Ref> addl = refdb.getAdditionalRefs();
     if (!addl.isEmpty()) {
       List<Ref> all = new ArrayList<>(refs.size() + addl.size());
