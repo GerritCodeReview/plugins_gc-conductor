@@ -15,6 +15,7 @@
 package com.ericsson.gerrit.plugins.gcconductor.executor;
 
 import com.ericsson.gerrit.plugins.gcconductor.EvaluationTask;
+import com.google.common.flogger.FluentLogger;
 import com.google.inject.Inject;
 import com.google.inject.ProvisionException;
 import com.google.inject.Singleton;
@@ -33,12 +34,10 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import org.eclipse.jgit.lib.RepositoryCache.FileKey;
 import org.eclipse.jgit.util.FS;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @Singleton
 class ScheduledEvaluationTask implements Runnable {
-  private static final Logger log = LoggerFactory.getLogger(ScheduledEvaluationTask.class);
+  private static final FluentLogger log = FluentLogger.forEnclosingClass();
 
   private final EvaluationTask.Factory evaluationTaskFactory;
   private final Path repositoriesPath;
@@ -50,7 +49,7 @@ class ScheduledEvaluationTask implements Runnable {
     try {
       repositoriesPath = Paths.get(config.getRepositoriesPath()).normalize().toRealPath();
     } catch (IOException e) {
-      log.error("Failed to resolve repositoriesPath.", e);
+      log.atSevere().withCause(e).log("Failed to resolve repositoriesPath.");
       throw new ProvisionException("Failed to resolve repositoriesPath: " + e.getMessage());
     }
   }
@@ -74,7 +73,8 @@ class ScheduledEvaluationTask implements Runnable {
           Integer.MAX_VALUE,
           visitor);
     } catch (IOException e) {
-      log.error("Error walking repository tree {}", visitor.startFolder.toAbsolutePath(), e);
+      log.atSevere().withCause(e).log(
+          "Error walking repository tree %s", visitor.startFolder.toAbsolutePath());
     }
     return Collections.unmodifiableSortedSet(visitor.found);
   }

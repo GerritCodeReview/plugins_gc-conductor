@@ -19,6 +19,7 @@ import static java.time.ZoneId.systemDefault;
 import com.ericsson.gerrit.plugins.gcconductor.CommonConfig;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Strings;
+import com.google.common.flogger.FluentLogger;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.time.DayOfWeek;
@@ -32,12 +33,10 @@ import java.util.Locale;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 import org.eclipse.jgit.lib.Config;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @Singleton
 class ExecutorConfig extends CommonConfig {
-  private static final Logger log = LoggerFactory.getLogger(ExecutorConfig.class);
+  private static final FluentLogger log = FluentLogger.forEnclosingClass();
 
   static final String CORE_SECTION = "core";
   static final String DB_SECTION = "db";
@@ -115,7 +114,8 @@ class ExecutorConfig extends CommonConfig {
     try {
       return ConfigUtil.getTimeUnit(rc, section, key, DEFAULT_INTERVAL, TimeUnit.MILLISECONDS);
     } catch (IllegalArgumentException e) {
-      log.debug("Invalid {}.{} setting. Periodic evaluation disabled", section, key, e);
+      log.atFine().withCause(e).log(
+          "Invalid %s.%s setting. Periodic evaluation disabled", section, key);
       return DEFAULT_INTERVAL;
     }
   }
@@ -140,11 +140,8 @@ class ExecutorConfig extends CommonConfig {
       }
       return firstDelay;
     } catch (DateTimeParseException e) {
-      log.debug(
-          "Invalid value {} for {} setting. Periodic evaluation disabled",
-          start,
-          START_TIME_KEY,
-          e);
+      log.atFine().withCause(e).log(
+          "Invalid value %s for %s setting. Periodic evaluation disabled", start, START_TIME_KEY);
       return DEFAULT_INITIAL_DELAY;
     }
   }
