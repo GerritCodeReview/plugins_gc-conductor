@@ -20,6 +20,7 @@ import com.ericsson.gerrit.plugins.gcconductor.Hostname;
 import com.ericsson.gerrit.plugins.gcconductor.RepositoryInfo;
 import com.ericsson.gerrit.plugins.gcconductor.ShutdownListener;
 import com.google.common.annotations.VisibleForTesting;
+import com.google.common.flogger.FluentLogger;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
@@ -34,12 +35,10 @@ import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.storage.file.FileBasedConfig;
 import org.eclipse.jgit.util.FS;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @Singleton
 class GcExecutor implements ShutdownListener {
-  private static final Logger log = LoggerFactory.getLogger(GcExecutor.class);
+  private static final FluentLogger log = FluentLogger.forEnclosingClass();
 
   static final String CONFIG_FILE_PROPERTY = "configFile";
 
@@ -72,13 +71,13 @@ class GcExecutor implements ShutdownListener {
         }
       }
     } catch (GcQueueException e) {
-      log.error("Failed to clear assigned repositories {}", e.getMessage(), e);
+      log.atSevere().withCause(e).log("Failed to clear assigned repositories %s", e.getMessage());
     }
   }
 
   private void startExecutors(
       ExecutorConfig config, GcWorker.Factory gcWorkerFactory, String hostname) {
-    log.info("Starting executors...");
+    log.atInfo().log("Starting executors...");
     synchronized (this) {
       for (int i = 0; i < config.getExecutors(); i++) {
         GcWorker worker = gcWorkerFactory.create(hostname + "-" + i);
@@ -100,7 +99,7 @@ class GcExecutor implements ShutdownListener {
 
   @Override
   public void onShutdown() {
-    log.info("Shutting down executors...");
+    log.atInfo().log("Shutting down executors...");
     synchronized (this) {
       for (GcWorker worker : workers) {
         worker.shutdown();
@@ -109,13 +108,13 @@ class GcExecutor implements ShutdownListener {
         try {
           worker.join(1_000);
         } catch (InterruptedException e) {
-          log.warn("Wait for executors to shutdown interrupted");
+          log.atWarning().log("Wait for executors to shutdown interrupted");
           Thread.currentThread().interrupt();
         }
       }
       unpickRepositories(queue, hostname);
     }
-    log.info("Executors shut down OK.");
+    log.atInfo().log("Executors shut down OK.");
   }
 
   public static void main(String[] args) {
@@ -126,7 +125,7 @@ class GcExecutor implements ShutdownListener {
       injector.getInstance(GcExecutor.class);
       injector.getInstance(RuntimeShutdown.class).waitFor();
     } catch (Throwable t) {
-      log.error("Uncaught error:", t);
+      log.atSevere().withCause(t).log("Uncaught error:");
     }
     LogManager.shutdown();
   }
@@ -140,10 +139,8 @@ class GcExecutor implements ShutdownListener {
         config.load();
         return config;
       } catch (IOException | ConfigInvalidException e) {
-        log.error(
-            "Unable to load configuration from file {}. Default values will be used.",
-            configPath,
-            e);
+        log.atSevere().withCause(e).log(
+            "Unable to load configuration from file %s. Default values will be used.", configPath);
       }
     }
     return new Config();
