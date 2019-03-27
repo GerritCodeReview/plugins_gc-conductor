@@ -20,9 +20,6 @@ EXECUTOR_DEPS = CONDUCTOR_DEPS + [
     "@guice-assistedinject//jar",
     "@javax_inject//jar",
     "@aopalliance//jar",
-    "@slf4j-api//jar",
-    "@slf4j-ext//jar",
-    "@log4j-slf4j-impl//jar",
     "@log4j-api//jar",
     "@log4j-core//jar",
     "@retry//jar",
@@ -60,7 +57,7 @@ java_library(
         "bin/**/*",
         "src/main/resources/log4j2.xml",
     ]),
-    deps = EXECUTOR_DEPS,
+    deps = EXECUTOR_DEPS + PLUGIN_DEPS,
 )
 
 java_binary(

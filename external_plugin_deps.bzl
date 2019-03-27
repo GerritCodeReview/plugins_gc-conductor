@@ -38,27 +38,7 @@ def external_plugin_deps():
         sha1 = "639033469776fd37c08358c6b92a4761feb2af4b",
     )
 
-    SLF4J_VERS = "1.7.26"
-
-    maven_jar(
-        name = "slf4j-api",
-        artifact = "org.slf4j:slf4j-api:" + SLF4J_VERS,
-        sha1 = "77100a62c2e6f04b53977b9f541044d7d722693d",
-    )
-
-    maven_jar(
-        name = "slf4j-ext",
-        artifact = "org.slf4j:slf4j-ext:" + SLF4J_VERS,
-        sha1 = "31cdf122e000322e9efcb38913e9ab07825b17ef",
-    )
-
     LOG4J2_VERS = "2.11.1"
-
-    maven_jar(
-        name = "log4j-slf4j-impl",
-        artifact = "org.apache.logging.log4j:log4j-slf4j-impl:" + LOG4J2_VERS,
-        sha1 = "4b41b53a3a2d299ce381a69d165381ca19f62912",
-    )
 
     maven_jar(
         name = "log4j-core",

@@ -15,6 +15,7 @@
 package com.ericsson.gerrit.plugins.gcconductor.evaluator;
 
 import com.ericsson.gerrit.plugins.gcconductor.EvaluationTask;
+import com.google.common.flogger.FluentLogger;
 import com.google.gerrit.extensions.events.GitReferenceUpdatedListener;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.config.GerritServerConfig;
@@ -36,12 +37,10 @@ import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.storage.pack.PackStatistics;
 import org.eclipse.jgit.transport.PostUploadHook;
 import org.eclipse.jgit.transport.UploadPack;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @Singleton
 class Evaluator implements UploadValidationListener, PostUploadHook, GitReferenceUpdatedListener {
-  private static final Logger log = LoggerFactory.getLogger(Evaluator.class);
+  private static final FluentLogger log = FluentLogger.forEnclosingClass();
   private static final ThreadLocal<String> uploadRepositoryPath = new ThreadLocal<String>() {};
 
   private final ScheduledThreadPoolExecutor executor;
@@ -110,9 +109,9 @@ class Evaluator implements UploadValidationListener, PostUploadHook, GitReferenc
       String repositoryPath = repository.getDirectory().getAbsolutePath();
       queueEvaluationIfNecessary(repositoryPath);
     } catch (RepositoryNotFoundException e) {
-      log.error("Project not found {}", projectName, e);
+      log.atSevere().withCause(e).log("Project not found %s", projectName);
     } catch (IOException e) {
-      log.error("Error getting repository for project {}", projectName, e);
+      log.atSevere().withCause(e).log("Error getting repository for project %s", projectName);
     }
   }
 
