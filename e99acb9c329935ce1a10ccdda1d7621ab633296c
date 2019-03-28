@@ -45,6 +45,53 @@
       "revId": "e99acb9c329935ce1a10ccdda1d7621ab633296c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b84885e_6a3e69cf",
+        "filename": "BUILD",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-03-28T20:06:14Z",
+      "side": 1,
+      "message": "* 1. java/Main.java in void configureFloggerBackend() watch for setting:\n\n  System.setProperty(\n       FLOGGER_LOGGING_CONTEXT, \n       \"com.google.gerrit.server.logging.LoggingContext#getInstance\");\n    // Configure log4j backend\n    System.setProperty(\n        FLOGGER_BACKEND_PROPERTY,\n        \"com.google.common.flogger.backend.log4j.Log4jBackendFactory#getInstance\");\n\n* 2. The same is done in java/com/google/gerrit/pgm/init/InitLogging.java in addition.\n\nSomething similar should be done in gc-conductor main class as well.",
+      "parentUuid": "88535a43_fffe7eb7",
+      "range": {
+        "startLine": 65,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 78
+      },
+      "revId": "e99acb9c329935ce1a10ccdda1d7621ab633296c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f99c8388_5868e036",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-03-28T20:06:14Z",
+      "side": 1,
+      "message": "You cannot use Flogger library with Log4j2 backend, because Flogger only supports logj4 (version 1.x) backend for now. I filed this feature request: [1], but it wasn\u0027t implemented yet. Also note, that Paladox uploaded an upgrade for Gerrit core, but this review is staled:  Flogger doesn\u0027t support log4j2 backend.\n\nSo this change is basically a CRWV-2 with the current code base until Flogger will add support to log4j2 backend.\n\nA different approach would be to downgrade gc-conductor to use log4j 1.x instead of log4j2. But this would be a step backwards, considering that log4j 1.x is non maintained for years now.\n\nThe way forward should be to implemented: [1] and migrate Gerrit itself to Flogger with working log4j2 backend.\n\n* [1] https://github.com/google/flogger/issues/24",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 26
+      },
+      "revId": "e99acb9c329935ce1a10ccdda1d7621ab633296c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
