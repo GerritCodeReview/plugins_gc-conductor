@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d44a5788_aaf0bb8a",
+        "filename": "BUILD",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-03-28T19:54:53Z",
+      "side": 1,
+      "message": "For one this is a good idea to specify the dependencies only one, for another this would also add other dependencies, like MINA SSHD and what not to the final binary and significantly increase the binary size. Moreover, I have not checked, but you should be able to kill EXECUTOR_DEPS entirely, because all what is specified in this set should be available in PLUGIN_DEPS.",
+      "range": {
+        "startLine": 60,
+        "startChar": 27,
+        "endLine": 60,
+        "endChar": 38
+      },
+      "revId": "e99acb9c329935ce1a10ccdda1d7621ab633296c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88535a43_fffe7eb7",
+        "filename": "BUILD",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-03-28T19:54:53Z",
+      "side": 1,
+      "message": "It is not as easy as that to set up Flogger for a standalone application. Note, that Gerrit doing this for you twice:\n\n* 1. \n* 2.",
+      "range": {
+        "startLine": 65,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 78
+      },
+      "revId": "e99acb9c329935ce1a10ccdda1d7621ab633296c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
