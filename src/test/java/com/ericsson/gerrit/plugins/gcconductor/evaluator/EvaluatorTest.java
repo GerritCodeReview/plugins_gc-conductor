@@ -28,6 +28,7 @@ import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.git.GitRepositoryManager;
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import org.eclipse.jgit.errors.RepositoryNotFoundException;
 import org.eclipse.jgit.lib.Config;
@@ -41,29 +42,54 @@ import org.mockito.junit.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class EvaluatorTest {
   private static final String REPOSITORY_PATH = "/path/someRepo.git";
+  private static final String REPOSITORY_PATH_OTHER = "/path/otherRepo.git";
   private static final Project.NameKey NAME_KEY = new Project.NameKey("testProject");
 
   @Mock private GitReferenceUpdatedListener.Event event;
   @Mock private GitRepositoryManager repoManager;
   @Mock private Repository repository;
+  @Mock private Repository repositoryOther;
   @Mock private ScheduledThreadPoolExecutor executor;
   @Mock private EvaluatorConfig config;
   @Mock private Config gerritConfig;
 
   private Evaluator evaluator;
-  private EvaluationTask task;
+  private EvaluationTask taskSamePathCompleted;
+  private EvaluationTask taskSamePathNotCompleted;
+  private EvaluationTask taskDifferentPath;
 
   @Before
   public void createEvaluator() {
     when(event.getProjectName()).thenReturn(NAME_KEY.get());
-    task = new EvaluationTask(null, null, null, REPOSITORY_PATH);
-    when(repository.getDirectory()).thenReturn(new File(REPOSITORY_PATH));
-    Factory eventTaskFactory = mock(Factory.class);
-    when(eventTaskFactory.create(REPOSITORY_PATH)).thenReturn(task);
+
+    /** Config */
     when(config.getExpireTimeRecheck()).thenReturn(0L);
     when(gerritConfig.getInt(
             "receive", null, "threadPoolSize", Runtime.getRuntime().availableProcessors()))
         .thenReturn(1);
+
+    /** Repositories */
+    when(repository.getDirectory()).thenReturn(new File(REPOSITORY_PATH));
+    when(repositoryOther.getDirectory()).thenReturn(new File(REPOSITORY_PATH_OTHER));
+
+    /** Tasks */
+    taskSamePathCompleted = new EvaluationTask(null, null, null, REPOSITORY_PATH);
+    taskSamePathNotCompleted = new EvaluationTask(null, null, null, REPOSITORY_PATH);
+    taskDifferentPath = new EvaluationTask(null, null, null, REPOSITORY_PATH_OTHER);
+
+    /** Task factory */
+    Factory eventTaskFactory = mock(Factory.class);
+    when(eventTaskFactory.create(REPOSITORY_PATH))
+        .thenReturn(taskSamePathNotCompleted)
+        .thenReturn(taskSamePathCompleted);
+    when(eventTaskFactory.create(REPOSITORY_PATH_OTHER)).thenReturn(taskDifferentPath);
+
+    /** Executor */
+    when(executor.submit(taskSamePathCompleted))
+        .thenReturn(CompletableFuture.completedFuture(null));
+    when(executor.submit(taskSamePathNotCompleted)).thenReturn(new CompletableFuture());
+    when(executor.submit(taskDifferentPath)).thenReturn(CompletableFuture.completedFuture(null));
+
     evaluator = new Evaluator(executor, eventTaskFactory, repoManager, config, gerritConfig);
   }
 
@@ -71,7 +97,7 @@ public class EvaluatorTest {
   public void onPostUploadShouldCreateTaskOnlyIfPreUploadCalled() {
     evaluator.onPreUpload(repository, null, null, null, null, null);
     evaluator.onPostUpload(null);
-    verify(executor).execute(task);
+    verify(executor).submit(taskSamePathCompleted);
   }
 
   @Test
@@ -81,7 +107,7 @@ public class EvaluatorTest {
     when(repository.getDirectory()).thenReturn(fileMock);
     evaluator.onPreUpload(repository, null, null, null, null, null);
     evaluator.onPostUpload(null);
-    verify(executor, never()).execute(task);
+    verify(executor, never()).submit(taskSamePathCompleted);
   }
 
   @Test
@@ -89,37 +115,73 @@ public class EvaluatorTest {
     evaluator.onPreUpload(repository, null, null, null, null, null);
     evaluator.onPostUpload(null);
     evaluator.onPostUpload(null);
-    verify(executor, times(1)).execute(task);
+    verify(executor, times(1)).submit(taskSamePathCompleted);
   }
 
   @Test
   public void onPostUploadShouldCreateTaskExpired() {
     evaluator.onPreUpload(repository, null, null, null, null, null);
     evaluator.onPostUpload(null);
+    evaluator.onPreUpload(repositoryOther, null, null, null, null, null);
+    evaluator.onPostUpload(null);
+    verify(executor, times(1)).submit(taskSamePathCompleted);
+    verify(executor, times(1)).submit(taskDifferentPath);
+  }
+
+  @Test
+  public void onPostUploadSameRepoShouldCreateSingleTaskOnly() {
     evaluator.onPreUpload(repository, null, null, null, null, null);
     evaluator.onPostUpload(null);
-    verify(executor, times(2)).execute(task);
+    evaluator.onPreUpload(repository, null, null, null, null, null);
+    evaluator.onPostUpload(null);
+    verify(executor, times(1)).submit(taskSamePathCompleted);
+  }
+
+  @Test
+  public void onPostUploadCompletedTasksAreRemovedFromQueue() {
+    evaluator.onPreUpload(repositoryOther, null, null, null, null, null);
+    evaluator.onPostUpload(null);
+    evaluator.onPreUpload(repositoryOther, null, null, null, null, null);
+    evaluator.onPostUpload(null);
+    verify(executor, times(2)).submit(taskDifferentPath);
   }
 
   @Test
   public void onPostUploadShouldNotCreateTaskNotExpired() {
     when(config.getExpireTimeRecheck()).thenReturn(1000L);
     Factory eventTaskFactory = mock(Factory.class);
-    when(eventTaskFactory.create(REPOSITORY_PATH)).thenReturn(task);
+    when(eventTaskFactory.create(REPOSITORY_PATH)).thenReturn(taskSamePathCompleted);
     evaluator = new Evaluator(executor, eventTaskFactory, repoManager, config, gerritConfig);
     evaluator.onPreUpload(repository, null, null, null, null, null);
     evaluator.onPostUpload(null);
     evaluator.onPreUpload(repository, null, null, null, null, null);
     evaluator.onPostUpload(null);
-    verify(executor, times(1)).execute(task);
+    verify(executor, times(1)).submit(taskSamePathCompleted);
   }
 
   @Test
   public void onGitReferenceUpdatedShouldCreateTaskExpired() throws Exception {
+    when(repoManager.openRepository(NAME_KEY)).thenReturn(repository).thenReturn(repositoryOther);
+    evaluator.onGitReferenceUpdated(event);
+    evaluator.onGitReferenceUpdated(event);
+    verify(executor, times(1)).submit(taskSamePathCompleted);
+    verify(executor, times(1)).submit(taskDifferentPath);
+  }
+
+  @Test
+  public void onGitReferenceUpdatedSameRepoShouldCreateSingleTaskOnly() throws Exception {
     when(repoManager.openRepository(NAME_KEY)).thenReturn(repository);
     evaluator.onGitReferenceUpdated(event);
     evaluator.onGitReferenceUpdated(event);
-    verify(executor, times(2)).execute(task);
+    verify(executor, times(1)).submit(taskSamePathCompleted);
+  }
+
+  @Test
+  public void onGitReferenceUpdatedCompletedTasksAreRemovedFromQueue() throws Exception {
+    when(repoManager.openRepository(NAME_KEY)).thenReturn(repositoryOther);
+    evaluator.onGitReferenceUpdated(event);
+    evaluator.onGitReferenceUpdated(event);
+    verify(executor, times(2)).submit(taskDifferentPath);
   }
 
   @Test
@@ -127,24 +189,24 @@ public class EvaluatorTest {
     when(repoManager.openRepository(NAME_KEY)).thenReturn(repository);
     when(config.getExpireTimeRecheck()).thenReturn(1000L);
     Factory eventTaskFactory = mock(Factory.class);
-    when(eventTaskFactory.create(REPOSITORY_PATH)).thenReturn(task);
+    when(eventTaskFactory.create(REPOSITORY_PATH)).thenReturn(taskSamePathCompleted);
     evaluator = new Evaluator(executor, eventTaskFactory, repoManager, config, gerritConfig);
     evaluator.onGitReferenceUpdated(event);
     evaluator.onGitReferenceUpdated(event);
-    verify(executor, times(1)).execute(task);
+    verify(executor, times(1)).submit(taskSamePathCompleted);
   }
 
   @Test
   public void onGitReferenceUpdatedThrowsRepositoryNotFoundException() throws Exception {
     doThrow(new RepositoryNotFoundException("")).when(repoManager).openRepository(NAME_KEY);
     evaluator.onGitReferenceUpdated(event);
-    verify(executor, never()).execute(task);
+    verify(executor, never()).submit(taskSamePathCompleted);
   }
 
   @Test
   public void onGitReferenceUpdatedThrowsIOException() throws Exception {
     doThrow(new IOException()).when(repoManager).openRepository(NAME_KEY);
     evaluator.onGitReferenceUpdated(event);
-    verify(executor, never()).execute(task);
+    verify(executor, never()).submit(taskSamePathCompleted);
   }
 }

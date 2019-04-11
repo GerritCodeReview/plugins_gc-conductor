@@ -96,7 +96,7 @@ public class EvaluationTask implements Runnable {
       return false;
     }
     EvaluationTask other = (EvaluationTask) obj;
-    return repositoryPath == other.repositoryPath;
+    return repositoryPath.equals(other.repositoryPath);
   }
 
   private boolean isAlreadyInQueue() {

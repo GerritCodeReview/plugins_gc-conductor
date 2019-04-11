@@ -15,6 +15,9 @@
 package com.ericsson.gerrit.plugins.gcconductor.evaluator;
 
 import com.ericsson.gerrit.plugins.gcconductor.EvaluationTask;
+import com.google.common.util.concurrent.JdkFutureAdapters;
+import com.google.common.util.concurrent.ListenableFuture;
+import com.google.common.util.concurrent.MoreExecutors;
 import com.google.gerrit.extensions.events.GitReferenceUpdatedListener;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.config.GerritServerConfig;
@@ -28,6 +31,7 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import org.eclipse.jgit.errors.RepositoryNotFoundException;
 import org.eclipse.jgit.lib.Config;
@@ -120,14 +124,22 @@ class Evaluator implements UploadValidationListener, PostUploadHook, GitReferenc
     if (lastCheckExpired(repositoryPath)) {
       EvaluationTask evaluationTask = evaluationTaskFactory.create(repositoryPath);
       if (queuedEvaluationTasks.add(evaluationTask)) {
-        try {
-          executor.execute(evaluationTask);
-          timestamps.put(repositoryPath, System.currentTimeMillis());
-        } finally {
-          queuedEvaluationTasks.remove(evaluationTask);
-        }
+        Future future = executor.submit(evaluationTask);
+        addTaskListener(future, evaluationTask);
+        timestamps.put(repositoryPath, System.currentTimeMillis());
       }
     }
+  }
+
+  private void addTaskListener(Future future, EvaluationTask evaluationTask) {
+    ListenableFuture listenableFuture = JdkFutureAdapters.listenInPoolThread(future);
+    listenableFuture.addListener(
+        new Runnable() {
+          public void run() {
+            queuedEvaluationTasks.remove(evaluationTask);
+          }
+        },
+        MoreExecutors.directExecutor());
   }
 
   private boolean lastCheckExpired(String repositoryPath) {
