@@ -43,7 +43,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 public class EvaluatorTest {
   private static final String REPOSITORY_PATH = "/path/someRepo.git";
   private static final String REPOSITORY_PATH_OTHER = "/path/otherRepo.git";
-  private static final Project.NameKey NAME_KEY = new Project.NameKey("testProject");
+  private static final Project.NameKey NAME_KEY = Project.nameKey("testProject");
 
   @Mock private GitReferenceUpdatedListener.Event event;
   @Mock private GitRepositoryManager repoManager;

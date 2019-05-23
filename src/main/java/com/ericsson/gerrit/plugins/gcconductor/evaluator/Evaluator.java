@@ -109,7 +109,7 @@ class Evaluator implements UploadValidationListener, PostUploadHook, GitReferenc
   @Override
   public void onGitReferenceUpdated(Event event) {
     String projectName = event.getProjectName();
-    Project.NameKey projectNameKey = new Project.NameKey(projectName);
+    Project.NameKey projectNameKey = Project.nameKey(projectName);
     try (Repository repository = repoManager.openRepository(projectNameKey)) {
       String repositoryPath = repository.getDirectory().getAbsolutePath();
       queueEvaluationIfNecessary(repositoryPath);

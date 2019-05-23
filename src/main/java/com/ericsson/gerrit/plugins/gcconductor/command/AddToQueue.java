@@ -85,7 +85,7 @@ final class AddToQueue extends SshCommand {
       throw die("Unable to resolve path to " + repository);
     }
     String projectName = extractFrom(repository);
-    Project.NameKey nameKey = new Project.NameKey(projectName);
+    Project.NameKey nameKey = Project.nameKey(projectName);
     if (projectCache.get(nameKey) == null) {
       throw die(String.format("Repository %s not found", repository));
     }
