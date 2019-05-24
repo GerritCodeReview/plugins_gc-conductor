@@ -16,6 +16,7 @@ package com.ericsson.gerrit.plugins.gcconductor.postgresqueue;
 
 import static com.ericsson.gerrit.plugins.gcconductor.postgresqueue.TestUtil.configMockFor;
 import static com.google.common.truth.Truth.assertThat;
+import static com.google.gerrit.testing.GerritJUnit.assertThrows;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -68,11 +69,11 @@ public class PostgresQueueTest {
     assertThat(queue.list()).isEmpty();
   }
 
-  @Test(expected = SQLException.class)
+  @Test
   public void shouldThrowExceptionIfFailsToCreateSchemaOnInit() throws Exception {
     BasicDataSource dataSouceMock = mock(BasicDataSource.class);
     when(dataSouceMock.getConnection()).thenThrow(new SQLException("some message"));
-    queue = new PostgresQueue(dataSouceMock);
+    assertThrows(SQLException.class, () -> queue = new PostgresQueue(dataSouceMock));
   }
 
   @Test
@@ -113,64 +114,64 @@ public class PostgresQueueTest {
     assertThat(queue.contains(repoPath)).isFalse();
   }
 
-  @Test(expected = GcQueueException.class)
+  @Test
   public void testAddThatFailsWhenGettingConnection() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenGettingConnection());
-    queue.add("repo", "hostname");
+    assertThrows(GcQueueException.class, () -> queue.add("repo", "hostname"));
   }
 
-  @Test(expected = GcQueueException.class)
+  @Test
   public void testAddThatFailsWhenCreatingStatement() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenCreatingStatement());
-    queue.add("repo", "hostname");
+    assertThrows(GcQueueException.class, () -> queue.add("repo", "hostname"));
   }
 
-  @Test(expected = GcQueueException.class)
+  @Test
   public void testAddThatFailsWhenExecutingQuery() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenExecutingQuery());
-    queue.add("repo", "hostname");
+    assertThrows(GcQueueException.class, () -> queue.add("repo", "hostname"));
   }
 
-  @Test(expected = GcQueueException.class)
+  @Test
   public void testContainsThatFailsWhenGettingConnection() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenGettingConnection());
-    queue.contains("repo");
+    assertThrows(GcQueueException.class, () -> queue.contains("repo"));
   }
 
-  @Test(expected = GcQueueException.class)
+  @Test
   public void testContainsThatFailsWhenCreatingStatement() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenCreatingStatement());
-    queue.contains("repo");
+    assertThrows(GcQueueException.class, () -> queue.contains("repo"));
   }
 
-  @Test(expected = GcQueueException.class)
+  @Test
   public void testContainsThatFailsWhenExecutingQuery() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenExecutingQuery());
-    queue.contains("repo");
+    assertThrows(GcQueueException.class, () -> queue.contains("repo"));
   }
 
-  @Test(expected = GcQueueException.class)
+  @Test
   public void testContainsThatFailsWhenIteratingResults() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenIteratingResults());
-    queue.contains("repo");
+    assertThrows(GcQueueException.class, () -> queue.contains("repo"));
   }
 
-  @Test(expected = GcQueueException.class)
+  @Test
   public void testRemoveThatFailsWhenGettingConnection() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenGettingConnection());
-    queue.remove("repo");
+    assertThrows(GcQueueException.class, () -> queue.remove("repo"));
   }
 
-  @Test(expected = GcQueueException.class)
+  @Test
   public void testRemoveThatFailsWhenCreatingStatement() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenCreatingStatement());
-    queue.remove("repo");
+    assertThrows(GcQueueException.class, () -> queue.remove("repo"));
   }
 
-  @Test(expected = GcQueueException.class)
+  @Test
   public void testRemoveThatFailsWhenExecutingQuery() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenExecutingQuery());
-    queue.remove("repo");
+    assertThrows(GcQueueException.class, () -> queue.remove("repo"));
   }
 
   @Test
@@ -206,28 +207,28 @@ public class PostgresQueueTest {
     assertThat(timestampDiff).isAtMost(TimeUnit.SECONDS.toMillis(1));
   }
 
-  @Test(expected = GcQueueException.class)
+  @Test
   public void testListThatFailsWhenGettingConnection() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenGettingConnection());
-    queue.list();
+    assertThrows(GcQueueException.class, () -> queue.list());
   }
 
-  @Test(expected = GcQueueException.class)
+  @Test
   public void testListThatFailsWhenCreatingStatement() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenCreatingStatement());
-    queue.list();
+    assertThrows(GcQueueException.class, () -> queue.list());
   }
 
-  @Test(expected = GcQueueException.class)
+  @Test
   public void testListThatFailsWhenExecutingQuery() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenExecutingQuery());
-    queue.list();
+    assertThrows(GcQueueException.class, () -> queue.list());
   }
 
-  @Test(expected = GcQueueException.class)
+  @Test
   public void testListThatFailsWhenIteratingResults() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenIteratingResults());
-    queue.list();
+    assertThrows(GcQueueException.class, () -> queue.list());
   }
 
   @Test
@@ -308,28 +309,28 @@ public class PostgresQueueTest {
     assertThat(picked.getExecutor()).isEqualTo(executor);
   }
 
-  @Test(expected = GcQueueException.class)
+  @Test
   public void testPickThatFailsWhenGettingConnection() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenGettingConnection());
-    queue.pick("executor", 0, Optional.empty());
+    assertThrows(GcQueueException.class, () -> queue.pick("executor", 0, Optional.empty()));
   }
 
-  @Test(expected = GcQueueException.class)
+  @Test
   public void testPickThatFailsWhenCreatingStatement() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenCreatingStatement());
-    queue.pick("executor", 0, Optional.empty());
+    assertThrows(GcQueueException.class, () -> queue.pick("executor", 0, Optional.empty()));
   }
 
-  @Test(expected = GcQueueException.class)
+  @Test
   public void testPickThatFailsWhenExecutingQuery() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenExecutingQuery());
-    queue.pick("executor", 0, Optional.empty());
+    assertThrows(GcQueueException.class, () -> queue.pick("executor", 0, Optional.empty()));
   }
 
-  @Test(expected = GcQueueException.class)
+  @Test
   public void testPickThatFailsWhenIteratingResults() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenIteratingResults());
-    queue.pick("executor", 0, Optional.empty());
+    assertThrows(GcQueueException.class, () -> queue.pick("executor", 0, Optional.empty()));
   }
 
   @Test
@@ -352,22 +353,22 @@ public class PostgresQueueTest {
     assertThat(picked.getExecutor()).isEqualTo(executor);
   }
 
-  @Test(expected = GcQueueException.class)
+  @Test
   public void testUnpickThatFailsWhenGettingConnection() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenGettingConnection());
-    queue.unpick("/some/path/to/some/repository.git");
+    assertThrows(GcQueueException.class, () -> queue.unpick("/some/path/to/some/repository.git"));
   }
 
-  @Test(expected = GcQueueException.class)
+  @Test
   public void testUnpickFailsWhenCreatingStatement() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenCreatingStatement());
-    queue.unpick("/some/path/to/some/repository.git");
+    assertThrows(GcQueueException.class, () -> queue.unpick("/some/path/to/some/repository.git"));
   }
 
-  @Test(expected = GcQueueException.class)
+  @Test
   public void testUnpickThatFailsWhenExecutingQuery() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenExecutingQuery());
-    queue.unpick("/some/path/to/some/repository.git");
+    assertThrows(GcQueueException.class, () -> queue.unpick("/some/path/to/some/repository.git"));
   }
 
   @Test
@@ -387,22 +388,22 @@ public class PostgresQueueTest {
     assertThat(queue.list().get(1).getQueuedFrom()).isEqualTo(otherHostname);
   }
 
-  @Test(expected = GcQueueException.class)
+  @Test
   public void testResetQueuedFromThatFailsWhenGettingConnection() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenGettingConnection());
-    queue.resetQueuedFrom("someHostname");
+    assertThrows(GcQueueException.class, () -> queue.resetQueuedFrom("someHostname"));
   }
 
-  @Test(expected = GcQueueException.class)
+  @Test
   public void testResetQueuedFromFailsWhenCreatingStatement() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenCreatingStatement());
-    queue.resetQueuedFrom("someHostname");
+    assertThrows(GcQueueException.class, () -> queue.resetQueuedFrom("someHostname"));
   }
 
-  @Test(expected = GcQueueException.class)
+  @Test
   public void testResetQueuedFromThatFailsWhenExecutingQuery() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenExecutingQuery());
-    queue.resetQueuedFrom("someHostname");
+    assertThrows(GcQueueException.class, () -> queue.resetQueuedFrom("someHostname"));
   }
 
   @Test
@@ -437,22 +438,22 @@ public class PostgresQueueTest {
     assertThat(queue.list().get(2).getPath()).isEqualTo(repoPath2);
   }
 
-  @Test(expected = GcQueueException.class)
+  @Test
   public void testBumpToFirstThatFailsWhenGettingConnection() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenGettingConnection());
-    queue.bumpToFirst("someHostname");
+    assertThrows(GcQueueException.class, () -> queue.bumpToFirst("someHostname"));
   }
 
-  @Test(expected = GcQueueException.class)
+  @Test
   public void testBumpToFirstFailsWhenCreatingStatement() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenCreatingStatement());
-    queue.bumpToFirst("someHostname");
+    assertThrows(GcQueueException.class, () -> queue.bumpToFirst("someHostname"));
   }
 
-  @Test(expected = GcQueueException.class)
+  @Test
   public void testBumpToFirstThatFailsWhenExecutingQuery() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenExecutingQuery());
-    queue.bumpToFirst("someHostname");
+    assertThrows(GcQueueException.class, () -> queue.bumpToFirst("someHostname"));
   }
 
   private BasicDataSource createDataSourceThatFailsWhenGettingConnection() throws Exception {

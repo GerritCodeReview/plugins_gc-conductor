@@ -17,6 +17,7 @@ package com.ericsson.gerrit.plugins.gcconductor.postgresqueue;
 import static com.ericsson.gerrit.plugins.gcconductor.postgresqueue.TestUtil.configMockFor;
 import static com.ericsson.gerrit.plugins.gcconductor.postgresqueue.TestUtil.invalidConfigMockFor;
 import static com.google.common.truth.Truth.assertThat;
+import static com.google.gerrit.testing.GerritJUnit.assertThrows;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 
@@ -72,9 +73,10 @@ public class PostgresModuleTest {
     assertThat(dataSource.isClosed()).isFalse();
   }
 
-  @Test(expected = SQLException.class)
-  public void shouldFailIfDatabaseNameIsInvalid() throws SQLException {
-    module.provideGcDatabaseAccess(invalidConfigMockFor(container));
+  @Test
+  public void shouldFailIfDatabaseNameIsInvalid() throws Exception {
+    assertThrows(
+        SQLException.class, () -> module.provideGcDatabaseAccess(invalidConfigMockFor(container)));
   }
 
   @Test
@@ -86,11 +88,11 @@ public class PostgresModuleTest {
     assertThat(dataSource.isClosed()).isTrue();
   }
 
-  @Test(expected = RuntimeException.class)
-  public void shouldThrowExceptionIfFailsToCloseDatabaseAccess() throws SQLException {
+  @Test
+  public void shouldThrowExceptionIfFailsToCloseDatabaseAccess() throws Exception {
     BasicDataSource dataSouceMock = mock(BasicDataSource.class);
     doThrow(new SQLException("somme error")).when(dataSouceMock).close();
     DatabaseAccessCleanUp dbCleanUp = new DatabaseAccessCleanUp(dataSouceMock);
-    dbCleanUp.onShutdown();
+    assertThrows(RuntimeException.class, () -> dbCleanUp.onShutdown());
   }
 }

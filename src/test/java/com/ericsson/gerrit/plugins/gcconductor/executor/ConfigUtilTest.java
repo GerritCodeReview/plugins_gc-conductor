@@ -15,6 +15,7 @@
 package com.ericsson.gerrit.plugins.gcconductor.executor;
 
 import static com.google.common.truth.Truth.assertThat;
+import static com.google.gerrit.testing.GerritJUnit.assertThrows;
 import static java.util.concurrent.TimeUnit.DAYS;
 import static java.util.concurrent.TimeUnit.HOURS;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
@@ -52,22 +53,24 @@ public class ConfigUtilTest {
         .isEqualTo(DEFAULT_VALUE);
   }
 
-  @Test(expected = IllegalArgumentException.class)
+  @Test
   public void testGetTimeThrowsExceptionIfNegativeValue() {
     when(config.getString("", null, "")).thenReturn("-1");
-    assertThat(ConfigUtil.getTimeUnit(config, "", "", DEFAULT_VALUE, DAYS))
-        .isEqualTo(DEFAULT_VALUE);
+    assertThrows(
+        IllegalArgumentException.class,
+        () -> ConfigUtil.getTimeUnit(config, "", "", DEFAULT_VALUE, DAYS));
 
     when(config.getString("", null, "")).thenReturn("");
     assertThat(ConfigUtil.getTimeUnit(config, "", "", DEFAULT_VALUE, DAYS))
         .isEqualTo(DEFAULT_VALUE);
   }
 
-  @Test(expected = IllegalArgumentException.class)
+  @Test
   public void testGetTimeThrowsExceptionIfBadTimeUnit() {
     when(config.getString("", null, "")).thenReturn("1s");
-    assertThat(ConfigUtil.getTimeUnit(config, "", "", DEFAULT_VALUE, DAYS))
-        .isEqualTo(DEFAULT_VALUE);
+    assertThrows(
+        IllegalArgumentException.class,
+        () -> ConfigUtil.getTimeUnit(config, "", "", DEFAULT_VALUE, DAYS));
   }
 
   @Test
@@ -99,9 +102,9 @@ public class ConfigUtilTest {
     assertEquals(ms(1, MILLISECONDS), parse(""));
   }
 
-  @Test(expected = IllegalArgumentException.class)
+  @Test
   public void testUnsupportedTimeUnit() {
-    parse("1 min");
+    assertThrows(IllegalArgumentException.class, () -> parse("1 min"));
   }
 
   private static long ms(int cnt, TimeUnit unit) {

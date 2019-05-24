@@ -14,6 +14,7 @@
 
 package com.ericsson.gerrit.plugins.gcconductor.executor;
 
+import static com.google.gerrit.testing.GerritJUnit.assertThrows;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyZeroInteractions;
@@ -50,10 +51,12 @@ public class ScheduledEvaluationTaskTest {
     periodicEvaluator = new ScheduledEvaluationTask(evaluationTaskFactory, config);
   }
 
-  @Test(expected = ProvisionException.class)
-  public void shouldThrowAnExceptionOnInvalidrepositoryPath() {
+  @Test
+  public void shouldThrowAnExceptionOnInvalidrepositoryPath() throws Exception {
     when(config.getRepositoriesPath()).thenReturn("unexistingPath");
-    periodicEvaluator = new ScheduledEvaluationTask(evaluationTaskFactory, config);
+    assertThrows(
+        ProvisionException.class,
+        () -> periodicEvaluator = new ScheduledEvaluationTask(evaluationTaskFactory, config));
   }
 
   @Test
