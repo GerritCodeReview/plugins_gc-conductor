@@ -15,7 +15,7 @@
 package com.ericsson.gerrit.plugins.gcconductor.executor;
 
 import static com.google.common.truth.Truth.assertThat;
-import static org.junit.Assert.fail;
+import static com.google.common.truth.Truth8.assertThat;
 import static org.mockito.Mockito.when;
 
 import com.google.inject.Binder;
@@ -45,9 +45,7 @@ public class ExecutorModuleTest {
     String host = "hostname";
     when(execCfg.isPickOwnHostOnly()).thenReturn(true);
     Optional<String> wasQueuedFrom = executorModule.wasQueuedFrom(execCfg, host);
-    if (!wasQueuedFrom.isPresent()) {
-      fail("wasQueued from is empty");
-    }
+    assertThat(wasQueuedFrom).isPresent();
     assertThat(wasQueuedFrom.get()).isEqualTo(host);
 
     when(execCfg.isPickOwnHostOnly()).thenReturn(false);
