@@ -16,7 +16,6 @@ package com.ericsson.gerrit.plugins.gcconductor.postgresqueue;
 
 import static com.ericsson.gerrit.plugins.gcconductor.postgresqueue.TestUtil.configMockFor;
 import static com.google.common.truth.Truth.assertThat;
-import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -51,21 +50,21 @@ public class PostgresQueueTest {
   }
 
   @Before
-  public void setUp() throws SQLException, GcQueueException {
+  public void setUp() throws Exception {
     dataSource = new PostgresModule(null).provideGcDatabaseAccess(configMockFor(container));
     queue = new PostgresQueue(dataSource);
     emptyQueue();
   }
 
   @After
-  public void tearDown() throws SQLException {
+  public void tearDown() throws Exception {
     if (dataSource != null) {
       dataSource.close();
     }
   }
 
   @Test
-  public void shouldCreateSchemaOnInit() throws GcQueueException {
+  public void shouldCreateSchemaOnInit() throws Exception {
     assertThat(queue.list()).isEmpty();
   }
 
@@ -77,7 +76,7 @@ public class PostgresQueueTest {
   }
 
   @Test
-  public void testAddContainsAndRemove() throws GcQueueException {
+  public void testAddContainsAndRemove() throws Exception {
     String repoPath = "/some/path/to/some/repository";
     String hostname = "someHostname";
 
@@ -175,7 +174,7 @@ public class PostgresQueueTest {
   }
 
   @Test
-  public void testList() throws GcQueueException {
+  public void testList() throws Exception {
     String repoPath = "/some/path/to/some/repository.git";
     String repoPath2 = "/some/path/to/some/repository2.git";
     String hostname = "hostname";
@@ -232,7 +231,7 @@ public class PostgresQueueTest {
   }
 
   @Test
-  public void testPick() throws GcQueueException {
+  public void testPick() throws Exception {
     String repoPath = "/some/path/to/some/repository";
     String hostname = "someHostname";
     String executor = "someExecutor";
@@ -261,7 +260,7 @@ public class PostgresQueueTest {
   }
 
   @Test
-  public void testPickRepositoriesInOrder() throws GcQueueException {
+  public void testPickRepositoriesInOrder() throws Exception {
     String repositoryFormat = "my/path%s.git";
     for (int i = 0; i < 100; i++) {
       queue.add(String.format(repositoryFormat, i), "someHostname");
@@ -274,7 +273,7 @@ public class PostgresQueueTest {
   }
 
   @Test
-  public void testPickInQueueForLongerThan() throws GcQueueException, InterruptedException {
+  public void testPickInQueueForLongerThan() throws Exception {
     String repoPath = "/some/path/to/some/repository";
     String hostname = "someHostname";
     String executor = "someExecutor";
@@ -292,7 +291,7 @@ public class PostgresQueueTest {
   }
 
   @Test
-  public void testPickQueuedFrom() throws GcQueueException {
+  public void testPickQueuedFrom() throws Exception {
     String repoPath = "/some/path/to/some/repository";
     String hostname = "hostname";
     String otherHostname = "otherHostname";
@@ -334,7 +333,7 @@ public class PostgresQueueTest {
   }
 
   @Test
-  public void testUnpick() throws GcQueueException {
+  public void testUnpick() throws Exception {
     String repoPath = "/some/path/to/some/repository";
     String hostname = "someHostname";
     String executor = "someExecutor";
@@ -372,7 +371,7 @@ public class PostgresQueueTest {
   }
 
   @Test
-  public void testResetQueuedFrom() throws GcQueueException {
+  public void testResetQueuedFrom() throws Exception {
     String repoPath = "/some/path/to/some/repository";
     String repoPath2 = "/some/path/to/some/repository2";
     String hostname = "hostname";
@@ -407,7 +406,7 @@ public class PostgresQueueTest {
   }
 
   @Test
-  public void testBumpToFirst() throws GcQueueException {
+  public void testBumpToFirst() throws Exception {
     String repoPath = "/some/path/to/some/repository";
     String repoPath2 = "/some/path/to/some/repository2";
     String repoPath3 = "/some/path/to/some/repository3";
@@ -456,7 +455,7 @@ public class PostgresQueueTest {
     queue.bumpToFirst("someHostname");
   }
 
-  private BasicDataSource createDataSourceThatFailsWhenGettingConnection() throws SQLException {
+  private BasicDataSource createDataSourceThatFailsWhenGettingConnection() throws Exception {
     BasicDataSource dataSouceMock = mock(BasicDataSource.class);
     Connection connectionMock = mock(Connection.class);
     Statement statementMock = mock(Statement.class);
@@ -467,7 +466,7 @@ public class PostgresQueueTest {
     return dataSouceMock;
   }
 
-  private BasicDataSource createDataSourceThatFailsWhenCreatingStatement() throws SQLException {
+  private BasicDataSource createDataSourceThatFailsWhenCreatingStatement() throws Exception {
     BasicDataSource dataSouceMock = mock(BasicDataSource.class);
     Connection connectionMock = mock(Connection.class);
     Statement statementMock = mock(Statement.class);
@@ -478,7 +477,7 @@ public class PostgresQueueTest {
     return dataSouceMock;
   }
 
-  private BasicDataSource createDataSourceThatFailsWhenExecutingQuery() throws SQLException {
+  private BasicDataSource createDataSourceThatFailsWhenExecutingQuery() throws Exception {
     BasicDataSource dataSouceMock = mock(BasicDataSource.class);
     Connection connectionMock = mock(Connection.class);
     Statement statementMock = mock(Statement.class);
@@ -491,7 +490,7 @@ public class PostgresQueueTest {
     return dataSouceMock;
   }
 
-  private BasicDataSource createDataSourceThatFailsWhenIteratingResults() throws SQLException {
+  private BasicDataSource createDataSourceThatFailsWhenIteratingResults() throws Exception {
     BasicDataSource dataSouceMock = mock(BasicDataSource.class);
     Connection connectionMock = mock(Connection.class);
     Statement statementMock = mock(Statement.class);
@@ -505,17 +504,16 @@ public class PostgresQueueTest {
     return dataSouceMock;
   }
 
-  private void emptyQueue() throws GcQueueException {
-    queue.list().stream()
-        .map(RepositoryInfo::getPath)
-        .forEach(
-            repository -> {
-              try {
-                queue.remove(repository);
-              } catch (GcQueueException e) {
-                fail();
-              }
-            });
+  private void emptyQueue() throws Exception {
+    queue.list().stream().map(RepositoryInfo::getPath).forEach(this::doEmptyQueue);
     assertThat(queue.list()).isEmpty();
+  }
+
+  private void doEmptyQueue(String repository) {
+    try {
+      queue.remove(repository);
+    } catch (GcQueueException e) {
+      throw new RuntimeException(e);
+    }
   }
 }
