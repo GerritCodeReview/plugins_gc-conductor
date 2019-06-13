@@ -90,11 +90,8 @@ java_library(
     exports = EXECUTOR_DEPS + PLUGIN_DEPS + PLUGIN_TEST_DEPS + [
         ":gc-conductor__plugin",
         ":gc-executor_lib",
-        "@byte-buddy//jar",
         "@duct_tape//jar",
         "@jna//jar",
-        "@mockito//jar",
-        "@objenesis//jar",
         "@testcontainers-database-commons//jar",
         "@testcontainers-jdbc//jar",
         "@testcontainers-postgres//jar",
