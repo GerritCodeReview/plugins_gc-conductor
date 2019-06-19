@@ -24,6 +24,10 @@ import org.testcontainers.containers.PostgreSQLContainer;
 @Ignore
 public class TestUtil {
 
+  static PostgreSQLContainer<?> newContainer() {
+    return new PostgreSQLContainer<>();
+  }
+
   static EvaluatorConfig configMockFor(PostgreSQLContainer<?> container) {
     EvaluatorConfig configMock = mock(EvaluatorConfig.class);
     when(configMock.getDatabaseUrl()).thenReturn(urlWithoutDatabase(container));
