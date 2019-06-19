@@ -23,6 +23,11 @@ import org.testcontainers.containers.PostgreSQLContainer;
 
 @Ignore
 public class TestUtil {
+  private static final String LABEL = PostgreSQLContainer.IMAGE + ":" + "9.6.12-alpine";
+
+  static PostgreSQLContainer<?> newContainer() {
+    return new PostgreSQLContainer<>(LABEL);
+  }
 
   static EvaluatorConfig configMockFor(PostgreSQLContainer<?> container) {
     EvaluatorConfig configMock = mock(EvaluatorConfig.class);
