@@ -16,6 +16,7 @@ package com.ericsson.gerrit.plugins.gcconductor.postgresqueue;
 
 import static com.ericsson.gerrit.plugins.gcconductor.postgresqueue.TestUtil.configMockFor;
 import static com.ericsson.gerrit.plugins.gcconductor.postgresqueue.TestUtil.invalidConfigMockFor;
+import static com.ericsson.gerrit.plugins.gcconductor.postgresqueue.TestUtil.newContainer;
 import static com.google.common.truth.Truth.assertThat;
 import static com.google.gerrit.testing.GerritJUnit.assertThrows;
 import static org.mockito.Mockito.doThrow;
@@ -41,7 +42,7 @@ public class PostgresModuleTest {
 
   @BeforeClass
   public static void startPostgres() {
-    container = new PostgreSQLContainer<>();
+    container = newContainer();
     container.start();
   }
 
