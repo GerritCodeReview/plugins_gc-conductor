@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12f36dd7_b99bdde4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-07-26T16:15:36Z",
+      "side": 1,
+      "message": "I propose to not merge the other plugins up this way for now, as those currently don\u0027t have other significant updates (while this one does).",
+      "range": {
+        "startLine": 11,
+        "startChar": 2,
+        "endLine": 11,
+        "endChar": 65
+      },
+      "revId": "d53d13698efb2679d0f4b373c459743fda3863f6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
