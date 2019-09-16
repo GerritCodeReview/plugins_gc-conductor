@@ -71,7 +71,7 @@ java_binary(
 )
 
 junit_tests(
-    name = "gc_conductor_tests",
+    name = "gc-conductor_tests",
     srcs = glob(["src/test/java/**/*.java"]),
     resources = glob(["src/test/resources/**/*"]),
     tags = [
