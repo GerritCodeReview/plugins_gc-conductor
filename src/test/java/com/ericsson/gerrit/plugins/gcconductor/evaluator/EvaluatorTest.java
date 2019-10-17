@@ -23,8 +23,8 @@ import static org.mockito.Mockito.when;
 
 import com.ericsson.gerrit.plugins.gcconductor.EvaluationTask;
 import com.ericsson.gerrit.plugins.gcconductor.EvaluationTask.Factory;
+import com.google.gerrit.entities.Project;
 import com.google.gerrit.extensions.events.GitReferenceUpdatedListener;
-import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.git.GitRepositoryManager;
 import java.io.File;
 import java.io.IOException;
