@@ -14,7 +14,6 @@ CONDUCTOR_DEPS = [
 ]
 
 EXECUTOR_DEPS = CONDUCTOR_DEPS + [
-    "@jgit//jar",
     "@javaewah//jar",
     "@guava//jar",
     "@guava-failureaccess//jar",
@@ -28,6 +27,7 @@ EXECUTOR_DEPS = CONDUCTOR_DEPS + [
     "@log4j-api//jar",
     "@log4j-core//jar",
     "@retry//jar",
+    "//lib:jgit",
 ]
 
 gerrit_plugin(
