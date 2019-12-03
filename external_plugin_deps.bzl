@@ -128,28 +128,28 @@ def external_plugin_deps():
         sha1 = "ed8b772eb077a9cb50e44e90899c66a9a6c00e67",
     )
 
-    TESTCONTAINERS_VERS = "1.12.3"
+    TESTCONTAINERS_VERS = "1.12.4"
 
     maven_jar(
         name = "testcontainers",
         artifact = "org.testcontainers:testcontainers:" + TESTCONTAINERS_VERS,
-        sha1 = "e424a4549640e120acceac641ac909fcda58bf62",
+        sha1 = "456b6facac12c4b67130d9056a43c011679e9f0c",
     )
 
     maven_jar(
         name = "testcontainers-database-commons",
         artifact = "org.testcontainers:database-commons:" + TESTCONTAINERS_VERS,
-        sha1 = "69a857af8c90be1f2ba6d7f70a59bd5687854e8f",
+        sha1 = "b17f35b4f0c33b01b1331c96c8a1c68afd916248",
     )
 
     maven_jar(
         name = "testcontainers-jdbc",
         artifact = "org.testcontainers:jdbc:" + TESTCONTAINERS_VERS,
-        sha1 = "8f86e3ebf31b3a0439ba537bba770b5be219b55b",
+        sha1 = "35bbc7be152486fac7f76aa53bf1753c18020a67",
     )
 
     maven_jar(
         name = "testcontainers-postgres",
         artifact = "org.testcontainers:postgresql:" + TESTCONTAINERS_VERS,
-        sha1 = "946fc6dc021b0b760da3fd005d2fd871fce10be4",
+        sha1 = "4c3758244ec33ad2aee885fb204bb73ab586a244",
     )
