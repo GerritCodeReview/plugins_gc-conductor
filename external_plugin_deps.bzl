@@ -100,8 +100,8 @@ def external_plugin_deps():
     maven_jar(
         name = "jgit",
         artifact =
-            "org.eclipse.jgit:org.eclipse.jgit:5.3.5.201909031855-r",
-        sha1 = "f5e087859c805b7dc9c544714e9970f534791cf6",
+            "org.eclipse.jgit:org.eclipse.jgit:5.3.6.201910020505-r",
+        sha1 = "0b9085bd16c630412bfa50bcc509dcedfbbe16d3",
     )
 
     maven_jar(
