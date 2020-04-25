@@ -3,8 +3,8 @@ load("//tools/bzl:maven_jar.bzl", "maven_jar")
 def external_plugin_deps():
     maven_jar(
         name = "duct_tape",
-        artifact = "org.rnorth.duct-tape:duct-tape:1.0.7",
-        sha1 = "a26b5d90d88c91321dc7a3734ea72d2fc019ebb6",
+        artifact = "org.rnorth.duct-tape:duct-tape:1.0.8",
+        sha1 = "92edc22a9ab2f3e17c9bf700aaee377d50e8b530",
     )
 
     SLF4J_VERS = "1.7.26"
@@ -124,32 +124,32 @@ def external_plugin_deps():
 
     maven_jar(
         name = "jna",
-        artifact = "net.java.dev.jna:jna:5.2.0",
-        sha1 = "ed8b772eb077a9cb50e44e90899c66a9a6c00e67",
+        artifact = "net.java.dev.jna:jna:5.5.0",
+        sha1 = "0e0845217c4907822403912ad6828d8e0b256208",
     )
 
-    TESTCONTAINERS_VERS = "1.14.0"
+    TESTCONTAINERS_VERS = "1.14.1"
 
     maven_jar(
         name = "testcontainers",
         artifact = "org.testcontainers:testcontainers:" + TESTCONTAINERS_VERS,
-        sha1 = "c0d6aea93f4f7ff4b0d559e31308340eaa398798",
+        sha1 = "defd04ff6ffc93e1ff988024048e8ba5bd298df3",
     )
 
     maven_jar(
         name = "testcontainers-database-commons",
         artifact = "org.testcontainers:database-commons:" + TESTCONTAINERS_VERS,
-        sha1 = "6e551fa5e6ca0bbf5e9b4f9f1051b3c12d5aaf92",
+        sha1 = "0950abc75cddfa565ee810a136d2620f48bde86f",
     )
 
     maven_jar(
         name = "testcontainers-jdbc",
         artifact = "org.testcontainers:jdbc:" + TESTCONTAINERS_VERS,
-        sha1 = "2f24b406ddb0e9bb94e9abb1a9e35415d430e000",
+        sha1 = "b617d34b04a7d4a11e546d0174046986e6f9ab53",
     )
 
     maven_jar(
         name = "testcontainers-postgres",
         artifact = "org.testcontainers:postgresql:" + TESTCONTAINERS_VERS,
-        sha1 = "3afea4bb709f4f4e85bf319aae6bce1852c5a98f",
+        sha1 = "3ee517af68a779ffca188fb2306163f94d69b347",
     )
