@@ -29,7 +29,7 @@ import com.google.gerrit.server.git.GitRepositoryManager;
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.ExecutorService;
 import org.eclipse.jgit.errors.RepositoryNotFoundException;
 import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.lib.Repository;
@@ -49,7 +49,7 @@ public class EvaluatorTest {
   @Mock private GitRepositoryManager repoManager;
   @Mock private Repository repository;
   @Mock private Repository repositoryOther;
-  @Mock private ScheduledThreadPoolExecutor executor;
+  @Mock private ExecutorService executor;
   @Mock private EvaluatorConfig config;
   @Mock private Config gerritConfig;
 
