@@ -31,8 +31,8 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
 import org.eclipse.jgit.errors.RepositoryNotFoundException;
 import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.lib.ObjectId;
@@ -48,7 +48,7 @@ class Evaluator implements UploadValidationListener, PostUploadHook, GitReferenc
   private static final Logger log = LoggerFactory.getLogger(Evaluator.class);
   private static final ThreadLocal<String> uploadRepositoryPath = new ThreadLocal<String>() {};
 
-  private final ScheduledThreadPoolExecutor executor;
+  private final ExecutorService executor;
   private final EvaluationTask.Factory evaluationTaskFactory;
   private final GitRepositoryManager repoManager;
   private final Map<String, Long> timestamps;
@@ -59,7 +59,7 @@ class Evaluator implements UploadValidationListener, PostUploadHook, GitReferenc
 
   @Inject
   Evaluator(
-      @EvaluatorExecutor ScheduledThreadPoolExecutor executor,
+      @EvaluatorExecutor ExecutorService executor,
       EvaluationTask.Factory evaluationTaskFactory,
       GitRepositoryManager repoManager,
       EvaluatorConfig config,
