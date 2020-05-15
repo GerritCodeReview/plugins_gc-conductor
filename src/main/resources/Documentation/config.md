@@ -52,7 +52,7 @@ to the node charged of doing the garbage collection (GC) process.
 The configuration can be passed to the gc executor jar by using:
 
 ```
-  java -DconfigFile=/path/to/config_file.config -jar executor.jar
+  java -DconfigFile=/path/to/gc.config -jar gc-executor.jar
 ```
 
 ### File `gc.config`
@@ -61,7 +61,6 @@ The file `gc.config` is a Git-style config file that controls several settings f
 gc executor. The contents of the `gc.config` file are cached at startup. If this
 file is modified, gc executor needs to be restarted in order to be able to use the
 new values.
-
 
 #### Sample `gc.config`:
 
@@ -73,6 +72,7 @@ new values.
   javaOptions = -Xmx32g
   javaOptions = -XX:+UseG1GC
   javaOptions = -XX:MaxGCPauseMillis=2000
+
 [core]
   executors = 2
   pickOwnHostOnly = false
@@ -178,10 +178,10 @@ If no time unit is specified, days are assumed.
 
 ### GC execution
 
-Executors can be started/stopped using gcctl.sh script.
+Executors can be started/stopped using the gc_ctl script.
 
 ```
-  /opt/gerrit/gc-conductor/gcctl.sh {start|stop|restart|status|check}
+  /opt/gerrit/gc-conductor/bin/gc_ctl {start|stop|restart|status|check}
 ```
 
 [Back to @PLUGIN@ documentation index][index]

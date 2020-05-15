@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN" shutdownHook="disable">
 	<Properties>
-		<Property name="log.path">opt/gerrit/review_site/logs/gc</Property>
+		<Property name="log.path">/opt/gerrit/review_site/logs/gc</Property>
 	</Properties>
 	<Appenders>
 		<RollingFile name="RollingFile" fileName="${log.path}/gc.log"
