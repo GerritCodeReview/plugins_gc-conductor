@@ -22,6 +22,30 @@
       "revId": "5979abdfb8056179435b45ddd4b47e2f352f1159",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e2d66e5_a36c91d5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-05-22T18:35:51Z",
+      "side": 1,
+      "message": "\u003e constant\n\nI really meant the plural form, here; explicitly: I wanted this to be about all those constants, which are \u0027values\u0027 in Scala.",
+      "parentUuid": "e031f3a8_d88acee3",
+      "range": {
+        "startLine": 17,
+        "startChar": 5,
+        "endLine": 17,
+        "endChar": 14
+      },
+      "revId": "5979abdfb8056179435b45ddd4b47e2f352f1159",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
