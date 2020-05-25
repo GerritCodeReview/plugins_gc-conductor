@@ -7,8 +7,11 @@ load(
     "gerrit_plugin",
 )
 
-CONDUCTOR_DEPS = [
+POSTGRESQL_DEP = [
     "@postgresql//jar",
+]
+
+CONDUCTOR_DEPS = POSTGRESQL_DEP + [
     "@dbcp//jar",
     "@pool//jar",
 ]
@@ -48,7 +51,7 @@ gerrit_plugin(
         ["src/main/resources/**/*"],
         exclude = ["src/main/resources/log4j2.xml"],
     ),
-    deps = CONDUCTOR_DEPS,
+    deps = POSTGRESQL_DEP,
 )
 
 java_library(
