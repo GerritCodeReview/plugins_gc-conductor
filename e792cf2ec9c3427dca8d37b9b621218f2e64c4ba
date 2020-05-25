@@ -94,6 +94,30 @@
       "revId": "e792cf2ec9c3427dca8d37b9b621218f2e64c4ba",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d45b9c5_aca6d745",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-05-25T16:24:20Z",
+      "side": 1,
+      "message": "\u003e \u003e Would that also mean, that the plugin on stable-2.16 (and earlier) would unneccesary ship this dependency in plugin jar: [1], because it is already included in gerrit core?\n\u003e \u003e \n\u003e \u003e * [1] https://gerrit.googlesource.com/plugins/gc-conductor/+/refs/heads/stable-2.16/external_plugin_deps.bzl#75\n\u003e \n\u003e Maybe. Now, having that dependency\u0027s classes in the plugin jar doesn\u0027t prevent the related ClassNotFoundException. I\u0027m suspecting the as-included org.apache.commons.dbcp (commons-dbcp) to interfere as a potentially incompatible version. I\u0027m currently revisiting the latter alongside postgresql\u0027s.\n\nWhen I remove commons-dbcp and commons-pool from the plugin jar, by removing them from its BUILD and external_plugin_deps.bzl files, I get the same bottom trace [2] below. This means that the dbcp dependency used by the runtime is not the plugin one, so likely the core one. Could this break the loading of classes from a core dependency (dbcp) to its transitive (postgresql) *plugin* one?\n\nI think so, as downstream versions are likely also ignoring plugin dependencies and solely relying on core\u0027s (postgresql which is in stable-2.16 core, with its sibling dbcp and pool deps).\n\n[2] (...)\nCaused by: java.lang.ClassNotFoundException: org.postgresql.Driver\n        at java.net.URLClassLoader.findClass(URLClassLoader.java:382)\n        at java.lang.ClassLoader.loadClass(ClassLoader.java:418)\n        at java.net.FactoryURLClassLoader.loadClass(URLClassLoader.java:817)\n        at java.lang.ClassLoader.loadClass(ClassLoader.java:351)\n        at org.apache.commons.dbcp.BasicDataSource.createConnectionFactory(BasicDataSource.java:1420)\n        ... 63 more",
+      "parentUuid": "dcc8f967_914a36ef",
+      "range": {
+        "startLine": 52,
+        "startChar": 19,
+        "endLine": 52,
+        "endChar": 53
+      },
+      "revId": "e792cf2ec9c3427dca8d37b9b621218f2e64c4ba",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
