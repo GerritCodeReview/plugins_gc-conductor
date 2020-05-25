@@ -47,7 +47,6 @@ gerrit_plugin(
         ["src/main/resources/**/*"],
         exclude = ["src/main/resources/log4j2.xml"],
     ),
-    deps = CONDUCTOR_DEPS,
 )
 
 java_library(
