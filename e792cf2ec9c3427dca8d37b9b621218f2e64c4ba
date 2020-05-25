@@ -22,6 +22,30 @@
       "revId": "e792cf2ec9c3427dca8d37b9b621218f2e64c4ba",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb17e0db_39d3b7c9",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2020-05-25T15:13:38Z",
+      "side": 1,
+      "message": "Oh, indeed, somehow I missed it, and it is included in plugin.jar:\n\n  CONDUCTOR_DEPS \u003d [\n    \"@postgresql//jar\",\n    \"@dbcp//jar\",\n    \"@pool//jar\",\n]",
+      "parentUuid": "20746aa1_1698d9bc",
+      "range": {
+        "startLine": 52,
+        "startChar": 19,
+        "endLine": 52,
+        "endChar": 53
+      },
+      "revId": "e792cf2ec9c3427dca8d37b9b621218f2e64c4ba",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
