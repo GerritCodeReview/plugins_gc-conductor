@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a29d1b76_9986ea6c",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2020-05-25T17:27:56Z",
+      "side": 0,
+      "message": "This is now unused as own constant and can be merged in EXECUTOR_DEPS directly. However, on stable-3.0 and later we would need to add it again due to removed postgresql in core.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 0
+      },
+      "revId": "5979abdfb8056179435b45ddd4b47e2f352f1159",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
