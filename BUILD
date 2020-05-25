@@ -8,13 +8,12 @@ load(
 )
 
 CONDUCTOR_DEPS = [
-    "@dbcp//jar",
-    "@pool//jar",
     "@postgresql//jar",
 ]
 
 EXECUTOR_DEPS = CONDUCTOR_DEPS + [
     "@aopalliance//jar",
+    "@dbcp//jar",
     "@guava//jar",
     "@guava-failureaccess//jar",
     "@guice//jar",
@@ -25,6 +24,7 @@ EXECUTOR_DEPS = CONDUCTOR_DEPS + [
     "@log4j-api//jar",
     "@log4j-core//jar",
     "@log4j-slf4j-impl//jar",
+    "@pool//jar",
     "@retry//jar",
     "@slf4j-api//jar",
     "@slf4j-ext//jar",
