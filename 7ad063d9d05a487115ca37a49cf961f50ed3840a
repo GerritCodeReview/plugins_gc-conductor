@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84b9b955_612e04bd",
+        "filename": "src/test/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-05-25T21:27:10Z",
+      "side": 1,
+      "message": "Adapted here to this target branch.",
+      "range": {
+        "startLine": 9,
+        "startChar": 81,
+        "endLine": 9,
+        "endChar": 86
+      },
+      "revId": "7ad063d9d05a487115ca37a49cf961f50ed3840a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
