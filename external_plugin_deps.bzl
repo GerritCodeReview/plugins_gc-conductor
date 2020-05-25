@@ -2,6 +2,12 @@ load("//tools/bzl:maven_jar.bzl", "maven_jar")
 
 def external_plugin_deps():
     maven_jar(
+        name = "postgresql",
+        artifact = "org.postgresql:postgresql:42.2.5",
+        sha1 = "951b7eda125f3137538a94e2cbdcf744088ad4c2",
+    )
+
+    maven_jar(
         name = "duct_tape",
         artifact = "org.rnorth.duct-tape:duct-tape:1.0.8",
         sha1 = "92edc22a9ab2f3e17c9bf700aaee377d50e8b530",
