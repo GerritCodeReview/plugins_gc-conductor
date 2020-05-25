@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eccfadb2_3a72f35a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2020-05-25T17:29:18Z",
+      "side": 1,
+      "message": "You could clarify, that it is only used in executor, while the plugin consume the postgresql driver through transitive dependency form gerrit core.",
+      "revId": "0e9cbd20e36f88af74e8a0d34f6ffe8539279129",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
