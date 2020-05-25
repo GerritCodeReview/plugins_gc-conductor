@@ -9,25 +9,25 @@ load(
 
 CONDUCTOR_DEPS = [
     "@postgresql//jar",
-    "@dbcp//jar",
-    "@pool//jar",
 ]
 
 EXECUTOR_DEPS = CONDUCTOR_DEPS + [
-    "@jgit//jar",
-    "@javaewah//jar",
+    "@aopalliance//jar",
+    "@dbcp//jar",
     "@guava//jar",
     "@guava-failureaccess//jar",
     "@guice//jar",
     "@guice-assistedinject//jar",
+    "@javaewah//jar",
     "@javax_inject//jar",
-    "@aopalliance//jar",
-    "@slf4j-api//jar",
-    "@slf4j-ext//jar",
-    "@log4j-slf4j-impl//jar",
+    "@jgit//jar",
     "@log4j-api//jar",
     "@log4j-core//jar",
+    "@log4j-slf4j-impl//jar",
+    "@pool//jar",
     "@retry//jar",
+    "@slf4j-api//jar",
+    "@slf4j-ext//jar",
 ]
 
 gerrit_plugin(
