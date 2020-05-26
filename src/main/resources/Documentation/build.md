@@ -7,7 +7,7 @@ This plugin is built with Bazel and two build modes are supported:
 * In Gerrit tree.
 
 Standalone build mode is recommended, as this mode doesn't require local Gerrit
-tree to exist.
+tree to exist. This plugin has a side component, gc-executor, to build as well.
 
 Successfully running some of the tests requires Docker,
 which are skipped if Docker is not available.
@@ -55,6 +55,7 @@ This project can be imported into the Eclipse IDE. Execute:
 
 to generate the required files and then import the project.
 
+## Building gc-executor
 
 To build the executor, issue the following command:
 
@@ -65,10 +66,17 @@ To build the executor, issue the following command:
 The output is created in:
 
 ```
-  /bazel-bin/gc-executor_deploy.jar
+  bazel-bin/gc-executor_deploy.jar
 ```
 
 This jar should be renamed to gc-executor.jar before deployment.
+
+Once the executor is built, the resulting postgresql jar file like below should
+be manually copied over to the gerrit site /lib folder; e.g., on macOS:
+
+```
+  bazel-out/darwin-fastbuild/bin/gc-executor.runfiles/gc_executor/external/postgresql/jar/postgresql-42.2.5.jar
+```
 
 ## Build in Gerrit tree
 
