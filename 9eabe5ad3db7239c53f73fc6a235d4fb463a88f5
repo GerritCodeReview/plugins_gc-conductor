@@ -16,6 +16,24 @@
       "revId": "9eabe5ad3db7239c53f73fc6a235d4fb463a88f5",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62fae5ab_c5c51490",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-05-26T18:52:28Z",
+      "side": 1,
+      "message": "I think it should be clear enough, but please feel free to propose an improvement. Otherwise we may live with this text until amended further, based on future use.",
+      "parentUuid": "fb566d26_4a405c51",
+      "revId": "9eabe5ad3db7239c53f73fc6a235d4fb463a88f5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
