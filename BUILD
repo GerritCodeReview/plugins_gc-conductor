@@ -7,26 +7,23 @@ load(
     "gerrit_plugin",
 )
 
-CONDUCTOR_DEPS = [
-    "@postgresql//jar",
+EXECUTOR_DEPS = [
+    "@aopalliance//jar",
     "@dbcp//jar",
-    "@pool//jar",
-]
-
-EXECUTOR_DEPS = CONDUCTOR_DEPS + [
-    "@javaewah//jar",
     "@guava//jar",
     "@guava-failureaccess//jar",
     "@guice//jar",
     "@guice-assistedinject//jar",
+    "@javaewah//jar",
     "@javax_inject//jar",
-    "@aopalliance//jar",
-    "@slf4j-api//jar",
-    "@slf4j-ext//jar",
-    "@log4j-slf4j-impl//jar",
     "@log4j-api//jar",
     "@log4j-core//jar",
+    "@log4j-slf4j-impl//jar",
+    "@pool//jar",
+    "@postgresql//jar",
     "@retry//jar",
+    "@slf4j-api//jar",
+    "@slf4j-ext//jar",
     "//lib:jgit",
 ]
 
@@ -48,7 +45,6 @@ gerrit_plugin(
         ["src/main/resources/**/*"],
         exclude = ["src/main/resources/log4j2.xml"],
     ),
-    deps = CONDUCTOR_DEPS,
 )
 
 java_library(
