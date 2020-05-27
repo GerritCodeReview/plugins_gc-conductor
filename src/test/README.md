@@ -6,7 +6,7 @@
 ```
 
 To start using the files under these directories above, consider the
-[instructions](https://gerrit-documentation.storage.googleapis.com/Documentation/3.0.9/dev-e2e-tests.html)
+[instructions](https://gerrit-documentation.storage.googleapis.com/Documentation/3.1.5/dev-e2e-tests.html)
 on how to use Gerrit core's Gatling framework. These are about running
 non-core test scenarios such as this plugin one below:
 
