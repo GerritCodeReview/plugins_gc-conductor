@@ -20,8 +20,14 @@ import io.gatling.core.feeder.FeederBuilder
 import io.gatling.core.structure.ScenarioBuilder
 import io.gatling.http.Predef._
 
-class CheckProjectStatisticsAfterGc extends ProjectSimulation {
-  private val data: FeederBuilder = jsonFile(resource).convert(keys).queue
+import scala.concurrent.duration._
+
+class CheckProjectStatisticsUpToGc extends ProjectSimulation {
+  private val data: FeederBuilder = jsonFile(resource).convert(keys).circular
+  lazy val MaxSecondsForGcToComplete = 10
+  val ChecksPerSecond = 1
+
+  override def relativeRuntimeWeight: Int = MaxSecondsForGcToComplete / SecondsPerWeightUnit
 
   def this(default: String) {
     this()
@@ -36,6 +42,6 @@ class CheckProjectStatisticsAfterGc extends ProjectSimulation {
 
   setUp(
     test.inject(
-      atOnceUsers(1)
+      constantUsersPerSec(ChecksPerSecond) during (MaxSecondsForGcToComplete seconds),
     )).protocols(httpProtocol)
 }

@@ -28,20 +28,18 @@ class CreateChangesTriggeringGc extends GerritSimulation {
   private val numberKey = "_number"
 
   private lazy val DefaultSecondsToNextEvaluation = 60
-  private lazy val DefaultSecondsToNextGcDequeue = 60
   private lazy val DefaultLooseObjectsToEnqueueGc = 400
   private lazy val LooseObjectsPerChange = 2
-  private lazy val ChangesPerSecond = 4
+  private lazy val ChangesMultiplier = 5
+  private lazy val changesPerSecond = 4 * ChangesMultiplier
   private val ChangesForLastEvaluation = 1
 
   private lazy val secondsForLastEvaluation = SecondsPerWeightUnit * 2
-  private lazy val secondsForLastGcExecution = secondsForLastEvaluation * 2
-  private lazy val changesToEnqueueGc = DefaultLooseObjectsToEnqueueGc / LooseObjectsPerChange
-  private lazy val secondsToChanges = changesToEnqueueGc / ChangesPerSecond
+  private lazy val changesToEnqueueGc = DefaultLooseObjectsToEnqueueGc * ChangesMultiplier / LooseObjectsPerChange
+  private lazy val secondsToChanges = changesToEnqueueGc / changesPerSecond
   private lazy val maxSecondsToEnqueueGc = secondsToChanges + DefaultSecondsToNextEvaluation + secondsForLastEvaluation
-  private lazy val maxSecondsToExecuteGc = maxSecondsToEnqueueGc + DefaultSecondsToNextGcDequeue + secondsForLastGcExecution
 
-  override def relativeRuntimeWeight: Int = maxSecondsToExecuteGc / SecondsPerWeightUnit
+  override def relativeRuntimeWeight: Int = maxSecondsToEnqueueGc / SecondsPerWeightUnit
 
   private val test: ScenarioBuilder = scenario(unique)
     .feed(data)
@@ -54,7 +52,7 @@ class CreateChangesTriggeringGc extends GerritSimulation {
     })
 
   private val createProject = new CreateProject(default)
-  private val checkStatsAfterGc = new CheckProjectStatisticsAfterGc(default)
+  private val checkStatsUpToGc = new CheckProjectStatisticsUpToGc(default)
   private val deleteChanges = new DeleteChangesAfterGc
   private val deleteProject = new DeleteProject(default)
 
@@ -65,19 +63,19 @@ class CreateChangesTriggeringGc extends GerritSimulation {
     ),
     test.inject(
       nothingFor(stepWaitTime(this) seconds),
-      constantUsersPerSec(ChangesPerSecond) during (secondsToChanges seconds),
+      constantUsersPerSec(changesPerSecond) during (secondsToChanges seconds),
       nothingFor(DefaultSecondsToNextEvaluation seconds),
       nothingFor(secondsForLastEvaluation / 2 seconds),
       atOnceUsers(ChangesForLastEvaluation),
       nothingFor(secondsForLastEvaluation / 2 seconds)
     ),
-    checkStatsAfterGc.test.inject(
-      nothingFor(stepWaitTime(checkStatsAfterGc) seconds),
-      atOnceUsers(1)
+    checkStatsUpToGc.test.inject(
+      nothingFor(stepWaitTime(checkStatsUpToGc) seconds),
+      constantUsersPerSec(checkStatsUpToGc.ChecksPerSecond) during (checkStatsUpToGc.MaxSecondsForGcToComplete seconds)
     ),
     deleteChanges.test.inject(
       nothingFor(stepWaitTime(deleteChanges) seconds),
-      constantUsersPerSec(ChangesPerSecond) during (secondsToChanges seconds),
+      constantUsersPerSec(changesPerSecond) during (secondsToChanges seconds),
       atOnceUsers(ChangesForLastEvaluation)
     ),
     deleteProject.test.inject(
