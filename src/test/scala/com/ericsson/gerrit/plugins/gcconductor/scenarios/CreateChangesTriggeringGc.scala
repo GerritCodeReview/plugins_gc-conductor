@@ -30,11 +30,11 @@ class CreateChangesTriggeringGc extends GerritSimulation {
   private lazy val DefaultSecondsToNextEvaluation = 60
   private lazy val DefaultLooseObjectsToEnqueueGc = 400
   private lazy val LooseObjectsPerChange = 2
-  private lazy val ChangesMultiplier = 5
+  private lazy val ChangesMultiplier = 8
   private lazy val changesPerSecond = 4 * ChangesMultiplier
   private val ChangesForLastEvaluation = 1
 
-  private lazy val secondsForLastEvaluation = SecondsPerWeightUnit * 2
+  private lazy val secondsForLastEvaluation = SecondsPerWeightUnit
   private lazy val changesToEnqueueGc = DefaultLooseObjectsToEnqueueGc * ChangesMultiplier / LooseObjectsPerChange
   private lazy val secondsToChanges = changesToEnqueueGc / changesPerSecond
   private lazy val maxSecondsToEnqueueGc = secondsToChanges + DefaultSecondsToNextEvaluation + secondsForLastEvaluation
