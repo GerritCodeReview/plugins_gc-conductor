@@ -24,7 +24,7 @@ import scala.concurrent.duration._
 
 class CheckProjectStatisticsUpToGc extends ProjectSimulation {
   private val data: FeederBuilder = jsonFile(resource).convert(keys).circular
-  lazy val MaxSecondsForGcToComplete = 10
+  lazy val MaxSecondsForGcToComplete = 20
   val ChecksPerSecond = 4
 
   override def relativeRuntimeWeight: Int = MaxSecondsForGcToComplete / SecondsPerWeightUnit

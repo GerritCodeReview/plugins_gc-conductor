@@ -22,26 +22,31 @@ import io.gatling.http.Predef._
 
 import scala.concurrent.duration._
 
-class CreateChangesTriggeringGc extends GerritSimulation {
+class CreateChangesTriggeringGc extends ProjectSimulation {
   private val data: FeederBuilder = jsonFile(resource).convert(keys).circular
-  private val default: String = name
   private val numberKey = "_number"
 
-  private lazy val DefaultSecondsToNextEvaluation = 60
+  lazy val DefaultSecondsToNextEvaluation = 60
   private lazy val DefaultLooseObjectsToEnqueueGc = 400
   private lazy val LooseObjectsPerChange = 2
   private lazy val ChangesMultiplier = 8
-  private lazy val changesPerSecond = 4 * ChangesMultiplier
-  private val ChangesForLastEvaluation = 1
+  lazy val changesPerSecond: Int = 4 * ChangesMultiplier
+  val ChangesForLastEvaluation = 1
 
-  private lazy val secondsForLastEvaluation = SecondsPerWeightUnit
+  lazy val secondsForLastEvaluation: Int = SecondsPerWeightUnit
   private lazy val changesToEnqueueGc = DefaultLooseObjectsToEnqueueGc * ChangesMultiplier / LooseObjectsPerChange
-  private lazy val secondsToChanges = changesToEnqueueGc / changesPerSecond
+  lazy val secondsToChanges: Int = changesToEnqueueGc / changesPerSecond
   private lazy val maxSecondsToEnqueueGc = secondsToChanges + DefaultSecondsToNextEvaluation + secondsForLastEvaluation
 
   override def relativeRuntimeWeight: Int = maxSecondsToEnqueueGc / SecondsPerWeightUnit
 
-  private val test: ScenarioBuilder = scenario(unique)
+  def this(default: String, deleteChanges: DeleteChangesAfterGc) {
+    this()
+    this.default = default
+    this.deleteChanges = deleteChanges
+  }
+
+  val test: ScenarioBuilder = scenario(unique)
     .feed(data)
     .exec(httpRequest
       .body(ElFileBody(body)).asJson
@@ -51,16 +56,10 @@ class CreateChangesTriggeringGc extends GerritSimulation {
       session
     })
 
-  private val createProject = new CreateProject(default)
   private val checkStatsUpToGc = new CheckProjectStatisticsUpToGc(default)
-  private val deleteChanges = new DeleteChangesAfterGc
-  private val deleteProject = new DeleteProject(default)
+  private var deleteChanges = new DeleteChangesAfterGc
 
   setUp(
-    createProject.test.inject(
-      nothingFor(stepWaitTime(createProject) seconds),
-      atOnceUsers(1)
-    ),
     test.inject(
       nothingFor(stepWaitTime(this) seconds),
       constantUsersPerSec(changesPerSecond) during (secondsToChanges seconds),
@@ -77,10 +76,6 @@ class CreateChangesTriggeringGc extends GerritSimulation {
       nothingFor(stepWaitTime(deleteChanges) seconds),
       constantUsersPerSec(changesPerSecond) during (secondsToChanges seconds),
       atOnceUsers(ChangesForLastEvaluation)
-    ),
-    deleteProject.test.inject(
-      nothingFor(stepWaitTime(deleteProject) seconds),
-      atOnceUsers(1)
     ),
   ).protocols(httpProtocol)
 }
