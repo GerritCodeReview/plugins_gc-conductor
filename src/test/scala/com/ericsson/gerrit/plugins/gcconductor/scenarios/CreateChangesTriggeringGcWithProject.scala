@@ -31,7 +31,7 @@ class CreateChangesTriggeringGcWithProject extends GerritSimulation {
   setUp(
     createProject.test.inject(
       nothingFor(stepWaitTime(createProject) seconds),
-      atOnceUsers(1)
+      atOnceUsers(single)
     ),
     createChanges.test.inject(
       nothingFor(stepWaitTime(createChanges) seconds),
@@ -51,7 +51,7 @@ class CreateChangesTriggeringGcWithProject extends GerritSimulation {
     ),
     deleteProject.test.inject(
       nothingFor(stepWaitTime(deleteProject) seconds),
-      atOnceUsers(1)
+      atOnceUsers(single)
     ),
   ).protocols(httpProtocol)
 }

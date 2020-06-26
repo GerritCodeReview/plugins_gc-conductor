@@ -31,7 +31,7 @@ class CreateChangesTriggeringGc extends ProjectSimulation {
   private lazy val LooseObjectsPerChange = 2
   private lazy val ChangesMultiplier = 8
   lazy val changesPerSecond: Int = 4 * ChangesMultiplier
-  val ChangesForLastEvaluation = 1
+  val ChangesForLastEvaluation: Int = single
 
   lazy val secondsForLastEvaluation: Int = SecondsPerWeightUnit
   private lazy val changesToEnqueueGc = DefaultLooseObjectsToEnqueueGc * ChangesMultiplier / LooseObjectsPerChange
