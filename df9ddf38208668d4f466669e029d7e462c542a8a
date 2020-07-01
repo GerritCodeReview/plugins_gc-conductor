@@ -51,6 +51,24 @@
       "revId": "df9ddf38208668d4f466669e029d7e462c542a8a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d346b5b_10e65f0c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-01T21:14:20Z",
+      "side": 1,
+      "message": "\u003e Done. Checker was disabled.\n\nThanks! :)",
+      "parentUuid": "da84e1e2_0eeb975a",
+      "revId": "df9ddf38208668d4f466669e029d7e462c542a8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
