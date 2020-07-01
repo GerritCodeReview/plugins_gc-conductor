@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e524a6a_7b6bd1a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-01T18:23:22Z",
+      "side": 1,
+      "message": "Does the Zuul environment support docker-based plugin tests? Unlikely, according to this failure ([1]). If not, then Zuul for the latter might have to be disabled unfortunately. These plugin tests pass locally.\n\n[1] https://ci.gerritcodereview.com/t/gerrit/build/32dac35b7563496f84abe0ca11fd87fd",
+      "revId": "df9ddf38208668d4f466669e029d7e462c542a8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
