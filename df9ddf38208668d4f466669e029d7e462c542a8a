@@ -105,6 +105,24 @@
       "revId": "df9ddf38208668d4f466669e029d7e462c542a8a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e146eff0_91d1a1f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-06T18:09:33Z",
+      "side": 1,
+      "message": "Good idea. Now posted as Issue 13098.",
+      "parentUuid": "f30b34cb_af3a7a27",
+      "revId": "df9ddf38208668d4f466669e029d7e462c542a8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
