@@ -69,6 +69,24 @@
       "revId": "df9ddf38208668d4f466669e029d7e462c542a8a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e28fdff6_8e5d7051",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-06T14:50:10Z",
+      "side": 1,
+      "message": "Now filed upstream in Zuul as [2] https://storyboard.openstack.org/#!/story/2007897.",
+      "parentUuid": "4758a6c1_aba80a8b",
+      "revId": "df9ddf38208668d4f466669e029d7e462c542a8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
