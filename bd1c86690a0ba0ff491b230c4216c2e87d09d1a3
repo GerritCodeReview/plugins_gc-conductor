@@ -16,6 +16,24 @@
       "revId": "bd1c86690a0ba0ff491b230c4216c2e87d09d1a3",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1bcb921_98bfb794",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-09-18T12:23:42Z",
+      "side": 1,
+      "message": "\u003e How about the follow-up? AFAICT Gerrit 3.2 and master uses 5.8.1 or newer ;)\n\nKeeping this in mind for a potential follow-up change. Thanks for the note Jacek.",
+      "parentUuid": "28fc43b5_9d0bc3a3",
+      "revId": "bd1c86690a0ba0ff491b230c4216c2e87d09d1a3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
