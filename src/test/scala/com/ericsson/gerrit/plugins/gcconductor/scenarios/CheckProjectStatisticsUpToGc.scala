@@ -29,9 +29,9 @@ class CheckProjectStatisticsUpToGc extends ProjectSimulation {
 
   override def relativeRuntimeWeight: Int = MaxSecondsForGcToComplete / SecondsPerWeightUnit
 
-  def this(default: String) {
+  def this(projectName: String) {
     this()
-    this.default = default
+    this.projectName = projectName
   }
 
   val test: ScenarioBuilder = scenario(uniqueName)
