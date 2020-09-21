@@ -20,7 +20,7 @@ import io.gatling.core.Predef.{atOnceUsers, nothingFor, _}
 import scala.concurrent.duration._
 
 class CreateChangesTriggeringGcWithProject extends GerritSimulation {
-  private val default: String = name
+  private val default = name
 
   private val createProject = new CreateProject(default)
   private val deleteChanges = new DeleteChangesAfterGc
