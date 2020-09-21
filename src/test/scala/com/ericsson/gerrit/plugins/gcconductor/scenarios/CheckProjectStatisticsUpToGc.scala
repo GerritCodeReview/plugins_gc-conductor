@@ -34,9 +34,9 @@ class CheckProjectStatisticsUpToGc extends ProjectSimulation {
     this.default = default
   }
 
-  val test: ScenarioBuilder = scenario(unique)
+  val test: ScenarioBuilder = scenario(uniqueName)
     .feed(data)
-    .exec(http(unique).get("${url}")
+    .exec(http(uniqueName).get("${url}")
       .check(regex("\"number_of_loose_objects\": (\\d+),")
         .is("0")))
 
