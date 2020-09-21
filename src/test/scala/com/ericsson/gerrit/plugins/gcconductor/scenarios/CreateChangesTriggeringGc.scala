@@ -46,7 +46,7 @@ class CreateChangesTriggeringGc extends ProjectSimulation {
     this.deleteChanges = deleteChanges
   }
 
-  val test: ScenarioBuilder = scenario(unique)
+  val test: ScenarioBuilder = scenario(uniqueName)
     .feed(data)
     .exec(httpRequest
       .body(ElFileBody(body)).asJson
