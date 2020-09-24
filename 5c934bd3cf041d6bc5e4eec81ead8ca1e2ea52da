@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90e8a060_0eecfbed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-09-24T13:12:31Z",
+      "side": 1,
+      "message": "Thanks for the CR; trivial rebase.",
+      "revId": "5c934bd3cf041d6bc5e4eec81ead8ca1e2ea52da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
