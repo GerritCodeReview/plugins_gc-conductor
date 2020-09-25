@@ -40,13 +40,13 @@ class CreateChangesTriggeringGc extends ProjectSimulation {
 
   override def relativeRuntimeWeight: Int = maxSecondsToEnqueueGc / SecondsPerWeightUnit
 
-  def this(default: String, deleteChanges: DeleteChangesAfterGc) {
+  def this(projectName: String, deleteChanges: DeleteChangesAfterGc) {
     this()
-    this.default = default
+    this.projectName = projectName
     this.deleteChanges = deleteChanges
   }
 
-  val test: ScenarioBuilder = scenario(unique)
+  val test: ScenarioBuilder = scenario(uniqueName)
     .feed(data)
     .exec(httpRequest
       .body(ElFileBody(body)).asJson
@@ -56,7 +56,7 @@ class CreateChangesTriggeringGc extends ProjectSimulation {
       session
     })
 
-  private val checkStatsUpToGc = new CheckProjectStatisticsUpToGc(default)
+  private val checkStatsUpToGc = new CheckProjectStatisticsUpToGc(projectName)
   private var deleteChanges = new DeleteChangesAfterGc
 
   setUp(

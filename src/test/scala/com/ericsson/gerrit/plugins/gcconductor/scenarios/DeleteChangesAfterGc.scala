@@ -31,12 +31,12 @@ class DeleteChangesAfterGc extends GerritSimulation {
 
   override def relativeRuntimeWeight: Int = (secondsToDeleted + SecondsPerWeightUnit) / SecondsPerWeightUnit
 
-  val test: ScenarioBuilder = scenario(unique)
+  val test: ScenarioBuilder = scenario(uniqueName)
     .feed(data)
     .exec(session => {
       val numbered: Session = session.set(numberKey, upToNumber)
       upToNumber -= 1
       numbered
     })
-    .exec(http(unique).delete("${url}${" + numberKey + "}"))
+    .exec(http(uniqueName).delete("${url}${" + numberKey + "}"))
 }
