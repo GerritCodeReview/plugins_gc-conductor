@@ -75,7 +75,7 @@ Once the executor is built, the resulting postgresql jar file like below
 should be manually copied over to the gerrit site /lib folder; on macOS:
 
 ```
-  bazel-out/darwin-fastbuild/bin/gc-executor.runfiles/gc_executor/external/postgresql/jar/postgresql-42.2.5.jar
+  bazel-out/darwin-fastbuild/bin/gc-executor.runfiles/gc_executor/external/postgresql/jar/postgresql-42.2.16.jar
 ```
 
 That file has to be in accordance with potentially existing database driver

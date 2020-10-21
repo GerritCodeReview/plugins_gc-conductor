@@ -7,18 +7,18 @@ def external_plugin_deps():
         sha1 = "92edc22a9ab2f3e17c9bf700aaee377d50e8b530",
     )
 
-    SLF4J_VERS = "1.7.26"
+    SLF4J_VERS = "1.7.30"
 
     maven_jar(
         name = "slf4j-api",
         artifact = "org.slf4j:slf4j-api:" + SLF4J_VERS,
-        sha1 = "77100a62c2e6f04b53977b9f541044d7d722693d",
+        sha1 = "b5a4b6d16ab13e34a88fae84c35cd5d68cac922c",
     )
 
     maven_jar(
         name = "slf4j-ext",
         artifact = "org.slf4j:slf4j-ext:" + SLF4J_VERS,
-        sha1 = "31cdf122e000322e9efcb38913e9ab07825b17ef",
+        sha1 = "595d5dabfeb29244b8c91776898cee78299080d5",
     )
 
     LOG4J2_VERS = "2.11.1"
@@ -43,8 +43,8 @@ def external_plugin_deps():
 
     maven_jar(
         name = "postgresql",
-        artifact = "org.postgresql:postgresql:42.2.5",
-        sha1 = "951b7eda125f3137538a94e2cbdcf744088ad4c2",
+        artifact = "org.postgresql:postgresql:42.2.16",
+        sha1 = "a9ee12f737bd5dc7d046e4c065e391d38d6a3cfc",
     )
 
     maven_jar(
@@ -128,28 +128,40 @@ def external_plugin_deps():
         sha1 = "0e0845217c4907822403912ad6828d8e0b256208",
     )
 
-    TESTCONTAINERS_VERS = "1.14.3"
+    maven_jar(
+        name = "docker-java-api",
+        artifact = "com.github.docker-java:docker-java-api:3.2.5",
+        sha1 = "8fe5c5e39f940ce58620e77cedc0a2a52d76f9d8",
+    )
+
+    maven_jar(
+        name = "docker-java-transport-zerodep",
+        artifact = "com.github.docker-java:docker-java-transport-zerodep:3.2.5",
+        sha1 = "7fca5e1998c889d486b01695f098ecf760a4ac90",
+    )
+
+    TESTCONTAINERS_VERS = "1.15.0-rc2"
 
     maven_jar(
         name = "testcontainers",
         artifact = "org.testcontainers:testcontainers:" + TESTCONTAINERS_VERS,
-        sha1 = "071fc82ba663f469447a19434e7db90f3a872753",
+        sha1 = "f818b00ee47532c38b418e677a818ad4dca19db6",
     )
 
     maven_jar(
         name = "testcontainers-database-commons",
         artifact = "org.testcontainers:database-commons:" + TESTCONTAINERS_VERS,
-        sha1 = "fdc353bc113e74d94556bf73360a0716412a9ba6",
+        sha1 = "3a4b0e797371c1cf67955c2cfd52aeb2e7ef43a7",
     )
 
     maven_jar(
         name = "testcontainers-jdbc",
         artifact = "org.testcontainers:jdbc:" + TESTCONTAINERS_VERS,
-        sha1 = "c0c1ae2978da65455414fa433afd6d15d777b4f8",
+        sha1 = "fca8c19241cdcb1dbb8843f3545f466ada45a6dc",
     )
 
     maven_jar(
         name = "testcontainers-postgres",
         artifact = "org.testcontainers:postgresql:" + TESTCONTAINERS_VERS,
-        sha1 = "08844cf0cb612047a1b632e1b64b25fe58dc4083",
+        sha1 = "5e20e984e2bef63fb844f6d8e942a8a03066a4bf",
     )
