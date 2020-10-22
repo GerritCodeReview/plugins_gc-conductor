@@ -85,6 +85,24 @@
       "message": "Builds and passes tests both in tree and standalone",
       "revId": "836a025873caccd845d8b25ef85d91941d2fc0f0",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "538ceec1_376fb1ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-10-22T20:44:36Z",
+      "side": 1,
+      "message": "Thanks for the help.",
+      "parentUuid": "4caaf020_cbed4bd1",
+      "revId": "836a025873caccd845d8b25ef85d91941d2fc0f0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
