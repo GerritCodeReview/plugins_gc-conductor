@@ -16,6 +16,23 @@
       "message": "I need to manually verify this change locally, as CI doesn\u0027t support docker testcontainers. Your CR is still welcome in the meantime; thanks.",
       "revId": "836a025873caccd845d8b25ef85d91941d2fc0f0",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "293efb53_887adc20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-10-22T18:56:20Z",
+      "side": 1,
+      "message": "@Khang, can you please verify this change, using both standalone and in-tree bazel modes? I\u0027m unable to do so, as testcontainers with docker on macOS are currently broken. Note that you\u0027ll need postgres installed and running locally to do that. See plugin\u0027s documentation for \"instructions\".\n\nI pushed the follow-up WIP change, but I\u0027m still unable to get it to pass locally. -Could be because those as a pair (on macOS) are still broken despite latest release candidates...",
+      "revId": "836a025873caccd845d8b25ef85d91941d2fc0f0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
