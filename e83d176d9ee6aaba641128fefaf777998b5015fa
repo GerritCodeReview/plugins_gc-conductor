@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28cdd6fd_bfd6a73c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-10-22T19:23:55Z",
+      "side": 1,
+      "message": "Fails with [1,2] in-tree and [3,4] in (bazel) standalone mode locally. -Could be caused by the currently broken match of testcontainers and docker for macOS, despite release candidates.\n\n[1] com.ericsson.gerrit.plugins.gcconductor.postgresqueue.PostgresModuleTest\njava.lang.NoSuchMethodError: org.testcontainers.utility.DockerImageName.parse(Ljava/lang/String;)Lorg/testcontainers/utility/DockerImageName;\n        at org.testcontainers.containers.PostgreSQLContainer.\u003cclinit\u003e(PostgreSQLContainer.java:21)\n(...)\n\n[2] com.ericsson.gerrit.plugins.gcconductor.postgresqueue.PostgresQueueTest\njava.lang.NoClassDefFoundError: Could not initialize class org.testcontainers.containers.PostgreSQLContainer\n        at com.ericsson.gerrit.plugins.gcconductor.postgresqueue.TestUtil.newContainer(TestUtil.java:29)\n(...)\n\n[3] com.ericsson.gerrit.plugins.gcconductor.postgresqueue.PostgresModuleTest\njava.lang.NoClassDefFoundError: com/github/dockerjava/api/exception/DockerException\n        at com.ericsson.gerrit.plugins.gcconductor.postgresqueue.TestUtil.newContainer(TestUtil.java:29)\n(...)\n\n[4] com.ericsson.gerrit.plugins.gcconductor.postgresqueue.PostgresQueueTest\njava.lang.NoClassDefFoundError: com/github/dockerjava/api/exception/DockerException\n        at com.ericsson.gerrit.plugins.gcconductor.postgresqueue.TestUtil.newContainer(TestUtil.java:29)\n(...)",
+      "revId": "e83d176d9ee6aaba641128fefaf777998b5015fa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
