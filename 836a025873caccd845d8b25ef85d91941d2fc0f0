@@ -50,6 +50,24 @@
       "message": "I had no problems with in-tree build and test. Standlone build fails on the updated bazlets with no such package error.",
       "revId": "836a025873caccd845d8b25ef85d91941d2fc0f0",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4caaf020_cbed4bd1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-10-22T20:35:39Z",
+      "side": 1,
+      "message": "You need to check Iff3b8626 out locally, then amend plugin\u0027s WORKSPACE local_path -so it points to that local checkout location.",
+      "parentUuid": "81c63434_2c8cb5f4",
+      "revId": "836a025873caccd845d8b25ef85d91941d2fc0f0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
