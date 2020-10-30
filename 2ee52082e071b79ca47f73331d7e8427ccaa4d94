@@ -16,6 +16,23 @@
       "message": "@Khang, this one would need both modes verification and CR from you, please; thanks...",
       "revId": "2ee52082e071b79ca47f73331d7e8427ccaa4d94",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b9c9122_ce2b3f2a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-10-30T13:13:43Z",
+      "side": 1,
+      "message": "Trivial change identical to other previously approved changes, needed to continue upstream merges timely. Core already has this upgrade in and up to master.",
+      "revId": "2ee52082e071b79ca47f73331d7e8427ccaa4d94",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
