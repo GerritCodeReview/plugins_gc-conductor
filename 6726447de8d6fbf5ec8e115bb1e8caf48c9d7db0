@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70d157f5_d97bb7b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-11-16T22:38:06Z",
+      "side": 1,
+      "message": "@Khang, can you also pass plugin tests in both modes with this change?",
+      "revId": "6726447de8d6fbf5ec8e115bb1e8caf48c9d7db0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
