@@ -16,6 +16,24 @@
       "message": "@Khang, can you also pass plugin tests in both modes with this change?",
       "revId": "6726447de8d6fbf5ec8e115bb1e8caf48c9d7db0",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0580c571_2e4a318a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-11-16T22:49:00Z",
+      "side": 1,
+      "message": "\u003e @Khang, can you also pass plugin tests in both modes with this change?\n\nYou may need the companion core change for in-tree, as opposed to stand-alone.",
+      "parentUuid": "70d157f5_d97bb7b5",
+      "revId": "6726447de8d6fbf5ec8e115bb1e8caf48c9d7db0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
