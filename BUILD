@@ -87,7 +87,10 @@ java_library(
     exports = EXECUTOR_DEPS + PLUGIN_DEPS + PLUGIN_TEST_DEPS + [
         ":gc-conductor__plugin",
         ":gc-executor_lib",
+        "@docker-java-api//jar",
+        "@docker-java-transport//jar",
         "@duct_tape//jar",
+        "@jackson-annotations//jar",
         "@jna//jar",
         "@testcontainers-database-commons//jar",
         "@testcontainers-jdbc//jar",
