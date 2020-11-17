@@ -51,6 +51,24 @@
       "message": "Passes tests standalone and in-tree only with core change",
       "revId": "6726447de8d6fbf5ec8e115bb1e8caf48c9d7db0",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c6b68bd_30efa3db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-11-17T14:06:25Z",
+      "side": 1,
+      "message": "\u003e Passes tests standalone and in-tree only with core change\n\nThanks for having confirmed.",
+      "parentUuid": "8bddbc3b_842f27af",
+      "revId": "6726447de8d6fbf5ec8e115bb1e8caf48c9d7db0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
