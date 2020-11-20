@@ -16,6 +16,23 @@
       "message": "Requires the companion core change for this same branch, to pass plugin tests in both modes (for me locally).",
       "revId": "6fefd50900f3e9edc4db0e3294d490ef51181c01",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23d3a909_627559e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-11-20T13:46:59Z",
+      "side": 1,
+      "message": "Can merge now since core changes merged.",
+      "revId": "6fefd50900f3e9edc4db0e3294d490ef51181c01",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
