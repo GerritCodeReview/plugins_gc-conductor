@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5578e178_704683c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-11-20T20:35:28Z",
+      "side": 1,
+      "message": "Passes plugin tests in both modes locally with its co-tagged, stable-3.1 core change.",
+      "revId": "b72d5bd42226e1b21ab788feb008bcad91b71e86",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
