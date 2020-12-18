@@ -128,21 +128,21 @@ def external_plugin_deps():
         sha1 = "0e0845217c4907822403912ad6828d8e0b256208",
     )
 
-    DOCKER_JAVA_VERS = "3.2.5"
+    DOCKER_JAVA_VERS = "3.2.7"
 
     maven_jar(
         name = "docker-java-api",
         artifact = "com.github.docker-java:docker-java-api:" + DOCKER_JAVA_VERS,
-        sha1 = "8fe5c5e39f940ce58620e77cedc0a2a52d76f9d8",
+        sha1 = "81408fc988c229ea11354fee9902c47842343f04",
     )
 
     maven_jar(
         name = "docker-java-transport",
         artifact = "com.github.docker-java:docker-java-transport:" + DOCKER_JAVA_VERS,
-        sha1 = "27af0ee7ebc2f5672e23ea64769497b5d55ce3ac",
+        sha1 = "315903a129f530422747efc163dd255f0fa2555e",
     )
 
-    # https://github.com/docker-java/docker-java/blob/3.2.5/pom.xml#L61
+    # https://github.com/docker-java/docker-java/blob/3.2.7/pom.xml#L61
     # <=> DOCKER_JAVA_VERS
     maven_jar(
         name = "jackson-annotations",
@@ -150,28 +150,28 @@ def external_plugin_deps():
         sha1 = "0f63b3b1da563767d04d2e4d3fc1ae0cdeffebe7",
     )
 
-    TESTCONTAINERS_VERS = "1.15.0"
+    TESTCONTAINERS_VERS = "1.15.1"
 
     maven_jar(
         name = "testcontainers",
         artifact = "org.testcontainers:testcontainers:" + TESTCONTAINERS_VERS,
-        sha1 = "b627535b444d88e7b14953bb953d80d9b7b3bd76",
+        sha1 = "91e6dfab8f141f77c6a0dd147a94bd186993a22c",
     )
 
     maven_jar(
         name = "testcontainers-database-commons",
         artifact = "org.testcontainers:database-commons:" + TESTCONTAINERS_VERS,
-        sha1 = "bc52637643da33f8fadfb6220cb59a7d8da37325",
+        sha1 = "8df5154407220beeb3233b5ec3aa89b1febd388b",
     )
 
     maven_jar(
         name = "testcontainers-jdbc",
         artifact = "org.testcontainers:jdbc:" + TESTCONTAINERS_VERS,
-        sha1 = "3626ed0746c94b337b1872afa90331bf9e2e6e16",
+        sha1 = "39b11e5451182a1bc6a2bb50deca0986df2519c6",
     )
 
     maven_jar(
         name = "testcontainers-postgres",
         artifact = "org.testcontainers:postgresql:" + TESTCONTAINERS_VERS,
-        sha1 = "25daf6c0dd1d52e4a1b899c5b3e07b71d382c7ba",
+        sha1 = "dc8f763e6307bee635adfc6c31aebd7092215d6d",
     )
