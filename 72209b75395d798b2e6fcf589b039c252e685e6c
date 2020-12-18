@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b031260b_b3a1e2e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-12-18T20:47:00Z",
+      "side": 1,
+      "message": "Depends on core [1] https://gerrit-review.googlesource.com/c/gerrit/+/291884",
+      "revId": "72209b75395d798b2e6fcf589b039c252e685e6c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
