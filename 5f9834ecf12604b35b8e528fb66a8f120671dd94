@@ -70,6 +70,24 @@
       "parentUuid": "dff7d573_18c19c25",
       "revId": "5f9834ecf12604b35b8e528fb66a8f120671dd94",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4720f155_65dd2aae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1025452
+      },
+      "writtenOn": "2021-01-15T09:19:56Z",
+      "side": 1,
+      "message": "I have figured out that it is about JVM - forgot to switch to Java8 before calling bazel and it failed ;)",
+      "parentUuid": "a7deab53_bc21deca",
+      "revId": "5f9834ecf12604b35b8e528fb66a8f120671dd94",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
