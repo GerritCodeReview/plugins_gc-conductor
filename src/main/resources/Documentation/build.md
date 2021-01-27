@@ -1,13 +1,9 @@
 Build
 =====
 
-This plugin is built with Bazel and two build modes are supported:
+This plugin is built with Bazel.
 
-* Standalone
-* In Gerrit tree.
-
-Standalone build mode is recommended, as this mode doesn't require local Gerrit
-tree to exist. This plugin has a side component, gc-executor, to build as well.
+This plugin has a side component, gc-executor, to build as well.
 
 Successfully running some of the tests requires Docker,
 which are skipped if Docker is not available.
@@ -15,58 +11,18 @@ which are skipped if Docker is not available.
 Bazel currently does not show
 link:https://github.com/bazelbuild/bazel/issues/3476[skipped tests].
 
-## Build standalone
-
-To build the plugin, issue the following command:
-
-```
-  bazel build @PLUGIN@
-```
-
-The output is created in
-
-```
-  bazel-bin/@PLUGIN@.jar
-```
-
-To package the plugin sources run:
-
-```
-  bazel build lib@PLUGIN@__plugin-src.jar
-```
-
-The output is created in:
-
-```
-  bazel-bin/lib@PLUGIN@__plugin-src.jar
-```
-
-To execute the tests run:
-
-```
-  bazel test //...
-```
-
-This project can be imported into the Eclipse IDE. Execute:
-
-```
-  ./tools/eclipse/project.py
-```
-
-to generate the required files and then import the project.
-
 ## Building gc-executor
 
 To build the executor, issue the following command:
 
 ```
-  bazel build gc-executor_deploy.jar
+  bazel build plugins/@PLUGIN@:gc-executor_deploy.jar
 ```
 
 The output is created in:
 
 ```
-  bazel-bin/gc-executor_deploy.jar
+  bazel-bin/plugins/@PLUGIN@/gc-executor_deploy.jar
 ```
 
 This jar should be renamed to gc-executor.jar before deployment.
@@ -75,7 +31,7 @@ Once the executor is built, the resulting postgresql jar file like below
 should be manually copied over to the gerrit site /lib folder; on macOS:
 
 ```
-  bazel-out/darwin-fastbuild/bin/gc-executor.runfiles/gc_executor/external/postgresql/jar/postgresql-42.2.5.jar
+  bazel-out/darwin-fastbuild/bin/plugins/@PLUGIN@/gc-executor.runfiles/postgresql/jar/postgresql-42.2.5.jar
 ```
 
 That file has to be in accordance with potentially existing database driver
