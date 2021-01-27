@@ -1,12 +1,9 @@
 # LC_COLLATE=C sort
 /.apt_generated/
 /.classpath
-/.primary_build_tool
 /.project
 /.settings/
-/bazel-*
 /bin/gc-executor-pid
-/eclipse-out/
 /gc-executor.jar
 /gc.config
 /startup.log
