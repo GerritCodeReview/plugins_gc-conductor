@@ -1,59 +1,15 @@
 Build
 =====
 
-This plugin is built with Bazel and two build modes are supported:
+This plugin is built with Bazel.
 
-* Standalone
-* In Gerrit tree.
-
-Standalone build mode is recommended, as this mode doesn't require local Gerrit
-tree to exist. This plugin has a side component, gc-executor, to build as well.
+This plugin has a side component, gc-executor, to build as well.
 
 Successfully running some of the tests requires Docker,
 which are skipped if Docker is not available.
 
 Bazel currently does not show
 link:https://github.com/bazelbuild/bazel/issues/3476[skipped tests].
-
-## Build standalone
-
-To build the plugin, issue the following command:
-
-```
-  bazel build @PLUGIN@
-```
-
-The output is created in
-
-```
-  bazel-bin/@PLUGIN@.jar
-```
-
-To package the plugin sources run:
-
-```
-  bazel build lib@PLUGIN@__plugin-src.jar
-```
-
-The output is created in:
-
-```
-  bazel-bin/lib@PLUGIN@__plugin-src.jar
-```
-
-To execute the tests run:
-
-```
-  bazel test //...
-```
-
-This project can be imported into the Eclipse IDE. Execute:
-
-```
-  ./tools/eclipse/project.py
-```
-
-to generate the required files and then import the project.
 
 ## Building gc-executor
 
