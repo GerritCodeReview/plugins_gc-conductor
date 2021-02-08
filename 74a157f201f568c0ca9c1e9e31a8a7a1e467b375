@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c92b532_159ca1e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1025452
+      },
+      "writtenOn": "2021-02-08T15:09:28Z",
+      "side": 1,
+      "message": "Verified locally the bazlets upgrade.",
+      "revId": "74a157f201f568c0ca9c1e9e31a8a7a1e467b375",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
