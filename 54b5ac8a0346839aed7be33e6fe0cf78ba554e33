@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b1dc4d6_6f2354b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1025452
+      },
+      "writtenOn": "2021-02-08T14:21:57Z",
+      "side": 1,
+      "message": "Verified locally by calling:\nbazel clean --expunge \u0026\u0026 bazel test //...\n\nMental note to myself: it depends on \u0027testcontainers/ryuk:0.3.0\u0027 docker image that needs to be pulled manually before testing",
+      "revId": "54b5ac8a0346839aed7be33e6fe0cf78ba554e33",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
