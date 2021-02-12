@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ec8e623_87270315",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-12T22:12:56Z",
+      "side": 1,
+      "message": "Adding to the hereby comments, this change should also\n- amend the .gitignore file accordingly,\n- remove the bazlets.bzl file, and\n- score a manual Verified vote based on building and passing plugin tests in-tree.\n\nThanks for working on this! 😊",
+      "revId": "ad16bf9d9bdd9768ff1c50dbd53577ff079d44af",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "042b6443_40a02419",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-12T22:12:56Z",
+      "side": 1,
+      "message": "This addition looks unrelated, as well. Another follow-up change?",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 0
+      },
+      "revId": "ad16bf9d9bdd9768ff1c50dbd53577ff079d44af",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "449f34df_dd0dfe1b",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-12T22:12:56Z",
+      "side": 1,
+      "message": "Extra (unrelated) blank line introduced?",
+      "revId": "ad16bf9d9bdd9768ff1c50dbd53577ff079d44af",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
