@@ -41,6 +41,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e752259b_cf649589",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-02-15T13:21:27Z",
+      "side": 1,
+      "message": "Before this change, building the plugin sources command exists only in standalone build and is not mentioned in Gerrit in-tree build mode. It is a refactor to not loose information. Therefore, it can be done in a follow-up change.",
+      "parentUuid": "042b6443_40a02419",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 0
+      },
+      "revId": "ad16bf9d9bdd9768ff1c50dbd53577ff079d44af",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "449f34df_dd0dfe1b",
@@ -54,6 +78,24 @@
       "writtenOn": "2021-02-12T22:12:56Z",
       "side": 1,
       "message": "Extra (unrelated) blank line introduced?",
+      "revId": "ad16bf9d9bdd9768ff1c50dbd53577ff079d44af",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fa95f4c_df760f0c",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-02-15T13:21:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "449f34df_dd0dfe1b",
       "revId": "ad16bf9d9bdd9768ff1c50dbd53577ff079d44af",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
