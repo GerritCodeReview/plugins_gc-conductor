@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6058a8ca_b0ba23cf",
+        "filename": ".gitignore",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-16T20:50:57Z",
+      "side": 1,
+      "message": "This should be safe to remove, now that there is no locally supported eclipse project anymore.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 9
+      },
+      "revId": "810f8251ae5d32fa4dd62206d1ac5ecbac2f2d58",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "656f0909_6a6e24da",
@@ -31,6 +54,64 @@
       "writtenOn": "2021-02-16T15:10:23Z",
       "side": 1,
       "message": "The build is successful for gc-conductor and gc-executor . When I run the tests locally, it fails because of docker. I am not able to run the tests with docker run it says it needs bazel version 4.0.0 but it doesn\u0027t find it even when using bazel:latest like mentioned in [2].\n[2]: https://docs.bazel.build/versions/4.0.0/bazel-container.html \n",
+      "revId": "810f8251ae5d32fa4dd62206d1ac5ecbac2f2d58",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb4081a4_c4125aa8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-16T20:50:57Z",
+      "side": 1,
+      "message": "\u003e The build is successful for gc-conductor and gc-executor . When I run the tests locally, it fails because of docker. I am not able to run the tests with docker run it says it needs bazel version 4.0.0 but it doesn\u0027t find it even when using bazel:latest like mentioned in [2].\n\u003e [2]: https://docs.bazel.build/versions/4.0.0/bazel-container.html\n\nWe usually score VR+1 only if both the plugin build and tests pass.\n\nI\u0027m not sure I understand what you meant above, based on your specific(?) way of running the tests.",
+      "parentUuid": "15300041_aacf535e",
+      "revId": "810f8251ae5d32fa4dd62206d1ac5ecbac2f2d58",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23451cf9_92c47fb3",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-16T20:50:57Z",
+      "side": 1,
+      "message": "Would mention this related adaptation in the commit message.",
+      "range": {
+        "startLine": 19,
+        "startChar": 14,
+        "endLine": 25,
+        "endChar": 28
+      },
+      "revId": "810f8251ae5d32fa4dd62206d1ac5ecbac2f2d58",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1009d39e_1d65386b",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-16T20:50:57Z",
+      "side": 1,
+      "message": "Is this path still accurate, now that the above lines 19 and 25 have to be adapted for in-tree only?",
       "revId": "810f8251ae5d32fa4dd62206d1ac5ecbac2f2d58",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }

@@ -18,6 +18,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c39d772_026b50e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-16T20:50:57Z",
+      "side": 1,
+      "message": "\u003e Adding to the hereby comments, this change should also\n\u003e - amend the .gitignore file accordingly,\n\u003e - remove the bazlets.bzl file, and\n\nDone.\n\n\u003e - score a manual Verified vote based on building and passing plugin tests in-tree.\n\u003e \n\u003e Thanks for working on this! 😊",
+      "parentUuid": "9ec8e623_87270315",
+      "revId": "ad16bf9d9bdd9768ff1c50dbd53577ff079d44af",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "042b6443_40a02419",
