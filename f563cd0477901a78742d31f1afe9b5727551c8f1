@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5a8c500_76d440da",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-16T15:36:56Z",
+      "side": 1,
+      "message": "Why was the whole section moved up, I see that there is only 2 new sections added.",
+      "revId": "f563cd0477901a78742d31f1afe9b5727551c8f1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
