@@ -61,6 +61,18 @@ The output is created in
   bazel-bin/plugins/@PLUGIN@/@PLUGIN@.jar
 ```
 
+To package the plugin sources run:
+
+```
+  bazel build plugins/@PLUGIN@:lib@PLUGIN@__plugin-src.jar
+```
+
+The output is created in:
+
+```
+  bazel-bin/plugins/@PLUGIN@/lib@PLUGIN@__plugin-src.jar
+```
+
 To execute the tests run:
 
 ```
