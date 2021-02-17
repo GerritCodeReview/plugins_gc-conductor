@@ -41,6 +41,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e16aa71b_88d7d9d2",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-02-17T13:49:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b969843b_6006c152",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 1
+      },
+      "revId": "f563cd0477901a78742d31f1afe9b5727551c8f1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5a8c500_76d440da",
@@ -108,6 +132,24 @@
       "side": 1,
       "message": "This move makes it hard for us reviewers to separate the trivial moves from the potentially amended lines, as both maybe happen in this same change. -Split?",
       "parentUuid": "b0de4191_edde1ac2",
+      "revId": "f563cd0477901a78742d31f1afe9b5727551c8f1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa0e191e_7f4c6c98",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-02-17T13:49:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "355b63eb_f54ff27f",
       "revId": "f563cd0477901a78742d31f1afe9b5727551c8f1",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
