@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "73f2a847_87845b5b",
+        "filename": ".gitignore",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-02-17T13:19:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6058a8ca_b0ba23cf",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 9
+      },
+      "revId": "810f8251ae5d32fa4dd62206d1ac5ecbac2f2d58",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "656f0909_6a6e24da",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -76,6 +100,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9bcb6c8_6448f0b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-02-17T13:19:36Z",
+      "side": 1,
+      "message": "My comment above is outdated. I wasn\u0027t able to run the test properly for gc-conductor. I wrote it before @Khang helped me with the docker issue",
+      "parentUuid": "fb4081a4_c4125aa8",
+      "revId": "810f8251ae5d32fa4dd62206d1ac5ecbac2f2d58",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23451cf9_92c47fb3",
@@ -99,6 +141,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "71ac8e3a_82b0ebc5",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-02-17T13:19:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23451cf9_92c47fb3",
+      "range": {
+        "startLine": 19,
+        "startChar": 14,
+        "endLine": 25,
+        "endChar": 28
+      },
+      "revId": "810f8251ae5d32fa4dd62206d1ac5ecbac2f2d58",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1009d39e_1d65386b",
@@ -112,6 +178,24 @@
       "writtenOn": "2021-02-16T20:50:57Z",
       "side": 1,
       "message": "Is this path still accurate, now that the above lines 19 and 25 have to be adapted for in-tree only?",
+      "revId": "810f8251ae5d32fa4dd62206d1ac5ecbac2f2d58",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19b77e2d_f3e3ac5c",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-02-17T13:19:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1009d39e_1d65386b",
       "revId": "810f8251ae5d32fa4dd62206d1ac5ecbac2f2d58",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
