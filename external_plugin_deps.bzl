@@ -98,13 +98,6 @@ def external_plugin_deps():
     )
 
     maven_jar(
-        name = "jgit",
-        artifact =
-            "org.eclipse.jgit:org.eclipse.jgit:5.9.0.202009080501-r",
-        sha1 = "00a5f08c5bdc5227e69882324d1f117572105649",
-    )
-
-    maven_jar(
         name = "javaewah",
         artifact = "com.googlecode.javaewah:JavaEWAH:1.1.6",
         sha1 = "94ad16d728b374d65bd897625f3fbb3da223a2b6",

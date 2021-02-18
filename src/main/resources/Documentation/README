@@ -1,0 +1,28 @@
+#!/bin/bash
+#
+# Example usage only-
+# ./README site $HOME /usr/lib/jvm/java-8-openjdk-amd64
+
+if [ $# -lt 3 ]; then
+  exit
+fi
+site=$1
+path=$2/$site
+jdk=$3
+
+jar=gc-executor
+deployed="$jar"_deploy
+underscored=${jar/-/_}
+
+cd ../../../..
+bazel build $deployed.jar \
+  && cp bazel-bin/$deployed.jar $jar.jar \
+  && chmod +w $jar.jar \
+  && cp bazel-out/k8-fastbuild/bin/$jar.runfiles/$underscored/external/postgresql/jar/postgresql-42.2.5.jar \
+    "$path"/lib/ \
+  && printf "[jvm]\n  javaHome = %s\n" "$jdk" > gc.config \
+  && printf "\n[evaluation]\n  repositoriesPath = %s/git\n" "$path" >> gc.config \
+  && ./bin/gc_ctl restart \
+  && ./bin/gc_ctl status \
+  && ./bin/gc_ctl
+tail -f startup.log
