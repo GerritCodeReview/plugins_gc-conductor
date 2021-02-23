@@ -26,8 +26,9 @@ class CreateChangesTriggeringGc extends ProjectSimulation {
   private val data: FeederBuilder = jsonFile(resource).convert(keys).circular
   private val numberKey = "_number"
 
-  lazy val DefaultSecondsToNextEvaluation = 60
-  private lazy val DefaultLooseObjectsToEnqueueGc = 400
+  private lazy val timeMultiplier = getProperty("timemultiplier", 1)
+  lazy val DefaultSecondsToNextEvaluation = timeMultiplier * 60
+  private lazy val DefaultLooseObjectsToEnqueueGc = getProperty("looseobjects", 400)
   private lazy val LooseObjectsPerChange = 2
   private lazy val ChangesMultiplier = 8
   lazy val changesPerSecond: Int = 4 * ChangesMultiplier
@@ -58,6 +59,21 @@ class CreateChangesTriggeringGc extends ProjectSimulation {
 
   private val checkStatsUpToGc = new CheckProjectStatisticsUpToGc(projectName)
   private var deleteChanges = new DeleteChangesAfterGc
+
+  protected def getProperty(term: String, default: Any): Int = {
+    val property = getClass.getPackage.getName + "." + term
+    var value = default
+    default match {
+      case _: String | _: Double =>
+        val propertyValue = Option(System.getProperty(property))
+        if (propertyValue.nonEmpty) {
+          value = propertyValue.get
+        }
+      case _: Integer =>
+        value = Integer.getInteger(property, default.asInstanceOf[Integer])
+    }
+    value.toString.toInt
+  }
 
   setUp(
     test.inject(
