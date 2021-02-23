@@ -25,3 +25,26 @@ stored under the usual src/test directories. That structure follows the
 scala package one from the scenario classes. The core framework expects
 such a directory structure for both the scala and resources (json data)
 files.
+
+There are two environment properties that can be configured:
+
+The ```minute_multiplier``` property defines a value that get
+multiplied by 60 to represent the time needed by the test before
+creating the last change which triggers the plugin. Its default is ```1```
+and can be set using another value:
+
+```bash
+   -Dcom.ericsson.gerrit.plugins.gcconductor.scenarios.minute_multiplier=1
+```
+
+The ```loose_objects``` property represents the value of loose objects
+required to trigger garbage collection. Its default value is ```400``` and
+can be set using another value:
+
+```bash
+   -Dcom.ericsson.gerrit.plugins.gcconductor.scenarios.loose_objects=400
+```
+
+This value will then be multiplied by 4 during the test. Therefore the
+product must be high enough in order to trigger garbage collection.
+
