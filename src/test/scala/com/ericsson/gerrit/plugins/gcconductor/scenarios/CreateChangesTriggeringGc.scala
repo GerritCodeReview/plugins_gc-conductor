@@ -26,8 +26,9 @@ class CreateChangesTriggeringGc extends ProjectSimulation {
   private val data: FeederBuilder = jsonFile(resource).convert(keys).circular
   private val numberKey = "_number"
 
-  lazy val DefaultSecondsToNextEvaluation = 60
-  private lazy val DefaultLooseObjectsToEnqueueGc = 400
+  private lazy val timeMultiplier = getProperty("timemultiplier", 1).toInt
+  lazy val DefaultSecondsToNextEvaluation = timeMultiplier * 60
+  private lazy val DefaultLooseObjectsToEnqueueGc = getProperty("looseobjects", 400).toInt
   private lazy val LooseObjectsPerChange = 2
   private lazy val ChangesMultiplier = 8
   lazy val changesPerSecond: Int = 4 * ChangesMultiplier
