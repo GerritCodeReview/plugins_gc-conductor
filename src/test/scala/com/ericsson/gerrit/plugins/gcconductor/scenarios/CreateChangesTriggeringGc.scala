@@ -24,7 +24,6 @@ import scala.concurrent.duration._
 
 class CreateChangesTriggeringGc extends ProjectSimulation {
   private val data: FeederBuilder = jsonFile(resource).convert(keys).circular
-  private val numberKey = "_number"
 
   lazy val DefaultSecondsToNextEvaluation = 60
   private lazy val DefaultLooseObjectsToEnqueueGc = 400
@@ -50,7 +49,7 @@ class CreateChangesTriggeringGc extends ProjectSimulation {
     .feed(data)
     .exec(httpRequest
       .body(ElFileBody(body)).asJson
-      .check(regex("\"" + numberKey + "\":(\\d+),").saveAs(numberKey)))
+      .check(regex("\"" + "_" + numberKey + "\":(\\d+),").saveAs(numberKey)))
     .exec(session => {
       deleteChanges.upToNumber = session(numberKey).as[Int]
       session
