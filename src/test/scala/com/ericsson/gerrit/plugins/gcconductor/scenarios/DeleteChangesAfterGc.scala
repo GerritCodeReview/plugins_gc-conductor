@@ -22,7 +22,6 @@ import io.gatling.http.Predef.http
 
 class DeleteChangesAfterGc extends GerritSimulation {
   private val data: FeederBuilder = jsonFile(resource).convert(keys).circular
-  private val numberKey = "number"
   var upToNumber = 1
 
   private lazy val OrderOfChangesToDelete = 200
