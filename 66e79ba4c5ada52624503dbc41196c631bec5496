@@ -24,6 +24,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66282450_97c633d9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-03-10T17:15:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5ad3986_72a2ceb9",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 59
+      },
+      "revId": "66e79ba4c5ada52624503dbc41196c631bec5496",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d5f4a7d_3860b9a4",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-03-09T18:20:52Z",
       "side": 1,
       "message": "isn\u0027t the case anymore,\n\nSince when though? -Would add the plugin commit that changed this as a reference in here.",
+      "range": {
+        "startLine": 10,
+        "startChar": 52,
+        "endLine": 10,
+        "endChar": 66
+      },
+      "revId": "66e79ba4c5ada52624503dbc41196c631bec5496",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab6f03bb_dbcd26fa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-03-10T17:15:15Z",
+      "side": 1,
+      "message": "I couldn\u0027t find the exact commit which defines gc-conductor properties in the gerrit.config but I reference how every environment can have its own values for the plugin.",
+      "parentUuid": "7d5f4a7d_3860b9a4",
       "range": {
         "startLine": 10,
         "startChar": 52,
@@ -70,6 +118,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b20b1e5_59525ff6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-03-10T17:15:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "255da5bd_7f0b8878",
+      "range": {
+        "startLine": 14,
+        "startChar": 36,
+        "endLine": 14,
+        "endChar": 45
+      },
+      "revId": "66e79ba4c5ada52624503dbc41196c631bec5496",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "563850fa_ae930659",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-03-09T18:20:52Z",
       "side": 1,
       "message": "Redundant words.",
+      "range": {
+        "startLine": 14,
+        "startChar": 58,
+        "endLine": 15,
+        "endChar": 38
+      },
+      "revId": "66e79ba4c5ada52624503dbc41196c631bec5496",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96915585_f29442ab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-03-10T17:15:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "563850fa_ae930659",
       "range": {
         "startLine": 14,
         "startChar": 58,
@@ -116,6 +212,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "685380b8_ec9728f8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-03-10T17:15:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "649da409_c0f9f285",
+      "range": {
+        "startLine": 17,
+        "startChar": 10,
+        "endLine": 17,
+        "endChar": 51
+      },
+      "revId": "66e79ba4c5ada52624503dbc41196c631bec5496",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "716bdf7c_7703b7da",
@@ -139,6 +259,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1325c791_d8791d06",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-03-10T17:15:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "716bdf7c_7703b7da",
+      "range": {
+        "startLine": 21,
+        "startChar": 11,
+        "endLine": 21,
+        "endChar": 50
+      },
+      "revId": "66e79ba4c5ada52624503dbc41196c631bec5496",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0113ea41_7babd163",
@@ -152,6 +296,30 @@
       "writtenOn": "2021-03-09T18:20:52Z",
       "side": 1,
       "message": "Plugin\u0027s own default? -Would clarify.",
+      "range": {
+        "startLine": 23,
+        "startChar": 19,
+        "endLine": 23,
+        "endChar": 32
+      },
+      "revId": "66e79ba4c5ada52624503dbc41196c631bec5496",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa2c4877_9a7049f6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-03-10T17:15:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0113ea41_7babd163",
       "range": {
         "startLine": 23,
         "startChar": 19,
@@ -202,6 +370,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea5f263c_1e9c7291",
+        "filename": "src/test/scala/com/ericsson/gerrit/plugins/gcconductor/scenarios/CreateChangesTriggeringGc.scala",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-03-10T17:15:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1a99253_de0c2254",
+      "range": {
+        "startLine": 29,
+        "startChar": 19,
+        "endLine": 29,
+        "endChar": 33
+      },
+      "revId": "66e79ba4c5ada52624503dbc41196c631bec5496",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0797f13b_3eae1a5a",
@@ -225,6 +417,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "75df9859_649ccc2b",
+        "filename": "src/test/scala/com/ericsson/gerrit/plugins/gcconductor/scenarios/CreateChangesTriggeringGc.scala",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-03-10T17:15:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0797f13b_3eae1a5a",
+      "range": {
+        "startLine": 30,
+        "startChar": 11,
+        "endLine": 30,
+        "endChar": 41
+      },
+      "revId": "66e79ba4c5ada52624503dbc41196c631bec5496",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd12084e_2b4bb18e",
@@ -238,6 +454,24 @@
       "writtenOn": "2021-03-09T18:20:52Z",
       "side": 1,
       "message": "The new(?) properties introduced above are not documented by this change, say, within [2] below. See also [3] for how to do that.\n\nNote that [3] also shows what the naming convention should be, for such environment properties. You can get the corresponding coded samples in [4] mainly.\n\nAnd, maybe this val right above should be renamed, as it no longer sounds like being a solely Default one. Indeed, its previously coded value is now replaced with a potentially configured one. And camelCase should be used now if willing to set it to a getProperty return value like so.\n\n[2] https://gerrit.googlesource.com/plugins/gc-conductor/+/refs/heads/stable-3.1/src/test/\n\n[3] https://gerrit-documentation.storage.googleapis.com/Documentation/3.1.12/dev-e2e-tests.html#_environment_properties\n\n[4] https://gerrit.googlesource.com/gerrit/+/refs/heads/stable-3.1/e2e-tests/src/test/scala/com/google/gerrit/scenarios/GerritSimulation.scala",
+      "revId": "66e79ba4c5ada52624503dbc41196c631bec5496",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abc196ca_ec5e19bd",
+        "filename": "src/test/scala/com/ericsson/gerrit/plugins/gcconductor/scenarios/CreateChangesTriggeringGc.scala",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-03-10T17:15:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd12084e_2b4bb18e",
       "revId": "66e79ba4c5ada52624503dbc41196c631bec5496",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
