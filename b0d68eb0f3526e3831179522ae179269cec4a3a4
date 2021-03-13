@@ -24,6 +24,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9da76b6f_803b78a4",
+        "filename": "src/test/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-03-13T14:42:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3ee0a6f_3ebe8886",
+      "range": {
+        "startLine": 37,
+        "startChar": 73,
+        "endLine": 37,
+        "endChar": 74
+      },
+      "revId": "b0d68eb0f3526e3831179522ae179269cec4a3a4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f2e146b_30875613",
@@ -47,6 +71,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d1f9c91_742cb1ea",
+        "filename": "src/test/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-03-13T14:42:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f2e146b_30875613",
+      "range": {
+        "startLine": 45,
+        "startChar": 69,
+        "endLine": 45,
+        "endChar": 72
+      },
+      "revId": "b0d68eb0f3526e3831179522ae179269cec4a3a4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a00683f9_85568a5c",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-03-12T21:22:32Z",
       "side": 1,
       "message": "Not sure what this means exactly when considering the above example(s).",
+      "range": {
+        "startLine": 48,
+        "startChar": 24,
+        "endLine": 48,
+        "endChar": 39
+      },
+      "revId": "b0d68eb0f3526e3831179522ae179269cec4a3a4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b329d1b3_85881abc",
+        "filename": "src/test/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-03-13T14:42:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a00683f9_85568a5c",
       "range": {
         "startLine": 48,
         "startChar": 24,
