@@ -24,19 +24,19 @@ import scala.concurrent.duration._
 
 class CreateChangesTriggeringGc extends ProjectSimulation {
   private val data: FeederBuilder = jsonFile(resource).convert(keys).circular
-  private val numberKey = "_number"
 
-  lazy val DefaultSecondsToNextEvaluation = 60
-  private lazy val DefaultLooseObjectsToEnqueueGc = 400
+  private lazy val minuteMultiplier = getProperty("minute_multiplier", 1).toInt
+  lazy val secondsToNextEvaluation: Int = 60 * minuteMultiplier
+  private lazy val looseObjectsToEnqueueGc = getProperty("loose_objects", 400).toInt
   private lazy val LooseObjectsPerChange = 2
   private lazy val ChangesMultiplier = 8
   lazy val changesPerSecond: Int = 4 * ChangesMultiplier
   val ChangesForLastEvaluation: Int = single
 
   lazy val secondsForLastEvaluation: Int = SecondsPerWeightUnit
-  private lazy val changesToEnqueueGc = DefaultLooseObjectsToEnqueueGc * ChangesMultiplier / LooseObjectsPerChange
+  private lazy val changesToEnqueueGc = looseObjectsToEnqueueGc * ChangesMultiplier / LooseObjectsPerChange
   lazy val secondsToChanges: Int = changesToEnqueueGc / changesPerSecond
-  private lazy val maxSecondsToEnqueueGc = secondsToChanges + DefaultSecondsToNextEvaluation + secondsForLastEvaluation
+  private lazy val maxSecondsToEnqueueGc = secondsToChanges + secondsToNextEvaluation + secondsForLastEvaluation
 
   override def relativeRuntimeWeight: Int = maxSecondsToEnqueueGc / SecondsPerWeightUnit
 
@@ -50,7 +50,7 @@ class CreateChangesTriggeringGc extends ProjectSimulation {
     .feed(data)
     .exec(httpRequest
       .body(ElFileBody(body)).asJson
-      .check(regex("\"" + numberKey + "\":(\\d+),").saveAs(numberKey)))
+      .check(regex("\"_" + numberKey + "\":(\\d+),").saveAs(numberKey)))
     .exec(session => {
       deleteChanges.upToNumber = session(numberKey).as[Int]
       session
