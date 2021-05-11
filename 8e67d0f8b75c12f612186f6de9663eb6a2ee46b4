@@ -16,6 +16,24 @@
       "message": "Maybe couple of lines about why was it done differently?",
       "revId": "8e67d0f8b75c12f612186f6de9663eb6a2ee46b4",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ee51434_6ec2e5f8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-05-11T12:14:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41991d47_982024e4",
+      "revId": "8e67d0f8b75c12f612186f6de9663eb6a2ee46b4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
