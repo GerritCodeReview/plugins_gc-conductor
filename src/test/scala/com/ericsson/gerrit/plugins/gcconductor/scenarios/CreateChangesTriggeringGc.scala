@@ -63,7 +63,7 @@ class CreateChangesTriggeringGc extends ProjectSimulation {
     test.inject(
       nothingFor(stepWaitTime(this) seconds),
       constantUsersPerSec(changesPerSecond) during (secondsToChanges seconds),
-      nothingFor(DefaultSecondsToNextEvaluation seconds),
+      nothingFor(secondsToNextEvaluation seconds),
       nothingFor(secondsForLastEvaluation / 2 seconds),
       atOnceUsers(ChangesForLastEvaluation),
       nothingFor(secondsForLastEvaluation / 2 seconds)
