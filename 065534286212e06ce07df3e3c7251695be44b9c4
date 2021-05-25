@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a5c08b4_2d2a446b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-05-25T21:57:39Z",
+      "side": 1,
+      "message": "I have to check other dependencies such as docker-java (which usually matches this changed one). I also need to revisit the target branch choice, per the co-tagged core review.",
+      "revId": "065534286212e06ce07df3e3c7251695be44b9c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
