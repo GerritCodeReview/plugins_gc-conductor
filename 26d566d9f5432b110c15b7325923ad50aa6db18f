@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4789094_85da3210",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-05-26T19:18:07Z",
+      "side": 1,
+      "message": "@Khang, please approve (+2) instead of only scoring +1 if you agree with this change and above. Unless reviewed otherwise of course. Thanks.",
+      "revId": "26d566d9f5432b110c15b7325923ad50aa6db18f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
