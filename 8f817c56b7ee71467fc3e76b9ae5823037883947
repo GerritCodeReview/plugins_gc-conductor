@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcd61a77_bb8865e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-05-27T19:08:13Z",
+      "side": 1,
+      "message": "Depends on co-topic change\u0027s L-C score from (owned by) Google, hopefully soon. Especially since this plugin change is to align with that core change to do first. If core doesn\u0027t get in, then this change looses its alignment purpose.",
+      "revId": "8f817c56b7ee71467fc3e76b9ae5823037883947",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
