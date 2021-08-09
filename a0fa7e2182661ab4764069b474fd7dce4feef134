@@ -33,6 +33,24 @@
       "message": "@Marco do we still support the 2.16 branch of GC-conductor plugin?",
       "revId": "a0fa7e2182661ab4764069b474fd7dce4feef134",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8f9019e_38c51fe7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-08-09T17:42:22Z",
+      "side": 1,
+      "message": "\u003e @Marco do we still support the 2.16 branch of GC-conductor plugin?\n\nOnly if we need it for further 2.16-based patches, which may be likely.",
+      "parentUuid": "795a2b74_424d8df2",
+      "revId": "a0fa7e2182661ab4764069b474fd7dce4feef134",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
