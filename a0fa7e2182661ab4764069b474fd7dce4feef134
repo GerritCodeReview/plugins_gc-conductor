@@ -68,6 +68,23 @@
       "message": "Letting you guys review this change further; back next Monday if questions for me though.",
       "revId": "a0fa7e2182661ab4764069b474fd7dce4feef134",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be617b78_8e2d45da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-08-20T20:56:27Z",
+      "side": 1,
+      "message": "Letting @Nguyen and @Przemyslaw close this change",
+      "revId": "a0fa7e2182661ab4764069b474fd7dce4feef134",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
