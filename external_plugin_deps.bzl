@@ -52,24 +52,24 @@ def external_plugin_deps():
         sha1 = "595d5dabfeb29244b8c91776898cee78299080d5",
     )
 
-    LOG4J2_VERS = "2.11.1"
+    LOG4J2_VERS = "2.15.0"
 
     maven_jar(
         name = "log4j-slf4j-impl",
         artifact = "org.apache.logging.log4j:log4j-slf4j-impl:" + LOG4J2_VERS,
-        sha1 = "4b41b53a3a2d299ce381a69d165381ca19f62912",
+        sha1 = "8bb417869ab3baa19f2fc70e6d776d041f0a8ebc",
     )
 
     maven_jar(
         name = "log4j-core",
         artifact = "org.apache.logging.log4j:log4j-core:" + LOG4J2_VERS,
-        sha1 = "592a48674c926b01a9a747c7831bcd82a9e6d6e4",
+        sha1 = "f2816152056d217813a0740005af10d6221f25fd",
     )
 
     maven_jar(
         name = "log4j-api",
         artifact = "org.apache.logging.log4j:log4j-api:" + LOG4J2_VERS,
-        sha1 = "268f0fe4df3eefe052b57c87ec48517d64fb2a10",
+        sha1 = "78a758ed8d4c3b22969b34c000a8319bae79dac8",
     )
 
     maven_jar(
