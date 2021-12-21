@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97f360fa_bc3051e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1111258
+      },
+      "writtenOn": "2021-12-21T02:26:10Z",
+      "side": 1,
+      "message": "2.17.0 is available now, fixing another vulnerability.",
+      "revId": "535f15227c7882421083ecfb5c9e64b0fb0af2a0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
