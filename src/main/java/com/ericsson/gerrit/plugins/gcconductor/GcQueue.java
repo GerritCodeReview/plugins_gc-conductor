@@ -33,9 +33,10 @@ public interface GcQueue {
    *
    * @param repository The path to the repository.
    * @param queuedFrom The hostname from which the repository is queued from.
+   * @param isAggressive sets gc mode to aggressive or non-aggressive.
    * @throws GcQueueException if an error occur while adding the repository.
    */
-  void add(String repository, String queuedFrom) throws GcQueueException;
+  void add(String repository, String queuedFrom, boolean isAggressive) throws GcQueueException;
 
   /**
    * Pick a repository from the queue.
