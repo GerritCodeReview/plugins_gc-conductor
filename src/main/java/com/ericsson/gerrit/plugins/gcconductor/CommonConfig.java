@@ -27,6 +27,7 @@ public abstract class CommonConfig {
   public static final String DB_PASS_KEY = "password";
   public static final String PACKED_KEY = "packed";
   public static final String LOOSE_KEY = "loose";
+  public static final String GCMODE_KEY = "forceAggressive";
 
   public static final String DEFAULT_DB_URL = "jdbc:postgresql://localhost:5432/";
   public static final String DEFAULT_DB_NAME = "gc";
@@ -42,6 +43,7 @@ public abstract class CommonConfig {
   private final String password;
   private final int packed;
   private final int loose;
+  private final boolean isAggressive;
 
   /**
    * Create CommonConfig from the specified parameters.
@@ -53,6 +55,7 @@ public abstract class CommonConfig {
    * @param password The password of the database server user.
    * @param loose The number of loose objects to consider a repo dirty
    * @param packed The number of packs to consider a repo dirty
+   * @param isAggressive default gc mode aggressive or not.
    */
   public CommonConfig(
       String databaseUrl,
@@ -61,7 +64,8 @@ public abstract class CommonConfig {
       String username,
       String password,
       int packed,
-      int loose) {
+      int loose,
+      boolean isAggressive) {
     this.databaseUrl = databaseUrl.replaceFirst("/?$", "/");
     this.databaseName = databaseName;
     this.databaseUrlOptions = databaseUrlOptions;
@@ -69,6 +73,7 @@ public abstract class CommonConfig {
     this.password = password;
     this.packed = packed;
     this.loose = loose;
+    this.isAggressive = isAggressive;
   }
 
   /** @return the database server URL. */
@@ -104,6 +109,11 @@ public abstract class CommonConfig {
   /** @return the number of loose objects threshold. */
   public int getLooseThreshold() {
     return loose;
+  }
+
+  /** @return default gc mode aggressive or normal */
+  public boolean isAggressiveDefault() {
+    return isAggressive;
   }
 
   protected static String getString(

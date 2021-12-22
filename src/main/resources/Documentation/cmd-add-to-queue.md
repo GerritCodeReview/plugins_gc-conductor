@@ -33,6 +33,9 @@ OPTIONS
 `--first`
 :	Add repository as first priority in GC queue.
 
+`--aggressive`
+: Run gc in aggressive mode. See https://git-scm.com/docs/git-gc for more details 
+
 EXAMPLES
 --------
 Absolute path to a repository:

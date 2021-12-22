@@ -232,7 +232,8 @@ public class EvaluationTask implements Runnable {
 
   private void insertRepository() {
     try {
-      queue.add(repositoryPath, hostname);
+      queue.add(repositoryPath, hostname, cfg.isAggressiveDefault()); // TODO: determine default
+      // isAggressive based on current repo config
     } catch (GcQueueException e) {
       log.error("Error adding repository in queue {}", repositoryPath, e);
     }
