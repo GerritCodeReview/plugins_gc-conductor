@@ -23,12 +23,15 @@ public class RepositoryInfo {
   private final Timestamp queuedAt;
   private final String executor;
   private final String queuedFrom;
+  private final boolean aggressive;
 
-  public RepositoryInfo(String path, Timestamp queuedAt, String executor, String queuedFrom) {
+  public RepositoryInfo(
+      String path, Timestamp queuedAt, String executor, String queuedFrom, boolean aggressive) {
     this.path = path;
     this.queuedAt = queuedAt;
     this.executor = executor;
     this.queuedFrom = queuedFrom;
+    this.aggressive = aggressive;
   }
 
   /** @return the path to the repository. */
@@ -49,5 +52,9 @@ public class RepositoryInfo {
   /** @return the hostname that inserted the repository in the queue. */
   public String getQueuedFrom() {
     return queuedFrom;
+  }
+
+  public boolean isAggressive() {
+    return aggressive;
   }
 }
