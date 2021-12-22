@@ -24,28 +24,28 @@ public class RepositoryInfoTest {
   @Test
   public void shouldReturnPath() {
     String path = "/path/someRepo.git";
-    RepositoryInfo repoInfo = new RepositoryInfo(path, null, null, null);
+    RepositoryInfo repoInfo = new RepositoryInfo(path, null, null, null, true);
     assertThat(repoInfo.getPath()).isEqualTo(path);
   }
 
   @Test
   public void shouldReturnQueuedAt() {
     Timestamp time = new Timestamp(System.currentTimeMillis());
-    RepositoryInfo repoInfo = new RepositoryInfo(null, time, null, null);
+    RepositoryInfo repoInfo = new RepositoryInfo(null, time, null, null, true);
     assertThat(repoInfo.getQueuedAt()).isEqualTo(time);
   }
 
   @Test
   public void shouldReturnExecutor() {
     String executor = "someHost-1";
-    RepositoryInfo repoInfo = new RepositoryInfo(null, null, executor, null);
+    RepositoryInfo repoInfo = new RepositoryInfo(null, null, executor, null, true);
     assertThat(repoInfo.getExecutor()).isEqualTo(executor);
   }
 
   @Test
   public void shouldReturnQueuedFrom() {
     String hostname = "someHost-2";
-    RepositoryInfo repoInfo = new RepositoryInfo(null, null, null, hostname);
+    RepositoryInfo repoInfo = new RepositoryInfo(null, null, null, hostname, true);
     assertThat(repoInfo.getQueuedFrom()).isEqualTo(hostname);
   }
 }

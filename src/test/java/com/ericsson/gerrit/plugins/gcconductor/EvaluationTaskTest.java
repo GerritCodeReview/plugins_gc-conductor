@@ -19,6 +19,7 @@ import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.lenient;
 
 import com.ericsson.gerrit.plugins.gcconductor.evaluator.EvaluatorConfig;
 import java.io.File;
@@ -67,7 +68,7 @@ public class EvaluationTaskTest {
     when(queue.contains(repositoryPath)).thenReturn(false);
     task = new EvaluationTask(cfg, queue, SOME_HOSTNAME, repositoryPath);
     task.run();
-    verify(queue).add(repositoryPath, SOME_HOSTNAME);
+    verify(queue).add(repositoryPath, SOME_HOSTNAME, false);
   }
 
   @Test
@@ -78,14 +79,14 @@ public class EvaluationTaskTest {
     gc(repository);
     task = new EvaluationTask(cfg, queue, SOME_HOSTNAME, repositoryPath);
     task.run();
-    verify(queue).add(repositoryPath, SOME_HOSTNAME);
+    verify(queue).add(repositoryPath, SOME_HOSTNAME, false);
   }
 
   @Test
   public void repositoryShouldNotBeAddedIfAlreadyInQueue() throws Exception {
     when(queue.contains(repositoryPath)).thenReturn(true);
     task.run();
-    verify(queue, never()).add(repositoryPath, SOME_HOSTNAME);
+    verify(queue, never()).add(repositoryPath, SOME_HOSTNAME, false);
   }
 
   @Test
@@ -94,7 +95,7 @@ public class EvaluationTaskTest {
     when(cfg.getPackedThreshold()).thenReturn(1);
     when(queue.contains(repositoryPath)).thenReturn(false);
     task.run();
-    verify(queue, never()).add(repositoryPath, SOME_HOSTNAME);
+    verify(queue, never()).add(repositoryPath, SOME_HOSTNAME, false);
   }
 
   @Test
@@ -103,7 +104,7 @@ public class EvaluationTaskTest {
         .when(queue)
         .contains(repositoryPath);
     task.run();
-    verify(queue, never()).add(repositoryPath, SOME_HOSTNAME);
+    verify(queue, never()).add(repositoryPath, SOME_HOSTNAME, false);
   }
 
   @Test
@@ -111,7 +112,7 @@ public class EvaluationTaskTest {
     when(queue.contains(repositoryPath)).thenReturn(false);
     doThrow(new GcQueueException("some message", new Throwable()))
         .when(queue)
-        .add(repositoryPath, SOME_HOSTNAME);
+        .add(repositoryPath, SOME_HOSTNAME, false);
     task.run();
   }
 
@@ -120,7 +121,7 @@ public class EvaluationTaskTest {
     when(queue.contains(repositoryPath)).thenReturn(false);
     dir.delete();
     task.run();
-    verify(queue, never()).add(repositoryPath, SOME_HOSTNAME);
+    verify(queue, never()).add(repositoryPath, SOME_HOSTNAME, true);
   }
 
   @Test

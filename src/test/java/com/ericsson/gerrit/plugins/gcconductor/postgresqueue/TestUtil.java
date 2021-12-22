@@ -24,6 +24,7 @@ import org.testcontainers.containers.PostgreSQLContainer;
 @Ignore
 public class TestUtil {
   private static final String LABEL = PostgreSQLContainer.IMAGE + ":" + "9.6.12-alpine";
+  //private static final String LABEL = PostgreSQLContainer.IMAGE + ":" + "latest";
 
   static PostgreSQLContainer<?> newContainer() {
     return new PostgreSQLContainer<>(LABEL);

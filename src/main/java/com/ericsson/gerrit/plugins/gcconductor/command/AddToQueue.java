@@ -51,6 +51,9 @@ final class AddToQueue extends SshCommand {
   @Option(name = "--first", usage = "add repository as first priority in GC queue")
   private boolean first;
 
+  @Option(name = "--noaggressive", usage = "add repository as normal non aggressive GC")
+  private boolean noaggressive;
+
   @Inject private GcQueue queue;
 
   @Inject @Hostname private String hostName;
@@ -70,7 +73,7 @@ final class AddToQueue extends SshCommand {
         repositoryPath = resolvePath();
       }
       repository = repositoryPath.toString();
-      queue.add(repository, hostName);
+      queue.add(repository, hostName, !noaggressive);
       if (first) {
         queue.bumpToFirst(repository);
       }
