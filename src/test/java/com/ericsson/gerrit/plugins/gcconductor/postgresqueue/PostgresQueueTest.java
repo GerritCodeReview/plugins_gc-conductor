@@ -85,18 +85,18 @@ public class PostgresQueueTest {
     assertThat(queue.list()).isEmpty();
     assertThat(queue.contains(repoPath)).isFalse();
 
-    queue.add(repoPath, hostname);
+    queue.add(repoPath, hostname, true);
     assertThat(queue.list().size()).isEqualTo(1);
     assertThat(queue.contains(repoPath)).isTrue();
 
-    queue.add(repoPath, hostname);
+    queue.add(repoPath, hostname, true);
     assertThat(queue.list().size()).isEqualTo(1);
     assertThat(queue.contains(repoPath)).isTrue();
 
     String repoPath2 = "/some/path/to/some/repository2";
     String hostname2 = "someHostname2";
 
-    queue.add(repoPath2, hostname2);
+    queue.add(repoPath2, hostname2, true);
     assertThat(queue.list().size()).isEqualTo(2);
     assertThat(queue.contains(repoPath)).isTrue();
     assertThat(queue.contains(repoPath2)).isTrue();
@@ -118,19 +118,19 @@ public class PostgresQueueTest {
   @Test
   public void testAddThatFailsWhenGettingConnection() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenGettingConnection());
-    assertThrows(GcQueueException.class, () -> queue.add("repo", "hostname"));
+    assertThrows(GcQueueException.class, () -> queue.add("repo", "hostname", true));
   }
 
   @Test
   public void testAddThatFailsWhenCreatingStatement() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenCreatingStatement());
-    assertThrows(GcQueueException.class, () -> queue.add("repo", "hostname"));
+    assertThrows(GcQueueException.class, () -> queue.add("repo", "hostname", true));
   }
 
   @Test
   public void testAddThatFailsWhenExecutingQuery() throws Exception {
     queue = new PostgresQueue(createDataSourceThatFailsWhenExecutingQuery());
-    assertThrows(GcQueueException.class, () -> queue.add("repo", "hostname"));
+    assertThrows(GcQueueException.class, () -> queue.add("repo", "hostname", true));
   }
 
   @Test
@@ -184,8 +184,8 @@ public class PostgresQueueTest {
 
     assertThat(queue.list()).isEmpty();
     Timestamp before = new Timestamp(System.currentTimeMillis());
-    queue.add(repoPath, hostname);
-    queue.add(repoPath2, hostname);
+    queue.add(repoPath, hostname, true);
+    queue.add(repoPath2, hostname, true);
     queue.pick(executor, 0, Optional.empty());
 
     assertThat(queue.list().size()).isEqualTo(2);
@@ -244,7 +244,7 @@ public class PostgresQueueTest {
     assertThat(queue.pick(executor, 0, Optional.empty())).isNull();
 
     // queue contains 1 repository, should pick that one
-    queue.add(repoPath, hostname);
+    queue.add(repoPath, hostname, true);
     RepositoryInfo picked = queue.pick(executor, 0, Optional.empty());
     assertThat(picked).isNotNull();
     assertThat(picked.getPath()).isEqualTo(repoPath);
@@ -265,7 +265,7 @@ public class PostgresQueueTest {
   public void testPickRepositoriesInOrder() throws Exception {
     String repositoryFormat = "my/path%s.git";
     for (int i = 0; i < 100; i++) {
-      queue.add(String.format(repositoryFormat, i), "someHostname");
+      queue.add(String.format(repositoryFormat, i), "someHostname", true);
     }
     for (int i = 0; i < 100; i++) {
       String pickedRepo = queue.pick("someExecutor", 0, Optional.empty()).getPath();
@@ -281,7 +281,7 @@ public class PostgresQueueTest {
     String executor = "someExecutor";
 
     // pick repository older than 10 seconds, nothing to pick
-    queue.add(repoPath, hostname);
+    queue.add(repoPath, hostname, true);
     assertThat(queue.pick(executor, 10, Optional.empty())).isNull();
     assertThat(queue.list().get(0).getExecutor()).isNull();
 
@@ -300,7 +300,7 @@ public class PostgresQueueTest {
     String executor = "hostname-1";
 
     // pick repository queued from otherHostname, nothing to pick
-    queue.add(repoPath, hostname);
+    queue.add(repoPath, hostname, true);
     assertThat(queue.pick(executor, 0, Optional.of(otherHostname))).isNull();
     assertThat(queue.list().get(0).getExecutor()).isNull();
 
@@ -341,7 +341,7 @@ public class PostgresQueueTest {
     String executor = "someExecutor";
 
     // queue contains 1 repository, should pick that one
-    queue.add(repoPath, hostname);
+    queue.add(repoPath, hostname, true);
     RepositoryInfo picked = queue.pick(executor, 0, Optional.empty());
     assertThat(picked.getPath()).isEqualTo(repoPath);
     assertThat(picked.getExecutor()).isEqualTo(executor);
@@ -379,8 +379,8 @@ public class PostgresQueueTest {
     String hostname = "hostname";
     String otherHostname = "otherHostname";
 
-    queue.add(repoPath, hostname);
-    queue.add(repoPath2, hostname);
+    queue.add(repoPath, hostname, true);
+    queue.add(repoPath2, hostname, true);
     assertThat(queue.list().get(0).getQueuedFrom()).isEqualTo(hostname);
     assertThat(queue.list().get(1).getQueuedFrom()).isEqualTo(hostname);
 
@@ -415,14 +415,14 @@ public class PostgresQueueTest {
     String hostname = "hostname";
 
     // Queue contains 1 repository, bumping should have no effect
-    queue.add(repoPath, hostname);
+    queue.add(repoPath, hostname, true);
     assertThat(queue.list().get(0).getPath()).isEqualTo(repoPath);
     queue.bumpToFirst(repoPath);
     assertThat(queue.list().get(0).getPath()).isEqualTo(repoPath);
 
     // Queue has 3 repositories, should be able to change their order
-    queue.add(repoPath2, hostname);
-    queue.add(repoPath3, hostname);
+    queue.add(repoPath2, hostname, true);
+    queue.add(repoPath3, hostname, true);
     assertThat(queue.list().get(1).getPath()).isEqualTo(repoPath2);
     assertThat(queue.list().get(2).getPath()).isEqualTo(repoPath3);
 

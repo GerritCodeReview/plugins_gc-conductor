@@ -73,7 +73,8 @@ class ExecutorConfig extends CommonConfig {
         getString(config, DB_SECTION, null, DB_USERNAME_KEY, DEFAULT_DB_USERNAME),
         getString(config, DB_SECTION, null, DB_PASS_KEY, DEFAULT_DB_PASSWORD),
         config.getInt(EVALUATION_SECTION, PACKED_KEY, PACKED_DEFAULT),
-        config.getInt(EVALUATION_SECTION, LOOSE_KEY, LOOSE_DEFAULT));
+        config.getInt(EVALUATION_SECTION, LOOSE_KEY, LOOSE_DEFAULT),
+        config.getBoolean(EVALUATION_SECTION, GCMODE_KEY, false));
     delay = config.getInt(CORE_SECTION, DELAY_KEY, DEFAULT_DELAY);
     executors = config.getInt(CORE_SECTION, EXECUTOR_KEY, DEFAULT_EXECUTORS);
     pickOwnHostOnly = config.getBoolean(CORE_SECTION, PICK_OWN_HOST_KEY, true);
