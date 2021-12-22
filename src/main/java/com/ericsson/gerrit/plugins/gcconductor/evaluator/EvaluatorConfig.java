@@ -43,7 +43,8 @@ public class EvaluatorConfig extends CommonConfig {
         cfg.getString(DB_USERNAME_KEY, DEFAULT_DB_USERNAME),
         cfg.getString(DB_PASS_KEY, DEFAULT_DB_PASSWORD),
         cfg.getInt(PACKED_KEY, PACKED_DEFAULT),
-        cfg.getInt(LOOSE_KEY, LOOSE_DEFAULT));
+        cfg.getInt(LOOSE_KEY, LOOSE_DEFAULT),
+        cfg.getBoolean(GC_FORCE_AGGRESSIVE_KEY, DEFAULT_GC_FORCE_AGGRESSIVE));
     threadPoolSize = cfg.getInt(THREAD_POOL_KEY, THREAD_POOL_DEFAULT);
 
     String expireTimeRecheckString =
