@@ -69,9 +69,9 @@ class GcWorker extends Thread {
   @Override
   public void run() {
     while (!cpm.isCancelled()) {
-      String repoPath = pickRepository();
-      if (repoPath != null) {
-        runGc(repoPath);
+      RepositoryInfo repoInfo = pickRepository();
+      if (repoInfo.getPath() != null) {
+        runGc(repoInfo.getPath(), repoInfo.isAggressive());
       } else {
         log.debug("No repository picked, going to sleep");
         try {
@@ -85,11 +85,11 @@ class GcWorker extends Thread {
     }
   }
 
-  private String pickRepository() {
+  private RepositoryInfo pickRepository() {
     try {
       RepositoryInfo repoInfo = queue.pick(name, queuedForLongerThan, queuedFrom);
       if (repoInfo != null) {
-        return repoInfo.getPath();
+        return repoInfo;
       }
     } catch (GcQueueException e) {
       log.error("Unable to pick repository from the queue", e);
@@ -97,11 +97,12 @@ class GcWorker extends Thread {
     return null;
   }
 
-  private void runGc(String repoPath) {
+  private void runGc(String repoPath, boolean aggressive) {
     try {
       log.info("Starting gc on repository {}", repoPath);
       gc.setRepositoryPath(repoPath);
       gc.setPm(cpm);
+      gc.setAggressive(aggressive);
       retryer.call(gc);
       log.info("Gc completed on repository {}", repoPath);
     } catch (Throwable e) {

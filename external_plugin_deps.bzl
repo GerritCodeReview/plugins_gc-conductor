@@ -63,13 +63,13 @@ def external_plugin_deps():
     maven_jar(
         name = "log4j-core",
         artifact = "org.apache.logging.log4j:log4j-core:" + LOG4J2_VERS,
-        sha1 = "f2816152056d217813a0740005af10d6221f25fd",
+        sha1 = "ba55c13d7ac2fd44df9cc8074455719a33f375b9",
     )
 
     maven_jar(
         name = "log4j-api",
         artifact = "org.apache.logging.log4j:log4j-api:" + LOG4J2_VERS,
-        sha1 = "78a758ed8d4c3b22969b34c000a8319bae79dac8",
+        sha1 = "4a5aa7e55a29391c6f66e0b259d5189aa11e45d0",
     )
 
     maven_jar(

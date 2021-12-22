@@ -33,6 +33,7 @@ final class DatabaseConstants {
   private static final String SEQUENCE = "sequence";
   static final String QUEUED_AT = "queued_at";
   static final String HOSTNAME = "hostname";
+  static final String AGGRESSIVE = "aggressive"; //TODO: UPGRADE SCHEMA ADD BUMP OR HOST NAME
 
   static final String CREATE_OR_UPDATE_SCHEMA =
       "DO"
@@ -50,7 +51,10 @@ final class DatabaseConstants {
           + EXECUTOR
           + " VARCHAR(258), "
           + HOSTNAME
-          + " VARCHAR(255) NOT NULL);"
+          + " VARCHAR(255) NOT NULL, "
+          + AGGRESSIVE
+          + "BOOLEAN NOT NULL"
+          + ");"
           // This section is temporary to support migrating live, next version will
           // drop the executor tables, only drop the foreign key for now.
           + " IF EXISTS ("
@@ -93,6 +97,7 @@ final class DatabaseConstants {
     return format(
         "INSERT INTO %s (%s,%s) SELECT '%s','%s' WHERE NOT EXISTS (%s)",
         REPOSITORIES_TABLE, REPOSITORY, HOSTNAME, repository, hostname, select(repository));
+    //TODO UPGRADE WITH AGGRESSIVE info
   }
 
   static final String delete(String repository) {
