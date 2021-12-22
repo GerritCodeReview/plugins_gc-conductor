@@ -24,6 +24,7 @@ import org.eclipse.jgit.lib.ProgressMonitor;
 class GarbageCollector implements Callable<Boolean> {
   private String repositoryPath;
   private ProgressMonitor pm;
+  private boolean aggressive;
 
   void setRepositoryPath(String repositoryPath) {
     this.repositoryPath = repositoryPath;
@@ -33,11 +34,15 @@ class GarbageCollector implements Callable<Boolean> {
     this.pm = pm;
   }
 
+  void setAggressive(boolean aggressive) {
+    this.aggressive = aggressive;
+  }
+
   @Override
   public Boolean call() throws Exception {
     try (Git git = Git.open(new File(repositoryPath))) {
       git.gc()
-          .setAggressive(true)
+          .setAggressive(aggressive)
           .setPreserveOldPacks(true)
           .setPrunePreserved(true)
           .setProgressMonitor(pm)

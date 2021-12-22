@@ -50,7 +50,7 @@ public class GcWorkerTest {
   @Before
   public void setUp() {
     Thread.interrupted(); // reset the flag
-    repoInfo = new RepositoryInfo(REPO_PATH, null, EXEC_NAME, HOSTNAME);
+    repoInfo = new RepositoryInfo(REPO_PATH, null, EXEC_NAME, HOSTNAME, true);
     gcTask = new GcWorker(queue, garbageCollector, cpm, QUEUED_FROM, 0, EXEC_NAME);
   }
 

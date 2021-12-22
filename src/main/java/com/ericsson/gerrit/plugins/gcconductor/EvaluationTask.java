@@ -25,10 +25,12 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.errors.RepositoryNotFoundException;
 import org.eclipse.jgit.internal.storage.file.FileRepository;
 import org.eclipse.jgit.internal.storage.file.GC;
 import org.eclipse.jgit.internal.storage.file.GC.RepoStatistics;
+import org.eclipse.jgit.lib.ConfigConstants;
 import org.eclipse.jgit.lib.Constants;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.Ref;
@@ -232,7 +234,14 @@ public class EvaluationTask implements Runnable {
 
   private void insertRepository() {
     try {
-      queue.add(repositoryPath, hostname);
+      boolean isAggressive = cfg.isAggressive();
+      if (!isAggressive) // Force is aggressive option is not set then read repo config
+      {
+        // isAggressive based on current repo config
+        isAggressive = getGcModeFromRepository(repositoryPath);
+      }
+      queue.add(repositoryPath, hostname, isAggressive);
+
     } catch (GcQueueException e) {
       log.error("Error adding repository in queue {}", repositoryPath, e);
     }
@@ -241,5 +250,18 @@ public class EvaluationTask implements Runnable {
   @Override
   public String toString() {
     return "Evaluate if repository need GC: " + repositoryPath;
+  }
+
+  public static boolean getGcModeFromRepository(String repositoryPath) {
+    try {
+      Git git = Git.open(new File(repositoryPath));
+      return git.getRepository()
+          .getConfig()
+          .getBoolean(ConfigConstants.CONFIG_GC_SECTION, "aggressive", false);
+    } catch (IOException e) {
+      log.error(
+          "Error reading repository config returns default non-aggressive{}", repositoryPath, e);
+    }
+    return false;
   }
 }

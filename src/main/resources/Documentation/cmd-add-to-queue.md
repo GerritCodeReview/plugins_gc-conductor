@@ -33,6 +33,9 @@ OPTIONS
 `--first`
 :	Add repository as first priority in GC queue.
 
+`--aggressive`
+: Add repository for aggressive GC (default gc mode is non-aggressive).
+
 EXAMPLES
 --------
 Absolute path to a repository:

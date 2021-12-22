@@ -70,7 +70,8 @@ public class GcExecutorTest {
     when(config.getExecutors()).thenReturn(1);
     when(gcWorkerFactory.create(EXECUTOR)).thenReturn(gcWorker);
     when(gcQueue.list())
-        .thenReturn(ImmutableList.of(new RepositoryInfo(REPOSITORY, null, EXECUTOR, HOSTNAME)));
+        .thenReturn(
+            ImmutableList.of(new RepositoryInfo(REPOSITORY, null, EXECUTOR, HOSTNAME, true)));
     GcExecutor gcExecutor =
         new GcExecutor(gcQueue, config, gcWorkerFactory, scheduledEvaluator, HOSTNAME);
     verify(gcQueue).unpick(REPOSITORY);
@@ -84,7 +85,7 @@ public class GcExecutorTest {
     when(config.getExecutors()).thenReturn(1);
     when(gcWorkerFactory.create(EXECUTOR)).thenReturn(gcWorker);
     when(gcQueue.list())
-        .thenReturn(ImmutableList.of(new RepositoryInfo(REPOSITORY, null, null, HOSTNAME)));
+        .thenReturn(ImmutableList.of(new RepositoryInfo(REPOSITORY, null, null, HOSTNAME, true)));
     GcExecutor gcExecutor =
         new GcExecutor(gcQueue, config, gcWorkerFactory, scheduledEvaluator, HOSTNAME);
     verify(gcQueue, never()).unpick(REPOSITORY);
@@ -100,7 +101,8 @@ public class GcExecutorTest {
     when(gcQueue.list())
         .thenReturn(
             ImmutableList.of(
-                new RepositoryInfo(REPOSITORY, null, "another executor", "another hostname")));
+                new RepositoryInfo(
+                    REPOSITORY, null, "another executor", "another hostname", true)));
     GcExecutor gcExecutor =
         new GcExecutor(gcQueue, config, gcWorkerFactory, scheduledEvaluator, HOSTNAME);
     verify(gcQueue, never()).unpick(REPOSITORY);
@@ -129,7 +131,7 @@ public class GcExecutorTest {
     when(config.getInterval()).thenReturn(1L);
     when(gcWorkerFactory.create(EXECUTOR)).thenReturn(gcWorker);
     when(gcQueue.list())
-        .thenReturn(ImmutableList.of(new RepositoryInfo(REPOSITORY, null, null, HOSTNAME)));
+        .thenReturn(ImmutableList.of(new RepositoryInfo(REPOSITORY, null, null, HOSTNAME, true)));
     GcExecutor gcExecutor =
         new GcExecutor(gcQueue, config, gcWorkerFactory, scheduledEvaluator, HOSTNAME);
     verify(gcWorker).start();
@@ -144,7 +146,7 @@ public class GcExecutorTest {
     when(config.getInitialDelay()).thenReturn(1L);
     when(gcWorkerFactory.create(EXECUTOR)).thenReturn(gcWorker);
     when(gcQueue.list())
-        .thenReturn(ImmutableList.of(new RepositoryInfo(REPOSITORY, null, null, HOSTNAME)));
+        .thenReturn(ImmutableList.of(new RepositoryInfo(REPOSITORY, null, null, HOSTNAME, true)));
     GcExecutor gcExecutor =
         new GcExecutor(gcQueue, config, gcWorkerFactory, scheduledEvaluator, HOSTNAME);
     verify(gcWorker).start();
