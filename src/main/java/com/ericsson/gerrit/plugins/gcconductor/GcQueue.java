@@ -35,7 +35,7 @@ public interface GcQueue {
    * @param queuedFrom The hostname from which the repository is queued from.
    * @throws GcQueueException if an error occur while adding the repository.
    */
-  void add(String repository, String queuedFrom) throws GcQueueException;
+  void add(String repository, String queuedFrom, boolean isAggressive) throws GcQueueException;
 
   /**
    * Pick a repository from the queue.

@@ -14,6 +14,7 @@
 
 package com.ericsson.gerrit.plugins.gcconductor.postgresqueue;
 
+import static com.ericsson.gerrit.plugins.gcconductor.postgresqueue.DatabaseConstants.AGGRESSIVE;
 import static com.ericsson.gerrit.plugins.gcconductor.postgresqueue.DatabaseConstants.CREATE_OR_UPDATE_SCHEMA;
 import static com.ericsson.gerrit.plugins.gcconductor.postgresqueue.DatabaseConstants.EXECUTOR;
 import static com.ericsson.gerrit.plugins.gcconductor.postgresqueue.DatabaseConstants.HOSTNAME;
@@ -55,9 +56,9 @@ public class PostgresQueue implements GcQueue {
   }
 
   @Override
-  public void add(String repository, String queuedFrom) throws GcQueueException {
+  public void add(String repository, String queuedFrom, boolean isAggressive) throws GcQueueException {
     try {
-      executeStatement(dataSource, insert(repository, queuedFrom));
+      executeStatement(dataSource, insert(repository, queuedFrom, isAggressive));
     } catch (SQLException e) {
       if (!"23505".equals(e.getSQLState())) {
         // UNIQUE CONSTRAINT violation means repository is already in the queue
@@ -152,10 +153,12 @@ public class PostgresQueue implements GcQueue {
     int queuedAtColumn = resultSet.findColumn(QUEUED_AT);
     int executorColumn = resultSet.findColumn(EXECUTOR);
     int hostnameColumn = resultSet.findColumn(HOSTNAME);
+    int aggressiveColumn = resultSet.findColumn(AGGRESSIVE);
     return new RepositoryInfo(
         resultSet.getString(repositoryColumn),
         resultSet.getTimestamp(queuedAtColumn),
         resultSet.getString(executorColumn),
-        resultSet.getString(hostnameColumn));
+        resultSet.getString(hostnameColumn),
+        resultSet.getBoolean(aggressiveColumn));
   }
 }
