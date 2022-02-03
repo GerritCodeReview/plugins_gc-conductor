@@ -71,18 +71,18 @@ def external_plugin_deps():
         sha1 = "bd41a290787b5301e63929676d792c507bbc00ae",
     )
 
-    GUICE_VERS = "4.2.3"
+    GUICE_VERS = "5.0.1"
 
     maven_jar(
         name = "guice",
         artifact = "com.google.inject:guice:" + GUICE_VERS,
-        sha1 = "2ea992d6d7bdcac7a43111a95d182a4c42eb5ff7",
+        sha1 = "0dae7556b441cada2b4f0a2314eb68e1ff423429",
     )
 
     maven_jar(
         name = "guice-assistedinject",
         artifact = "com.google.inject.extensions:guice-assistedinject:" + GUICE_VERS,
-        sha1 = "acbfddc556ee9496293ed1df250cc378f331d854",
+        sha1 = "62e02f2aceb7d90ba354584dacc018c1e94ff01c",
     )
 
     maven_jar(
