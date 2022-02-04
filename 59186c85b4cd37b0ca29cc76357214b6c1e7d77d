@@ -1,0 +1,141 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ee3fabb_ec82bec6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-02-04T19:25:45Z",
+      "side": 1,
+      "message": "Just some concerns",
+      "revId": "59186c85b4cd37b0ca29cc76357214b6c1e7d77d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc04f3c9_3f6643e7",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/CommonConfig.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-02-04T19:25:45Z",
+      "side": 1,
+      "message": "return if gc mode is set to aggressive, by default its not aggressive?",
+      "range": {
+        "startLine": 114,
+        "startChar": 7,
+        "endLine": 114,
+        "endChar": 50
+      },
+      "revId": "59186c85b4cd37b0ca29cc76357214b6c1e7d77d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f57e809_7e9d7227",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/EvaluationTask.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-02-04T19:25:45Z",
+      "side": 1,
+      "message": "maybe on line 234? hard to read",
+      "range": {
+        "startLine": 235,
+        "startChar": 71,
+        "endLine": 235,
+        "endChar": 78
+      },
+      "revId": "59186c85b4cd37b0ca29cc76357214b6c1e7d77d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef738d65_ddbf04ac",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/GcQueue.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-02-04T19:25:45Z",
+      "side": 1,
+      "message": "missing javadoc",
+      "revId": "59186c85b4cd37b0ca29cc76357214b6c1e7d77d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ca2a3d0_d6d384ab",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/evaluator/EvaluatorConfig.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-02-04T19:25:45Z",
+      "side": 1,
+      "message": "maybe DEFAULT_GC_MODE?",
+      "range": {
+        "startLine": 47,
+        "startChar": 35,
+        "endLine": 47,
+        "endChar": 40
+      },
+      "revId": "59186c85b4cd37b0ca29cc76357214b6c1e7d77d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7135697_11e52303",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/executor/ExecutorConfig.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-02-04T19:25:45Z",
+      "side": 1,
+      "message": "depending how the other one is addressed",
+      "revId": "59186c85b4cd37b0ca29cc76357214b6c1e7d77d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fecaeb97_bcc53c69",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/executor/GcWorker.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-02-04T19:25:45Z",
+      "side": 1,
+      "message": "any reason why null is compared? maybe reverse?",
+      "revId": "59186c85b4cd37b0ca29cc76357214b6c1e7d77d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
