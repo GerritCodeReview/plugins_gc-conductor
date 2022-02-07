@@ -147,6 +147,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2aef97a0_8ed6f02a",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/GcQueue.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-02-07T19:23:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "deb0c410_120902dd",
+      "revId": "59186c85b4cd37b0ca29cc76357214b6c1e7d77d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ca2a3d0_d6d384ab",
@@ -184,6 +202,30 @@
       "side": 1,
       "message": "rename to be more precise what is dooing",
       "parentUuid": "4ca2a3d0_d6d384ab",
+      "range": {
+        "startLine": 47,
+        "startChar": 35,
+        "endLine": 47,
+        "endChar": 40
+      },
+      "revId": "59186c85b4cd37b0ca29cc76357214b6c1e7d77d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5acfd6a5_c1015950",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/evaluator/EvaluatorConfig.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-02-07T19:23:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e791fbd8_8729b7d1",
       "range": {
         "startLine": 47,
         "startChar": 35,
@@ -260,6 +302,24 @@
       "side": 1,
       "message": "Its a good practice. I Change second one to be consistent. \nMore detail here\nhttps://stackoverflow.com/questions/370366/why-put-the-constant-before-the-variable-in-a-comparison",
       "parentUuid": "fecaeb97_bcc53c69",
+      "revId": "59186c85b4cd37b0ca29cc76357214b6c1e7d77d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5894493d_2942c44b",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/executor/GcWorker.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-02-07T19:23:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "48424079_ad528641",
       "revId": "59186c85b4cd37b0ca29cc76357214b6c1e7d77d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
