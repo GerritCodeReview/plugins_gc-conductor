@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7caa3c0_564d2bbe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2022-03-07T11:15:16Z",
+      "side": 1,
+      "message": "I agree that by default gc should be run non-aggressive. In most cases aggressive gc wastes CPU cycles and you may end up with worse delta-chains compared to creating them incrementally by running non-aggressive gc repeatedly.\n\nSee https://gcc.gnu.org/legacy-ml/gcc/2007-12/msg00165.html",
+      "revId": "35de405e99db2c40a893f4dc2ef6eb93d66f2805",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "030add06_85b5fdad",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/CommonConfig.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2022-03-07T11:15:16Z",
+      "side": 1,
+      "message": "I\u0027d name this aggressive",
+      "range": {
+        "startLine": 47,
+        "startChar": 24,
+        "endLine": 47,
+        "endChar": 36
+      },
+      "revId": "35de405e99db2c40a893f4dc2ef6eb93d66f2805",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87211d01_096fa17b",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/CommonConfig.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2022-03-07T11:15:16Z",
+      "side": 1,
+      "message": "I\u0027d name this aggressive",
+      "range": {
+        "startLine": 69,
+        "startChar": 14,
+        "endLine": 69,
+        "endChar": 26
+      },
+      "revId": "35de405e99db2c40a893f4dc2ef6eb93d66f2805",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2810c665_826df9d1",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/CommonConfig.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2022-03-07T11:15:16Z",
+      "side": 1,
+      "message": "why the postfix \"Default\" ? In the javadoc you say the default is not aggressive.",
+      "range": {
+        "startLine": 116,
+        "startChar": 29,
+        "endLine": 116,
+        "endChar": 36
+      },
+      "revId": "35de405e99db2c40a893f4dc2ef6eb93d66f2805",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd5de41b_6fd9ac06",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/command/AddToQueue.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2022-03-07T11:15:16Z",
+      "side": 1,
+      "message": "how about not using the negated option (which leads to double negation in line 76) but add option \"aggressive\" instead ?",
+      "revId": "35de405e99db2c40a893f4dc2ef6eb93d66f2805",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42e745c4_34523916",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/postgresqueue/DatabaseConstants.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2022-03-07T11:15:16Z",
+      "side": 1,
+      "message": "fix TODO ?",
+      "revId": "35de405e99db2c40a893f4dc2ef6eb93d66f2805",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
