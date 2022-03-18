@@ -41,6 +41,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f38cd99_60eac4bc",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/CommonConfig.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-03-18T19:35:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "030add06_85b5fdad",
+      "range": {
+        "startLine": 47,
+        "startChar": 24,
+        "endLine": 47,
+        "endChar": 36
+      },
+      "revId": "35de405e99db2c40a893f4dc2ef6eb93d66f2805",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87211d01_096fa17b",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-03-07T11:15:16Z",
       "side": 1,
       "message": "I\u0027d name this aggressive",
+      "range": {
+        "startLine": 69,
+        "startChar": 14,
+        "endLine": 69,
+        "endChar": 26
+      },
+      "revId": "35de405e99db2c40a893f4dc2ef6eb93d66f2805",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eec71c4b_74fa85ac",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/CommonConfig.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-03-18T19:35:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87211d01_096fa17b",
       "range": {
         "startLine": 69,
         "startChar": 14,
@@ -87,6 +135,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "236fef9d_bc0c0362",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/CommonConfig.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-03-18T19:35:19Z",
+      "side": 1,
+      "message": "agree postfix removed",
+      "parentUuid": "2810c665_826df9d1",
+      "range": {
+        "startLine": 116,
+        "startChar": 29,
+        "endLine": 116,
+        "endChar": 36
+      },
+      "revId": "35de405e99db2c40a893f4dc2ef6eb93d66f2805",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd5de41b_6fd9ac06",
@@ -106,6 +178,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4bfb4bd3_53e7862a",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/command/AddToQueue.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-03-18T19:35:19Z",
+      "side": 1,
+      "message": "I assume that default ssh command behavior should be the same as before change. Admins run gc manually by cmd when it is needed and usually will use aggressive mode since default eveluationTask mode is non-aggressive",
+      "parentUuid": "bd5de41b_6fd9ac06",
+      "revId": "35de405e99db2c40a893f4dc2ef6eb93d66f2805",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "42e745c4_34523916",
         "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/postgresqueue/DatabaseConstants.java",
         "patchSetId": 9
@@ -117,6 +207,24 @@
       "writtenOn": "2022-03-07T11:15:16Z",
       "side": 1,
       "message": "fix TODO ?",
+      "revId": "35de405e99db2c40a893f4dc2ef6eb93d66f2805",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f90c5123_54c4eacf",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/postgresqueue/DatabaseConstants.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-03-18T19:35:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42e745c4_34523916",
       "revId": "35de405e99db2c40a893f4dc2ef6eb93d66f2805",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
