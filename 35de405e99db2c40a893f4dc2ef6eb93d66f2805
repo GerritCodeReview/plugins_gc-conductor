@@ -214,6 +214,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2ae93cdf_61491819",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/command/AddToQueue.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-03-24T16:40:33Z",
+      "side": 1,
+      "message": "@Matthias, think He meant to not make this change a breaking one so that the command still works as it was working before.",
+      "parentUuid": "64399434_b8784bf2",
+      "revId": "35de405e99db2c40a893f4dc2ef6eb93d66f2805",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "42e745c4_34523916",
         "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/postgresqueue/DatabaseConstants.java",
         "patchSetId": 9
