@@ -266,6 +266,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21cace46_44232515",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/command/AddToQueue.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-03-25T17:39:52Z",
+      "side": 1,
+      "message": "Ok You convince me, value changed.",
+      "parentUuid": "962d7b79_c64faffd",
+      "revId": "35de405e99db2c40a893f4dc2ef6eb93d66f2805",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "42e745c4_34523916",
