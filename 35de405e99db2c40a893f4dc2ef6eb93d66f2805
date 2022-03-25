@@ -232,6 +232,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b242a3c4_1fd320f1",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/command/AddToQueue.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2022-03-25T08:26:46Z",
+      "side": 1,
+      "message": "I think the old default to use aggressive gc by default is a bad idea so I\u0027d say changing that default is rather a bug fix than a regression, though we are not using gc-conductor and I am not a maintainer of gc-conductor, so this is just my 2ct",
+      "parentUuid": "2ae93cdf_61491819",
+      "revId": "35de405e99db2c40a893f4dc2ef6eb93d66f2805",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "42e745c4_34523916",
         "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/postgresqueue/DatabaseConstants.java",
         "patchSetId": 9
