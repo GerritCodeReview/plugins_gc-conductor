@@ -16,9 +16,6 @@ package com.ericsson.gerrit.plugins.gcconductor.command;
 
 import static com.google.gerrit.sshd.CommandMetaData.Mode.MASTER_OR_SLAVE;
 
-import com.ericsson.gerrit.plugins.gcconductor.GcQueue;
-import com.ericsson.gerrit.plugins.gcconductor.GcQueueException;
-import com.ericsson.gerrit.plugins.gcconductor.Hostname;
 import com.google.gerrit.common.data.GlobalCapability;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.extensions.annotations.RequiresCapability;
@@ -29,31 +26,28 @@ import com.google.gerrit.sshd.AdminHighPriorityCommand;
 import com.google.gerrit.sshd.CommandMetaData;
 import com.google.gerrit.sshd.SshCommand;
 import com.google.inject.Inject;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import org.eclipse.jgit.internal.storage.file.FileRepository;
+import org.eclipse.jgit.internal.storage.file.GC;
+import org.eclipse.jgit.internal.storage.file.GC.RepoStatistics;
 import org.eclipse.jgit.lib.Constants;
+import org.eclipse.jgit.lib.RepositoryCache;
 import org.eclipse.jgit.lib.RepositoryCache.FileKey;
 import org.eclipse.jgit.util.FS;
 import org.kohsuke.args4j.Argument;
-import org.kohsuke.args4j.Option;
 
 @AdminHighPriorityCommand
 @RequiresCapability(GlobalCapability.ADMINISTRATE_SERVER)
 @CommandMetaData(
-    name = "add-to-queue",
-    description = "Add a repository to gc queue",
+    name = "repo-stats",
+    description = "display repo dirtiness statistics",
     runsAt = MASTER_OR_SLAVE)
-final class AddToQueue extends SshCommand {
+final class RepoStats extends SshCommand {
   @Argument(index = 0, required = true, metaVar = "REPOSITORY")
   private String repository;
-
-  @Option(name = "--first", usage = "add repository as first priority in GC queue")
-  private boolean first;
-
-  @Inject private GcQueue queue;
-
-  @Inject @Hostname private String hostName;
 
   @Inject private GitRepositoryManager gitRepositoryManager;
 
@@ -69,13 +63,9 @@ final class AddToQueue extends SshCommand {
       if (!FileKey.isGitRepository(repositoryPath.toFile(), FS.DETECTED)) {
         repositoryPath = resolvePath();
       }
-      repository = repositoryPath.toString();
-      queue.add(repository, hostName);
-      if (first) {
-        queue.bumpToFirst(repository);
-      }
-      stdout.println(String.format("%s was added to GC queue", repository));
-    } catch (IOException | GcQueueException e) {
+
+      stdout.println(getRepoStatistics(repositoryPath.toString()));
+    } catch (IOException e) {
       throw die(e);
     }
   }
@@ -84,7 +74,7 @@ final class AddToQueue extends SshCommand {
     if (!(gitRepositoryManager instanceof LocalDiskRepositoryManager)) {
       throw die("Unable to resolve path to " + repository);
     }
-    String projectName = extractFrom(repository);
+    String projectName = AddToQueue.extractFrom(repository);
     Project.NameKey nameKey = Project.nameKey(projectName);
     if (projectCache.get(nameKey) == null) {
       throw die(String.format("Repository %s not found", repository));
@@ -101,17 +91,13 @@ final class AddToQueue extends SshCommand {
     }
   }
 
-  static String extractFrom(String path) {
-    String name = path;
-    if (name.startsWith("/")) {
-      name = name.substring(1);
+  private RepoStatistics getRepoStatistics(String repositoryPath) throws UnloggedFailure {
+    try (FileRepository repository =
+        (FileRepository)
+            RepositoryCache.open(FileKey.exact(new File(repositoryPath), FS.DETECTED))) {
+      return new GC(repository).getStatistics();
+    } catch (IOException e) {
+      throw die(e);
     }
-    if (name.endsWith("/")) {
-      name = name.substring(0, name.length() - 1);
-    }
-    if (name.endsWith(Constants.DOT_GIT_EXT)) {
-      name = name.substring(0, name.indexOf(Constants.DOT_GIT_EXT));
-    }
-    return name;
   }
 }
