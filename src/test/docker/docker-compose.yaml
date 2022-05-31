@@ -1,0 +1,51 @@
+version: '3'
+
+services:
+
+  postgresql-gc:
+    build: postgresql
+    restart: always
+    ports:
+      - "5433:5432"
+    networks:
+      gerrit-net:
+        ipv4_address: 172.23.0.2
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - db:/var/lib/postgresql/data
+
+  gerrit-gc:
+    build: gerrit
+    restart: always
+    ports:
+      - "8080:8080"
+      - "29418:29418"
+      - "5005:5005"
+    networks:
+      gerrit-net:
+        ipv4_address: 172.23.0.3
+    volumes:
+      - gitvolume:/var/gerrit/git
+      - etcvolume:/var/gerrit/etc
+      - logsvolume:/var/gerrit/logs
+      - ./etc/gerrit.config:/var/gerrit/etc/gerrit.config.orig
+      - ./etc/gc.config:/var/gerrit/etc/gc.config.orig
+      - ./etc/log4j2.xml:/var/gerrit/etc/log4j2.xml.orig
+      - $GC_CONDUCTOR_PATH:/var/gerrit/plugins/gc-conductor.jar
+      - $GC_EXECUTOR_PATH:/var/gerrit/plugins/gc-executor.jar
+    depends_on:
+      - postgresql-gc
+
+networks:
+  gerrit-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.23.0.0/28
+volumes:
+  gitvolume:
+  etcvolume:
+  logsvolume:
+  db:
