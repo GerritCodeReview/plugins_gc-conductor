@@ -24,6 +24,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c5ee5c2_da04b443",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2022-06-02T09:18:31Z",
+      "side": 1,
+      "message": "I read grammar a bit. If we mean gc-conductor as unique entity than yes, we need the article.\n\nThanks",
+      "parentUuid": "23a19457_b9295a06",
+      "range": {
+        "startLine": 7,
+        "startChar": 30,
+        "endLine": 7,
+        "endChar": 31
+      },
+      "revId": "f971d9e7a96bfb8fb53c6f5a305f4d91e542f852",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a8cfba1_a7daba6b",
@@ -70,6 +94,54 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "26e7ed3d_cc546a74",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2022-06-02T09:18:31Z",
+      "side": 1,
+      "message": "Can\u0027t we say like this? I see many information in Internet like: running the script with command line arguments:\nsh docker_setup.sh --argument",
+      "parentUuid": "2a8cfba1_a7daba6b",
+      "range": {
+        "startLine": 15,
+        "startChar": 23,
+        "endLine": 15,
+        "endChar": 35
+      },
+      "revId": "f971d9e7a96bfb8fb53c6f5a305f4d91e542f852",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28befa42_ef9d5eff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2022-06-02T09:18:31Z",
+      "side": 1,
+      "message": "I will have to add point in the end of every sentence in this case.",
+      "parentUuid": "68cf72e4_6ff4c1a9",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 45
+      },
+      "revId": "f971d9e7a96bfb8fb53c6f5a305f4d91e542f852",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f876a6f4_f91e316c",
@@ -83,6 +155,23 @@
       "writtenOn": "2022-06-01T15:15:53Z",
       "side": 1,
       "message": "just some nits",
+      "revId": "f971d9e7a96bfb8fb53c6f5a305f4d91e542f852",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b76ca44_b9e6eee6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2022-06-02T09:18:31Z",
+      "side": 1,
+      "message": "Khang, could you please be so kind to advice regarding Command Line arguments?\nThanks",
       "revId": "f971d9e7a96bfb8fb53c6f5a305f4d91e542f852",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
