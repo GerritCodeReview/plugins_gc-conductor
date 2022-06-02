@@ -24,5 +24,6 @@ class SshModule extends PluginCommandModule {
     command(ShowQueue.class);
     command(AddToQueue.class);
     command(BumpToFirst.class);
+    command(RemoveFromQueue.class);
   }
 }
