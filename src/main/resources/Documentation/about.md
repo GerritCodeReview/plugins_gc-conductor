@@ -32,7 +32,9 @@ The plugin also provides SSH commands to help managing the repositories queue:
   helpful to be able to change the _set_queued_from_ field, so that the running
   one can pick up repositories that were not initially added to the queue by its
   corresponding Gerrit instance.
-* _repo-stats_ Display a repository dirtiness statistics 
+<<<<<<< HEAD
+* _repo-stats_ Display a repository dirtiness statistics
+* _remove-from-queue_ Remove repository form GC queue.
 
 [build]: build.html
 [config]: config.html
