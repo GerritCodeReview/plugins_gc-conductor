@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2934a123_ef68faab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-06-04T10:37:27Z",
+      "side": 1,
+      "message": "It is worth to mention that gc-executor is running on the same container as gerrit and gc-conductor. In most of the setups its not a case. It would be usefull to have gc-excecutor in different container too simulate host down or other problems. This could be next step to improving this solution ",
+      "revId": "f1e5633e261c60d579aa2447c272d6f40549cec2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
