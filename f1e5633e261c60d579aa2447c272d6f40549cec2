@@ -16,6 +16,24 @@
       "message": "It is worth to mention that gc-executor is running on the same container as gerrit and gc-conductor. In most of the setups its not a case. It would be usefull to have gc-excecutor in different container too simulate host down or other problems. This could be next step to improving this solution ",
       "revId": "f1e5633e261c60d579aa2447c272d6f40549cec2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12f0d65e_b50367f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2022-06-06T11:00:38Z",
+      "side": 1,
+      "message": "Some time is required to move gc-executor to another container. That\u0027s because it needs additional configurations files, postgres driver etc.\nAgree to plan this activity, raise the task and implement it.",
+      "parentUuid": "2934a123_ef68faab",
+      "revId": "f1e5633e261c60d579aa2447c272d6f40549cec2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
