@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "511cd12f_6f3b10e8",
+        "filename": "src/test/docker/docker-compose.yaml",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2022-06-06T15:24:52Z",
+      "side": 1,
+      "message": "Can you mention it in the read me?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 19
+      },
+      "revId": "dd94793fbcedc6e3496f7bbfea2645d34ba75486",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
