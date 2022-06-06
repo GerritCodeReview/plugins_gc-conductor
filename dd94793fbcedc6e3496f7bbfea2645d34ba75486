@@ -22,6 +22,30 @@
       },
       "revId": "dd94793fbcedc6e3496f7bbfea2645d34ba75486",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c318514_e77c9ec1",
+        "filename": "src/test/docker/docker-compose.yaml",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2022-06-06T16:49:30Z",
+      "side": 1,
+      "message": "Readme file has been updated",
+      "parentUuid": "511cd12f_6f3b10e8",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 19
+      },
+      "revId": "dd94793fbcedc6e3496f7bbfea2645d34ba75486",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
