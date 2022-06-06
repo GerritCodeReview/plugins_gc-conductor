@@ -16,6 +16,24 @@
       "message": "@Luca, this change mimic what multi-site does with local setup. Can this be used for CI tests?",
       "revId": "47cdda09e16ac8c9e9cf27d28ac3cca5d2224350",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbf3ab06_38bea091",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2022-06-06T21:31:39Z",
+      "side": 1,
+      "message": "\u003e @Luca, this change mimic what multi-site does with local setup.\n\nSounds great !\n\n\u003e Can this be used for CI tests?\n\nWell, it depends if you run them with Zuul or the old Jenkinsfile pipeline.\nWith Zuul, you\u0027ll need to create a custom job that installs all you need to run this dockerised environment:\n- docker\n- docker-compose\n\nWith the old Jenkinsfile pipeline you\u0027ll already end up in a container that has them and you can just add to your pipeline the execution of these dockerised tests.",
+      "parentUuid": "a5b068b6_ab0d8f42",
+      "revId": "47cdda09e16ac8c9e9cf27d28ac3cca5d2224350",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
