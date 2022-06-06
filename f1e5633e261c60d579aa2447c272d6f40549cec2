@@ -34,6 +34,23 @@
       "parentUuid": "2934a123_ef68faab",
       "revId": "f1e5633e261c60d579aa2447c272d6f40549cec2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd4523cb_2c870368",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2022-06-06T12:37:16Z",
+      "side": 1,
+      "message": "It would be helpful if we can specify a password for the user so we can use in tests and not rely on UI to generate an HTTP password. This can be a follow up if it is hard",
+      "revId": "f1e5633e261c60d579aa2447c272d6f40549cec2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
