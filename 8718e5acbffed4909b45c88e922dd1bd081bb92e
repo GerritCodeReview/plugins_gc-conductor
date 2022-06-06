@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec906492_eb1d8606",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-06-06T17:20:58Z",
+      "side": 1,
+      "message": "remove space",
+      "revId": "8718e5acbffed4909b45c88e922dd1bd081bb92e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
