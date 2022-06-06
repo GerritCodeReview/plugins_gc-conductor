@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5b068b6_ab0d8f42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-06-06T18:16:12Z",
+      "side": 1,
+      "message": "@Luca, this change mimic what multi-site does with local setup. Can this be used for CI tests?",
+      "revId": "47cdda09e16ac8c9e9cf27d28ac3cca5d2224350",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
