@@ -20,10 +20,8 @@ import com.ericsson.gerrit.plugins.gcconductor.GcQueue;
 import com.ericsson.gerrit.plugins.gcconductor.GcQueueException;
 import com.ericsson.gerrit.plugins.gcconductor.Hostname;
 import com.google.gerrit.common.data.GlobalCapability;
-import com.google.gerrit.entities.Project;
 import com.google.gerrit.extensions.annotations.RequiresCapability;
 import com.google.gerrit.server.git.GitRepositoryManager;
-import com.google.gerrit.server.git.LocalDiskRepositoryManager;
 import com.google.gerrit.server.project.ProjectCache;
 import com.google.gerrit.sshd.AdminHighPriorityCommand;
 import com.google.gerrit.sshd.CommandMetaData;
@@ -32,7 +30,6 @@ import com.google.inject.Inject;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import org.eclipse.jgit.lib.Constants;
 import org.eclipse.jgit.lib.RepositoryCache.FileKey;
 import org.eclipse.jgit.util.FS;
 import org.kohsuke.args4j.Argument;
@@ -70,7 +67,7 @@ final class AddToQueue extends SshCommand {
         repositoryPath = repositoryPath.toRealPath();
       }
       if (!FileKey.isGitRepository(repositoryPath.toFile(), FS.DETECTED)) {
-        repositoryPath = resolvePath();
+        repositoryPath = SshUtil.resolvePath(gitRepositoryManager, projectCache, repository);
       }
       repository = repositoryPath.toString();
       queue.add(repository, hostName, aggressive);
@@ -81,40 +78,5 @@ final class AddToQueue extends SshCommand {
     } catch (IOException | GcQueueException e) {
       throw die(e);
     }
-  }
-
-  private Path resolvePath() throws UnloggedFailure {
-    if (!(gitRepositoryManager instanceof LocalDiskRepositoryManager)) {
-      throw die("Unable to resolve path to " + repository);
-    }
-    String projectName = extractFrom(repository);
-    Project.NameKey nameKey = Project.nameKey(projectName);
-    if (projectCache.get(nameKey) == null) {
-      throw die(String.format("Repository %s not found", repository));
-    }
-    LocalDiskRepositoryManager localDiskRepositoryManager =
-        (LocalDiskRepositoryManager) gitRepositoryManager;
-    try {
-      return localDiskRepositoryManager
-          .getBasePath(nameKey)
-          .resolve(projectName.concat(Constants.DOT_GIT_EXT))
-          .toRealPath();
-    } catch (IOException e) {
-      throw die(e);
-    }
-  }
-
-  static String extractFrom(String path) {
-    String name = path;
-    if (name.startsWith("/")) {
-      name = name.substring(1);
-    }
-    if (name.endsWith("/")) {
-      name = name.substring(0, name.length() - 1);
-    }
-    if (name.endsWith(Constants.DOT_GIT_EXT)) {
-      name = name.substring(0, name.indexOf(Constants.DOT_GIT_EXT));
-    }
-    return name;
   }
 }
