@@ -17,10 +17,8 @@ package com.ericsson.gerrit.plugins.gcconductor.command;
 import static com.google.gerrit.sshd.CommandMetaData.Mode.MASTER_OR_SLAVE;
 
 import com.google.gerrit.common.data.GlobalCapability;
-import com.google.gerrit.entities.Project;
 import com.google.gerrit.extensions.annotations.RequiresCapability;
 import com.google.gerrit.server.git.GitRepositoryManager;
-import com.google.gerrit.server.git.LocalDiskRepositoryManager;
 import com.google.gerrit.server.project.ProjectCache;
 import com.google.gerrit.sshd.AdminHighPriorityCommand;
 import com.google.gerrit.sshd.CommandMetaData;
@@ -33,7 +31,6 @@ import java.nio.file.Paths;
 import org.eclipse.jgit.internal.storage.file.FileRepository;
 import org.eclipse.jgit.internal.storage.file.GC;
 import org.eclipse.jgit.internal.storage.file.GC.RepoStatistics;
-import org.eclipse.jgit.lib.Constants;
 import org.eclipse.jgit.lib.RepositoryCache;
 import org.eclipse.jgit.lib.RepositoryCache.FileKey;
 import org.eclipse.jgit.util.FS;
@@ -61,31 +58,10 @@ final class RepoStats extends SshCommand {
         repositoryPath = repositoryPath.toRealPath();
       }
       if (!FileKey.isGitRepository(repositoryPath.toFile(), FS.DETECTED)) {
-        repositoryPath = resolvePath();
+        repositoryPath = SshUtil.resolvePath(gitRepositoryManager, projectCache, repository);
       }
 
       stdout.println(getRepoStatistics(repositoryPath.toString()));
-    } catch (IOException e) {
-      throw die(e);
-    }
-  }
-
-  private Path resolvePath() throws UnloggedFailure {
-    if (!(gitRepositoryManager instanceof LocalDiskRepositoryManager)) {
-      throw die("Unable to resolve path to " + repository);
-    }
-    String projectName = AddToQueue.extractFrom(repository);
-    Project.NameKey nameKey = Project.nameKey(projectName);
-    if (projectCache.get(nameKey) == null) {
-      throw die(String.format("Repository %s not found", repository));
-    }
-    LocalDiskRepositoryManager localDiskRepositoryManager =
-        (LocalDiskRepositoryManager) gitRepositoryManager;
-    try {
-      return localDiskRepositoryManager
-          .getBasePath(nameKey)
-          .resolve(projectName.concat(Constants.DOT_GIT_EXT))
-          .toRealPath();
     } catch (IOException e) {
       throw die(e);
     }
