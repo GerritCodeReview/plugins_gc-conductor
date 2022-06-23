@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19f52cb2_51a4813f",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/command/RemoveFromQueue.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2022-06-23T16:42:57Z",
+      "side": 1,
+      "message": "am I correct that is repo is in queue and it has executor, executor is not empty, it means it won\u0027t be removed from queue until force param is used?",
+      "range": {
+        "startLine": 52,
+        "startChar": 10,
+        "endLine": 52,
+        "endChar": 30
+      },
+      "revId": "d61f34d45a1d828ddeb3ff17527cf1d3b64ef518",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d312768_894c84bc",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/command/RemoveFromQueue.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2022-06-23T16:42:57Z",
+      "side": 1,
+      "message": "Does gc-executor change executor or path in repo once it picks it up? If not, that looks like same result will be returned despite repo is picked up or not",
+      "range": {
+        "startLine": 64,
+        "startChar": 9,
+        "endLine": 66,
+        "endChar": 53
+      },
+      "revId": "d61f34d45a1d828ddeb3ff17527cf1d3b64ef518",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
