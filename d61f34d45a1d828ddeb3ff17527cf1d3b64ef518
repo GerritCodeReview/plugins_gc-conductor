@@ -67,6 +67,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5257f00b_dd90863b",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/command/RemoveFromQueue.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2022-06-27T17:05:28Z",
+      "side": 1,
+      "message": "Is there a recovery mechanism that we can call from the executor to recover the state of the project if force is used?",
+      "range": {
+        "startLine": 52,
+        "startChar": 10,
+        "endLine": 52,
+        "endChar": 16
+      },
+      "revId": "d61f34d45a1d828ddeb3ff17527cf1d3b64ef518",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2d312768_894c84bc",
         "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/command/RemoveFromQueue.java",
         "patchSetId": 3
