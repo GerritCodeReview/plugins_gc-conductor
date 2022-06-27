@@ -16,6 +16,23 @@
       "message": "Do we need a ticket in a comment?",
       "revId": "61f956f235246d9bb6c85ee6ac3e45cb50787bf7",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a84d5fbd_9fa94b7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2022-06-27T17:02:05Z",
+      "side": 1,
+      "message": "Can you add the documentation for this command?",
+      "revId": "61f956f235246d9bb6c85ee6ac3e45cb50787bf7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
