@@ -33,6 +33,24 @@
       "message": "Can you add the documentation for this command?",
       "revId": "61f956f235246d9bb6c85ee6ac3e45cb50787bf7",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c75d1dc_42f5477d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-07-04T18:20:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a84d5fbd_9fa94b7a",
+      "revId": "61f956f235246d9bb6c85ee6ac3e45cb50787bf7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
