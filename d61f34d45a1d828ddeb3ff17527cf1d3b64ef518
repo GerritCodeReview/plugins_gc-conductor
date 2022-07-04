@@ -88,6 +88,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8440f903_690d9ecd",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/command/RemoveFromQueue.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-07-04T16:34:12Z",
+      "side": 1,
+      "message": "No the conductor communicate with executor only through db. Event if there is additional communication way Executor also only invoke method from jgit API. And there is no way to stop it or control process in any way. This command with force is something that in normal case admin shouldn\u0027t use. IT provides the way to clean queue in case that pickup executor is not capable to finish GC.",
+      "parentUuid": "5257f00b_dd90863b",
+      "range": {
+        "startLine": 52,
+        "startChar": 10,
+        "endLine": 52,
+        "endChar": 16
+      },
+      "revId": "d61f34d45a1d828ddeb3ff17527cf1d3b64ef518",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d312768_894c84bc",
