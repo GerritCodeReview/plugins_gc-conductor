@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43980f61_80664fc1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2022-07-06T15:51:56Z",
+      "side": 1,
+      "message": "just a suggestion:\nI\u0027d add the change below to this change to make it more clear and see the follow up regarding how it\u0027ll be re-designed to make command source code more optimized:\nhttps://gerrit-review.googlesource.com/c/plugins/gc-conductor/+/339614",
+      "revId": "d87e91d8581b30096710654ece578388f6573c81",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
