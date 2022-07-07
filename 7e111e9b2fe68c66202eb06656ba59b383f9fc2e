@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94e447c6_50608f53",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/command/RemoveFromQueue.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-07-07T14:44:39Z",
+      "side": 1,
+      "message": "will it reschedule the gc even if we remove i form the queue? since gc-executor still has it",
+      "revId": "7e111e9b2fe68c66202eb06656ba59b383f9fc2e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
