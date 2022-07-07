@@ -1,6 +1,69 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "85b8bbb3_1ffe26fd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-07-07T14:53:25Z",
+      "side": 1,
+      "message": "Add",
+      "revId": "d87e91d8581b30096710654ece578388f6573c81",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8079126e_ec274472",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-07-07T14:53:25Z",
+      "side": 1,
+      "message": "The command",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 8
+      },
+      "revId": "d87e91d8581b30096710654ece578388f6573c81",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2337491_a96eb0eb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-07-07T14:53:25Z",
+      "side": 1,
+      "message": "quickly",
+      "range": {
+        "startLine": 9,
+        "startChar": 25,
+        "endLine": 9,
+        "endChar": 31
+      },
+      "revId": "d87e91d8581b30096710654ece578388f6573c81",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "43980f61_80664fc1",
@@ -14,6 +77,23 @@
       "writtenOn": "2022-07-06T15:51:56Z",
       "side": 1,
       "message": "just a suggestion:\nI\u0027d add the change below to this change to make it more clear and see the follow up regarding how it\u0027ll be re-designed to make command source code more optimized:\nhttps://gerrit-review.googlesource.com/c/plugins/gc-conductor/+/339614",
+      "revId": "d87e91d8581b30096710654ece578388f6573c81",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30af8f4a_b7857418",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/command/RepoStats.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-07-07T14:53:25Z",
+      "side": 1,
+      "message": "2022",
       "revId": "d87e91d8581b30096710654ece578388f6573c81",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
