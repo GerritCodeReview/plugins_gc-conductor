@@ -43,6 +43,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2bdd673f_058c8851",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/command/SshUtil.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-07-07T14:53:11Z",
+      "side": 1,
+      "message": "year missing",
+      "revId": "97192713ca17e71930d59155c5af0ea397526de5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "002dbae2_143d9d32",
         "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/command/SshUtil.java",
         "patchSetId": 1
