@@ -1,8 +1,9 @@
 # Gerrit gc-conductor docker setup
 
 The Docker Compose project in the docker directory contains a simple
-test environment consisting of PostgreSQL database and a Gerrit website
-with gc-conductor and gc-executor plugins.
+test environment consisting of PostgreSQL database, Gerrit website
+with gc-conductor and gc-executor plugins and Apache http server. The last
+is used to provide Gerrit http authorisation.
 
 ## How to build and run
 
@@ -28,11 +29,12 @@ $ sh docker_setup.sh \
 --postgres-driver-path [path_to_postgresql-42.2.5.jar]
 ```
 
-You can add one of two optional arguments or both of them:
+You can add one of three optional arguments or both of them:
 
 ```
 --postgres-image-path = postgresql_image_location
 --gerrit-image-path = gerrit_image_location
+--httpd-image-path = http_server_image_location
 ```
 
 In case these parameters are not set, default values will be used:
@@ -40,12 +42,20 @@ In case these parameters are not set, default values will be used:
 ```
 --postgres-image-path = postgres
 --gerrit-image-path = gerritcodereview/gerrit
+--http-server-image-path = httpd
 ```
 
 Once done, gerrit site will be available following the link:
 
 ```
 http://localhost:8080
+```
+
+When authorising in Gerrit website, use credentials:
+
+```
+username: gerrit
+password: secret
 ```
 
 ## How to debug Gerrit server
@@ -107,4 +117,12 @@ sh docker_setup.sh \
 --postgres-driver-path https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.5/postgresql-42.2.5.jar \
 --postgres-image-path postgres \
 --gerrit-image-path gerritcodereview/gerrit
+--httpd-image-path httpd
 ```
+
+## How to build and run Gerrit using 'DEVELOPMENT_BECOME_ANY_ACCOUNT' authentication type
+
+1. Comment apache section in docker-compose.yaml config.
+2. Add port binding into 'gerrit-gc' into ports section: "8080:8080".
+3. Update auth.type setting in etc/gerrit.config from 'http' to 'DEVELOPMENT_BECOME_ANY_ACCOUNT'.
+4. Run build and run as usually.
