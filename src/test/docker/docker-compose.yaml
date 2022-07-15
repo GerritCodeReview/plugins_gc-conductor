@@ -20,12 +20,11 @@ services:
     build: gerrit
     restart: always
     ports:
-      - "8080:8080"
       - "29418:29418"
       - "5005:5005"
     networks:
       gerrit-net:
-        ipv4_address: 172.23.0.3
+        ipv4_address: 172.23.0.4
     volumes:
       - gitvolume:/var/gerrit/git
       - etcvolume:/var/gerrit/etc
@@ -37,6 +36,17 @@ services:
       - $GC_EXECUTOR_PATH:/var/gerrit/plugins/gc-executor.jar
     depends_on:
       - postgresql-gc
+
+  apache:
+    build: httpd
+    volumes:
+      - ./etc/httpd.conf:/usr/local/apache2/conf/httpd.conf
+      - ./etc/.htpasswd:/usr/local/apache2/conf/.htpasswd
+    ports:
+      - "8080:80"
+    networks:
+      gerrit-net:
+        ipv4_address: 172.23.0.3
 
 networks:
   gerrit-net:
