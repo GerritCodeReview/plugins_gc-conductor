@@ -16,6 +16,24 @@
       "message": "will it reschedule the gc even if we remove i form the queue? since gc-executor still has it",
       "revId": "7e111e9b2fe68c66202eb06656ba59b383f9fc2e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7754d11_bc8f02a5",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/command/RemoveFromQueue.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-07-15T13:09:17Z",
+      "side": 1,
+      "message": "Hard question. There is no 2 way communication between GC-coductor/executor. If GC was scheduled by evolution task it will be scheduled again and will be pickup up by random executor.\nIf gc-executor is doing gc and we remove from queue then we will have 2 gc run in the same time. Gc should not hang. This force option should be used in situation when for example gc-executor host is down for 2 days and it already pickup some repos or any other scenario when he cannot finish job.",
+      "parentUuid": "94e447c6_50608f53",
+      "revId": "7e111e9b2fe68c66202eb06656ba59b383f9fc2e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
