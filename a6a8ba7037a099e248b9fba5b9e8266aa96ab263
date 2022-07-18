@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ff2778e_e7f54557",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/command/RepoStats.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-07-18T17:00:08Z",
+      "side": 1,
+      "message": "Is this copy of an existing evaluator code?",
+      "revId": "a6a8ba7037a099e248b9fba5b9e8266aa96ab263",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
