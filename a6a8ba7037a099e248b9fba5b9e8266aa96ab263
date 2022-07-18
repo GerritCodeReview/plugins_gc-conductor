@@ -16,6 +16,24 @@
       "message": "Is this copy of an existing evaluator code?",
       "revId": "a6a8ba7037a099e248b9fba5b9e8266aa96ab263",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88f6b1cc_78cbdf9b",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/command/RepoStats.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-07-18T17:18:03Z",
+      "side": 1,
+      "message": "no getRepoStatistics is a part of isDirtyMethod from EveluatorTask rest is new or copy from other commends why?",
+      "parentUuid": "6ff2778e_e7f54557",
+      "revId": "a6a8ba7037a099e248b9fba5b9e8266aa96ab263",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
