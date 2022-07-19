@@ -51,6 +51,24 @@
       "parentUuid": "6ff2778e_e7f54557",
       "revId": "a6a8ba7037a099e248b9fba5b9e8266aa96ab263",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f696dec8_d1ae8122",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/command/RepoStats.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-07-19T13:19:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88f6b1cc_78cbdf9b",
+      "revId": "a6a8ba7037a099e248b9fba5b9e8266aa96ab263",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
