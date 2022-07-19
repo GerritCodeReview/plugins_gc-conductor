@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc4c54ec_f306f5dc",
+        "filename": "src/test/docker/etc/gerrit.config",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2022-07-19T18:06:45Z",
+      "side": 0,
+      "message": "Why did you remove the index.type config?",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 14
+      },
+      "revId": "9dd9a242a6e022f63cc351e4d598ab5114aa462b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
