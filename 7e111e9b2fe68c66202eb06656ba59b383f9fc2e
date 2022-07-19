@@ -34,6 +34,24 @@
       "parentUuid": "94e447c6_50608f53",
       "revId": "7e111e9b2fe68c66202eb06656ba59b383f9fc2e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3cac1bc_625a868b",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/command/RemoveFromQueue.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-07-19T12:38:35Z",
+      "side": 1,
+      "message": "Thne maybe that caveat that it can be rescheduled?",
+      "parentUuid": "f7754d11_bc8f02a5",
+      "revId": "7e111e9b2fe68c66202eb06656ba59b383f9fc2e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
