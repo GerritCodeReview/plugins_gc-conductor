@@ -13,8 +13,6 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-    volumes:
-      - db:/var/lib/postgresql/data
 
   gerrit-gc:
     build: gerrit
@@ -27,9 +25,6 @@ services:
       gerrit-net:
         ipv4_address: 172.23.0.3
     volumes:
-      - gitvolume:/var/gerrit/git
-      - etcvolume:/var/gerrit/etc
-      - logsvolume:/var/gerrit/logs
       - ./etc/gerrit.config:/var/gerrit/etc/gerrit.config.orig
       - ./etc/gc.config:/var/gerrit/etc/gc.config.orig
       - ./etc/log4j2.xml:/var/gerrit/etc/log4j2.xml.orig
@@ -44,8 +39,3 @@ networks:
     ipam:
       config:
         - subnet: 172.23.0.0/28
-volumes:
-  gitvolume:
-  etcvolume:
-  logsvolume:
-  db:
