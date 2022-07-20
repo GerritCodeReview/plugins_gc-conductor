@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b47c6d59_15a926a2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2022-07-20T15:50:35Z",
+      "side": 1,
+      "message": "remove the semi-column",
+      "range": {
+        "startLine": 10,
+        "startChar": 11,
+        "endLine": 10,
+        "endChar": 12
+      },
+      "revId": "9311ef7a8601e6678715927b444d3ebdd765835e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eadd40c3_ac276ccd",
+        "filename": "src/test/docker/gerrit/start_gerrit.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2022-07-20T15:50:35Z",
+      "side": 1,
+      "message": "Do we need this if statement? This file will not exist because the volumes will not be persisted anymore. You can init a gerrit site directly",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 4
+      },
+      "revId": "9311ef7a8601e6678715927b444d3ebdd765835e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
