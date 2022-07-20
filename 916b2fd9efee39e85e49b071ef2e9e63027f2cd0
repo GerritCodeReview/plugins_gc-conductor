@@ -24,6 +24,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d865cab8_a98108a7",
+        "filename": "src/test/docker/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2022-07-20T09:48:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2bea0ad_f8b59a03",
+      "range": {
+        "startLine": 54,
+        "startChar": 5,
+        "endLine": 54,
+        "endChar": 16
+      },
+      "revId": "916b2fd9efee39e85e49b071ef2e9e63027f2cd0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4d40586b_6d4bc8e8",
@@ -47,6 +71,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f59c38b_27450eca",
+        "filename": "src/test/docker/etc/gerrit.config",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2022-07-20T09:48:00Z",
+      "side": 1,
+      "message": "apologize, I could not recognize what\u0027s the problem with this line.",
+      "parentUuid": "4d40586b_6d4bc8e8",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 2
+      },
+      "revId": "916b2fd9efee39e85e49b071ef2e9e63027f2cd0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03819943_2a1b45be",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-07-19T18:06:45Z",
       "side": 1,
       "message": "This config defaults to false so you can remove it",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 25
+      },
+      "revId": "916b2fd9efee39e85e49b071ef2e9e63027f2cd0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1eb6e050_ce02b4fe",
+        "filename": "src/test/docker/etc/gerrit.config",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2022-07-20T09:48:00Z",
+      "side": 1,
+      "message": "Agree. I was thinking to keep it in case somebody wants to change it.\nBut it can be added in case it\u0027s required.",
+      "parentUuid": "03819943_2a1b45be",
       "range": {
         "startLine": 30,
         "startChar": 0,
