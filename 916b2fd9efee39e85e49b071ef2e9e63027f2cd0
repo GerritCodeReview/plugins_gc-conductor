@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7437af8b_f57bcf26",
+        "filename": "src/test/docker/etc/gerrit.config",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2022-07-20T17:26:56Z",
+      "side": 1,
+      "message": "The previous line you are using a tab for the config flags. Can you use a tab on this line as well?",
+      "parentUuid": "0f59c38b_27450eca",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 2
+      },
+      "revId": "916b2fd9efee39e85e49b071ef2e9e63027f2cd0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "03819943_2a1b45be",
         "filename": "src/test/docker/etc/gerrit.config",
         "patchSetId": 2

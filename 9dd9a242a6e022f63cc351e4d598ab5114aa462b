@@ -46,6 +46,30 @@
       },
       "revId": "9dd9a242a6e022f63cc351e4d598ab5114aa462b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a1ddd7a_8e081fdf",
+        "filename": "src/test/docker/etc/gerrit.config",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2022-07-20T17:26:56Z",
+      "side": 0,
+      "message": "I would prefer to not include it in this change as it is not related",
+      "parentUuid": "8e20a8c3_1d80cce7",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 14
+      },
+      "revId": "9dd9a242a6e022f63cc351e4d598ab5114aa462b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
