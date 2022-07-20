@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e873d3e_307ded58",
+        "filename": "src/test/docker/docker-compose.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2022-07-20T18:04:54Z",
+      "side": 0,
+      "message": "Why you removed this one?",
+      "range": {
+        "startLine": 21,
+        "startChar": 5,
+        "endLine": 21,
+        "endChar": 19
+      },
+      "revId": "9311ef7a8601e6678715927b444d3ebdd765835e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}

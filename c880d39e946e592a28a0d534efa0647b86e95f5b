@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3a174e1_0ed1bd52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2022-07-20T18:04:54Z",
+      "side": 1,
+      "message": "In start_gerrit.sh script can you add --dev flag as it creates an admin user",
+      "revId": "c880d39e946e592a28a0d534efa0647b86e95f5b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca5d93e8_0881a03e",
+        "filename": "src/test/docker/docker-compose.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2022-07-20T18:04:54Z",
+      "side": 1,
+      "message": "I tested the solution it keeps throwing 401 errors when running gatling",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 0
+      },
+      "revId": "c880d39e946e592a28a0d534efa0647b86e95f5b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
