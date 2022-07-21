@@ -38,7 +38,9 @@ class CreateChangesTriggeringGcWithProject extends GerritSimulation {
       constantUsersPerSec(createChanges.changesPerSecond) during (createChanges.secondsToChanges seconds),
       nothingFor(createChanges.secondsToNextEvaluation seconds),
       nothingFor(createChanges.secondsForLastEvaluation / 2 seconds),
-      atOnceUsers(createChanges.ChangesForLastEvaluation)
+      atOnceUsers(createChanges.ChangesForLastEvaluation),
+      nothingFor(createChanges.secondsToNextEvaluation seconds),
+      nothingFor(createChanges.secondsForLastEvaluation / 2 seconds)
     ),
     checkStatsUpToGc.test.inject(
       nothingFor(stepWaitTime(checkStatsUpToGc) seconds),
