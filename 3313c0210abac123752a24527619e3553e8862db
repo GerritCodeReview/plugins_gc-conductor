@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66eb24a9_babdd237",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-07-21T15:14:14Z",
+      "side": 1,
+      "message": "Its compact json. It was enable by default from 3.1 I think.",
+      "revId": "3313c0210abac123752a24527619e3553e8862db",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
