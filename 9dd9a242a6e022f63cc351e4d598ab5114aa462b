@@ -70,6 +70,30 @@
       },
       "revId": "9dd9a242a6e022f63cc351e4d598ab5114aa462b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "478f6036_19b2a167",
+        "filename": "src/test/docker/etc/gerrit.config",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-07-21T03:00:03Z",
+      "side": 0,
+      "message": "Remove it in a separate change. Each change should only focus on 1 aspect.",
+      "parentUuid": "6a1ddd7a_8e081fdf",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 14
+      },
+      "revId": "9dd9a242a6e022f63cc351e4d598ab5114aa462b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
