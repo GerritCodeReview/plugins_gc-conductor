@@ -7,7 +7,7 @@ cp /var/gerrit/etc/log4j2.xml.orig /var/gerrit/etc/log4j2.xml
 if [[ ! -f /var/gerrit/etc/ssh_host_ed25519_key ]]
 then
   echo "Initializing Gerrit site ..."
-  java -jar /var/gerrit/bin/gerrit.war init -d /var/gerrit --batch
+  java -jar /var/gerrit/bin/gerrit.war init --dev -d /var/gerrit --batch
 fi
 
 echo "Reindexing Gerrit ..."
