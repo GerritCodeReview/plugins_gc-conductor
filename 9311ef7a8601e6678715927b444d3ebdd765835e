@@ -93,6 +93,30 @@
       },
       "revId": "9311ef7a8601e6678715927b444d3ebdd765835e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92493a35_49e3e24e",
+        "filename": "src/test/docker/gerrit/start_gerrit.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2022-07-22T12:10:08Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "e1595347_e516d142",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 4
+      },
+      "revId": "9311ef7a8601e6678715927b444d3ebdd765835e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
