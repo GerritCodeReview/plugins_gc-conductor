@@ -52,6 +52,24 @@
       "parentUuid": "f7754d11_bc8f02a5",
       "revId": "7e111e9b2fe68c66202eb06656ba59b383f9fc2e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8128ac4_1ab11326",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/command/RemoveFromQueue.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-07-29T16:47:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3cac1bc_625a868b",
+      "revId": "7e111e9b2fe68c66202eb06656ba59b383f9fc2e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
