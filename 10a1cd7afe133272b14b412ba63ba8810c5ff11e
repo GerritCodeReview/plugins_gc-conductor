@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e3d3399_526aa7fd",
+        "filename": "src/test/docker/etc/gerrit.config",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-07-29T13:29:57Z",
+      "side": 0,
+      "message": "Any reason for removal of these section?",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 7
+      },
+      "revId": "10a1cd7afe133272b14b412ba63ba8810c5ff11e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
