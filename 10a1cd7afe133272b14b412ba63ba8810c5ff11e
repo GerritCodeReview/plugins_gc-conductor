@@ -22,6 +22,30 @@
       },
       "revId": "10a1cd7afe133272b14b412ba63ba8810c5ff11e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "875db298_de950c1e",
+        "filename": "src/test/docker/etc/gerrit.config",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2022-07-30T15:32:03Z",
+      "side": 0,
+      "message": "The setting is deprecated and is LUCENE by default. It should not be used.\nI think we can make a change like this in current commit.",
+      "parentUuid": "2e3d3399_526aa7fd",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 7
+      },
+      "revId": "10a1cd7afe133272b14b412ba63ba8810c5ff11e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
