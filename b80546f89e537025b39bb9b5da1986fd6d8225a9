@@ -18,6 +18,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dd1c1dc_2ed9bed6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-08-01T11:27:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a78876e4_8979d60b",
+      "revId": "b80546f89e537025b39bb9b5da1986fd6d8225a9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b40da47_d5ceea1f",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-08-01T10:40:23Z",
       "side": 1,
       "message": "allows",
+      "revId": "b80546f89e537025b39bb9b5da1986fd6d8225a9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b675858_2117d7bf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-08-01T11:27:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b40da47_d5ceea1f",
       "revId": "b80546f89e537025b39bb9b5da1986fd6d8225a9",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
@@ -69,6 +105,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a79a52b8_feb40d53",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/command/RemoveFromQueue.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-08-01T11:27:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6a9d11a_7a0f90f4",
+      "revId": "b80546f89e537025b39bb9b5da1986fd6d8225a9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9621d986_a26b068e",
@@ -82,6 +136,24 @@
       "writtenOn": "2022-08-01T10:40:23Z",
       "side": 1,
       "message": "remove?",
+      "revId": "b80546f89e537025b39bb9b5da1986fd6d8225a9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28f72f4c_6e48206c",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-08-01T11:27:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9621d986_a26b068e",
       "revId": "b80546f89e537025b39bb9b5da1986fd6d8225a9",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
