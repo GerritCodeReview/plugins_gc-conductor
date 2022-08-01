@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a78876e4_8979d60b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-08-01T10:40:23Z",
+      "side": 1,
+      "message": "Add",
+      "revId": "b80546f89e537025b39bb9b5da1986fd6d8225a9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b40da47_d5ceea1f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-08-01T10:40:23Z",
+      "side": 1,
+      "message": "allows",
+      "revId": "b80546f89e537025b39bb9b5da1986fd6d8225a9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9621d986_a26b068e",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-08-01T10:40:23Z",
+      "side": 1,
+      "message": "remove?",
+      "revId": "b80546f89e537025b39bb9b5da1986fd6d8225a9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
