@@ -46,6 +46,30 @@
       },
       "revId": "10a1cd7afe133272b14b412ba63ba8810c5ff11e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce77e0b1_117fc676",
+        "filename": "src/test/docker/etc/gerrit.config",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2022-08-01T12:09:36Z",
+      "side": 0,
+      "message": "I think it will be better as a separate change as it is out of context. If you can make a separate change and explain that LUCENE is the default index type value? This way it will be easier in the future to track this change, if needed.",
+      "parentUuid": "875db298_de950c1e",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 7
+      },
+      "revId": "10a1cd7afe133272b14b412ba63ba8810c5ff11e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
