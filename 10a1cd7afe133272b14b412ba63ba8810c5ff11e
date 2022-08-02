@@ -16,6 +16,24 @@
       "message": "why was re-index introduced",
       "revId": "10a1cd7afe133272b14b412ba63ba8810c5ff11e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9520380_c528ccdb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2022-08-02T13:37:00Z",
+      "side": 1,
+      "message": "Gerrit needs to re-index changes/repos when it starts, otherwise it won\u0027t show changes, created before Gerrit is stopped.\nIt\u0027s a part of improvement",
+      "parentUuid": "e5911aa7_fdc3850c",
+      "revId": "10a1cd7afe133272b14b412ba63ba8810c5ff11e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
