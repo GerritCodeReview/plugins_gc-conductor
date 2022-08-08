@@ -45,7 +45,7 @@ In case these parameters are not set, default values will be used:
 Once done, gerrit site will be available following the link:
 
 ```
-http://localhost:8080
+http://172.23.0.3:8080
 ```
 
 ## How to debug Gerrit server
