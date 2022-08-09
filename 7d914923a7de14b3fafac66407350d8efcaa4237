@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c41682a_c32e9acf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2022-08-09T14:25:09Z",
+      "side": 1,
+      "message": "it\u0027s to check if yesterday\u0027s issue with vote is fixed.\n\nWe agreed to add an example to readme file regarding how to access the site",
+      "revId": "7d914923a7de14b3fafac66407350d8efcaa4237",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
