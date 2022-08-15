@@ -16,6 +16,24 @@
       "message": "But isn\u0027t still good to have for the purpose of bookeeping?",
       "revId": "30478ee19b772c1a1af76f2ed7a7eba5d1ff2305",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28f27a5f_690c5f28",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2022-08-15T17:31:51Z",
+      "side": 1,
+      "message": "We will not be able to access this Gerrit site because it is on a private docker network if we use it on jenkins. The problem with javaMelody plugin was related to gerrit forge TLS certificate has exprired which can happen again leading to a failure during the build.",
+      "parentUuid": "5da28a2f_2ff158be",
+      "revId": "30478ee19b772c1a1af76f2ed7a7eba5d1ff2305",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
