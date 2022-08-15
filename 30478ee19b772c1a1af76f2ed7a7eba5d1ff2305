@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5da28a2f_2ff158be",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-08-15T15:15:46Z",
+      "side": 1,
+      "message": "But isn\u0027t still good to have for the purpose of bookeeping?",
+      "revId": "30478ee19b772c1a1af76f2ed7a7eba5d1ff2305",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
