@@ -25,6 +25,8 @@ import com.ericsson.gerrit.plugins.gcconductor.GcQueue;
 import com.ericsson.gerrit.plugins.gcconductor.GcQueueException;
 import com.ericsson.gerrit.plugins.gcconductor.RepositoryInfo;
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.Optional;
 import org.junit.Before;
 import org.junit.Test;
@@ -50,8 +52,9 @@ public class GcWorkerTest {
   @Before
   public void setUp() {
     Thread.interrupted(); // reset the flag
-    repoInfo = new RepositoryInfo(REPO_PATH, null, EXEC_NAME, HOSTNAME, true);
-    gcTask = new GcWorker(queue, garbageCollector, cpm, QUEUED_FROM, 0, EXEC_NAME);
+    repoInfo =
+        new RepositoryInfo(REPO_PATH, Timestamp.from(Instant.now()), EXEC_NAME, HOSTNAME, true);
+    gcTask = new GcWorker(queue, garbageCollector, cpm, QUEUED_FROM, 0, EXEC_NAME, false);
   }
 
   @Test
@@ -140,5 +143,16 @@ public class GcWorkerTest {
   public void callingShutdownSetsCancellableToTrue() {
     gcTask.shutdown();
     verify(cpm).cancel();
+  }
+
+  @Test
+  public void nativeGcShouldPickAndUnpickRepository() throws Exception {
+    when(queue.pick(EXEC_NAME, 0, QUEUED_FROM)).thenReturn(repoInfo);
+    when(cpm.isCancelled()).thenReturn(false).thenReturn(true);
+    GcWorker gcNariveTask =
+        new GcWorker(queue, garbageCollector, cpm, QUEUED_FROM, 0, EXEC_NAME, true);
+    gcNariveTask.run();
+    verify(queue).unpick(REPO_PATH);
+    cpm.cancel();
   }
 }

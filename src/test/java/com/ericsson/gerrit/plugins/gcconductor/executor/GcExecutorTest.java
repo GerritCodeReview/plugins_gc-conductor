@@ -57,7 +57,7 @@ public class GcExecutorTest {
   @Test
   public void testGcExecutor() {
     when(config.getExecutors()).thenReturn(1);
-    when(gcWorkerFactory.create(EXECUTOR)).thenReturn(gcWorker);
+    when(gcWorkerFactory.create(EXECUTOR, false)).thenReturn(gcWorker);
     GcExecutor gcExecutor =
         new GcExecutor(gcQueue, config, gcWorkerFactory, scheduledEvaluator, HOSTNAME);
     verify(gcWorker).start();
@@ -68,7 +68,7 @@ public class GcExecutorTest {
   @Test
   public void testLeftOverReposAreUnpickedWhenStarting() throws Exception {
     when(config.getExecutors()).thenReturn(1);
-    when(gcWorkerFactory.create(EXECUTOR)).thenReturn(gcWorker);
+    when(gcWorkerFactory.create(EXECUTOR, false)).thenReturn(gcWorker);
     when(gcQueue.list())
         .thenReturn(
             ImmutableList.of(new RepositoryInfo(REPOSITORY, null, EXECUTOR, HOSTNAME, true)));
@@ -83,7 +83,7 @@ public class GcExecutorTest {
   @Test
   public void testUnassignedReposAreNotUnpickedWhenStarting() throws Exception {
     when(config.getExecutors()).thenReturn(1);
-    when(gcWorkerFactory.create(EXECUTOR)).thenReturn(gcWorker);
+    when(gcWorkerFactory.create(EXECUTOR, false)).thenReturn(gcWorker);
     when(gcQueue.list())
         .thenReturn(ImmutableList.of(new RepositoryInfo(REPOSITORY, null, null, HOSTNAME, true)));
     GcExecutor gcExecutor =
@@ -97,7 +97,7 @@ public class GcExecutorTest {
   @Test
   public void testExecutorDoesNotUnpickNotOwnedRepo() throws Exception {
     when(config.getExecutors()).thenReturn(1);
-    when(gcWorkerFactory.create(EXECUTOR)).thenReturn(gcWorker);
+    when(gcWorkerFactory.create(EXECUTOR, false)).thenReturn(gcWorker);
     when(gcQueue.list())
         .thenReturn(
             ImmutableList.of(
@@ -114,7 +114,7 @@ public class GcExecutorTest {
   @Test
   public void testQueueThrowsExceptionUnpickingAtStart() throws Exception {
     when(config.getExecutors()).thenReturn(1);
-    when(gcWorkerFactory.create(EXECUTOR)).thenReturn(gcWorker);
+    when(gcWorkerFactory.create(EXECUTOR, false)).thenReturn(gcWorker);
     doThrow(new GcQueueException("", new Throwable())).when(gcQueue).list();
     GcExecutor gcExecutor =
         new GcExecutor(gcQueue, config, gcWorkerFactory, scheduledEvaluator, HOSTNAME);
@@ -129,7 +129,7 @@ public class GcExecutorTest {
     when(config.getExecutors()).thenReturn(1);
     when(config.getInitialDelay()).thenReturn(1L);
     when(config.getInterval()).thenReturn(1L);
-    when(gcWorkerFactory.create(EXECUTOR)).thenReturn(gcWorker);
+    when(gcWorkerFactory.create(EXECUTOR, false)).thenReturn(gcWorker);
     when(gcQueue.list())
         .thenReturn(ImmutableList.of(new RepositoryInfo(REPOSITORY, null, null, HOSTNAME, true)));
     GcExecutor gcExecutor =
@@ -144,7 +144,7 @@ public class GcExecutorTest {
   public void testScheduledEvaluationBothParametersRequired() throws Exception {
     when(config.getExecutors()).thenReturn(1);
     when(config.getInitialDelay()).thenReturn(1L);
-    when(gcWorkerFactory.create(EXECUTOR)).thenReturn(gcWorker);
+    when(gcWorkerFactory.create(EXECUTOR, false)).thenReturn(gcWorker);
     when(gcQueue.list())
         .thenReturn(ImmutableList.of(new RepositoryInfo(REPOSITORY, null, null, HOSTNAME, true)));
     GcExecutor gcExecutor =
