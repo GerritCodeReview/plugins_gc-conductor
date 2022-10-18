@@ -115,6 +115,13 @@ By default, true.
 :       minimal delay in seconds a repository must be in queue before it can be
 picked. By default, 0.
 
+`core.forceNativeGitGc`
+:       Gc executor config parameter. Force single gc-executor instance to use
+native git gc to all repos instead of jgit one. By default, false
+
+`core.forceAggressive`
+:       change gc-conductor GC mode to aggressive for all repos.
+
 #### Section `db`
 
 `db.databaseUrl`
@@ -188,3 +195,17 @@ Executors can be started/stopped using the gc_ctl script.
 
 [build]: build.html
 [index]: index.html
+
+### Repository config
+
+Every repository has 'config' configuration in root folder. It contains
+settings, that are specific to this repository. There are settings, applicable
+for gc-conductor.
+
+#### Section `gc`
+
+`gc.aggressive`
+:       Whether to use GC aggressive mode or not. By default, false.
+
+`gc.nativegc`
+:       Whether to use native GC instead of JGit GC. By default, false.

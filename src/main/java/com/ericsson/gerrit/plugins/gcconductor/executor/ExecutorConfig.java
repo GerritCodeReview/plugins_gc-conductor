@@ -45,6 +45,7 @@ class ExecutorConfig extends CommonConfig {
 
   static final String DELAY_KEY = "delay";
   static final String EXECUTOR_KEY = "executors";
+  static final String FORCE_NATIVE_GC = "forceNativeGitGc";
   static final String PICK_OWN_HOST_KEY = "pickOwnHostOnly";
   static final String REPOS_PATH_KEY = "repositoriesPath";
   static final String INTERVAL_KEY = "interval";
@@ -60,6 +61,7 @@ class ExecutorConfig extends CommonConfig {
   private final int delay;
   private final int executors;
   private final boolean pickOwnHostOnly;
+  private final boolean forceNativeGC;
   private final String repositoriesPath;
   private final long interval;
   private final long initialDelay;
@@ -87,6 +89,7 @@ class ExecutorConfig extends CommonConfig {
             config.getString(EVALUATION_SECTION, null, START_TIME_KEY),
             ZonedDateTime.now(systemDefault()),
             interval);
+    forceNativeGC = config.getBoolean(CORE_SECTION, FORCE_NATIVE_GC, false);
   }
 
   int getExecutors() {
@@ -111,6 +114,10 @@ class ExecutorConfig extends CommonConfig {
 
   long getInterval() {
     return interval;
+  }
+
+  boolean isForceNativeGc() {
+    return forceNativeGC;
   }
 
   private long interval(Config rc, String section, String key) {
