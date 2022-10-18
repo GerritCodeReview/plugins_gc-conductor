@@ -49,6 +49,7 @@ class ExecutorConfig extends CommonConfig {
   static final String REPOS_PATH_KEY = "repositoriesPath";
   static final String INTERVAL_KEY = "interval";
   static final String START_TIME_KEY = "startTime";
+  static final String FORCE_NATIVE_GC = "forceNativeGitGc";
 
   static final String EMPTY = "";
   static final int DEFAULT_EXECUTORS = 2;
@@ -63,6 +64,7 @@ class ExecutorConfig extends CommonConfig {
   private final String repositoriesPath;
   private final long interval;
   private final long initialDelay;
+  private final boolean forceNativeGC;
 
   @Inject
   ExecutorConfig(Config config) {
@@ -87,6 +89,7 @@ class ExecutorConfig extends CommonConfig {
             config.getString(EVALUATION_SECTION, null, START_TIME_KEY),
             ZonedDateTime.now(systemDefault()),
             interval);
+    forceNativeGC = config.getBoolean(CORE_SECTION, FORCE_NATIVE_GC, false);
   }
 
   int getExecutors() {
@@ -111,6 +114,10 @@ class ExecutorConfig extends CommonConfig {
 
   long getInterval() {
     return interval;
+  }
+
+  boolean isForceNativeGc() {
+    return forceNativeGC;
   }
 
   private long interval(Config rc, String section, String key) {
