@@ -81,7 +81,7 @@ class GcExecutor implements ShutdownListener {
     log.info("Starting executors...");
     synchronized (this) {
       for (int i = 0; i < config.getExecutors(); i++) {
-        GcWorker worker = gcWorkerFactory.create(hostname + "-" + i);
+        GcWorker worker = gcWorkerFactory.create(hostname + "-" + i, config.isForceNativeGc());
         worker.start();
         workers.add(worker);
       }
