@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b2f82fc_0e8f6417",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-10-31T18:39:28Z",
+      "side": 1,
+      "message": "needs line wrap",
+      "range": {
+        "startLine": 119,
+        "startChar": 75,
+        "endLine": 119,
+        "endChar": 85
+      },
+      "revId": "674d25bdc7a461539a2da09b99b46f437ddfa87f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0ec8273_2280467a",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-10-31T18:39:28Z",
+      "side": 1,
+      "message": "also need a line wrap, bellow as well",
+      "range": {
+        "startLine": 201,
+        "startChar": 77,
+        "endLine": 201,
+        "endChar": 89
+      },
+      "revId": "674d25bdc7a461539a2da09b99b46f437ddfa87f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "104fa2ab_2c1ce144",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-10-31T18:39:28Z",
+      "side": 1,
+      "message": "not true",
+      "range": {
+        "startLine": 210,
+        "startChar": 9,
+        "endLine": 211,
+        "endChar": 63
+      },
+      "revId": "674d25bdc7a461539a2da09b99b46f437ddfa87f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
