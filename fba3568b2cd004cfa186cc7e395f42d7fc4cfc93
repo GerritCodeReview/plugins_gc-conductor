@@ -1,0 +1,141 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c1e742b_54359e4a",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/executor/ExecutorConfig.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-11-30T22:31:06Z",
+      "side": 1,
+      "message": "I think should be in alphabet order?, so move to line 48?",
+      "revId": "fba3568b2cd004cfa186cc7e395f42d7fc4cfc93",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f654935_c380199b",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/executor/ExecutorConfig.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-11-30T22:31:06Z",
+      "side": 1,
+      "message": "group together with line 63",
+      "revId": "fba3568b2cd004cfa186cc7e395f42d7fc4cfc93",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e70fe6d1_837ea043",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/executor/GcWorker.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-11-30T22:31:06Z",
+      "side": 1,
+      "message": "Jgit gc",
+      "range": {
+        "startLine": 136,
+        "startChar": 13,
+        "endLine": 136,
+        "endChar": 20
+      },
+      "revId": "fba3568b2cd004cfa186cc7e395f42d7fc4cfc93",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e308c54_53091080",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/executor/GcWorker.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-11-30T22:31:06Z",
+      "side": 1,
+      "message": "same",
+      "revId": "fba3568b2cd004cfa186cc7e395f42d7fc4cfc93",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90dad1a0_99c240af",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/executor/GcWorker.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-11-30T22:31:06Z",
+      "side": 1,
+      "message": "Native gc",
+      "revId": "fba3568b2cd004cfa186cc7e395f42d7fc4cfc93",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b74e9bc1_64eba3cf",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-11-30T22:31:06Z",
+      "side": 1,
+      "message": "space",
+      "range": {
+        "startLine": 119,
+        "startChar": 77,
+        "endLine": 119,
+        "endChar": 79
+      },
+      "revId": "fba3568b2cd004cfa186cc7e395f42d7fc4cfc93",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6701eb7d_674c279b",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-11-30T22:31:06Z",
+      "side": 1,
+      "message": "weird that this conf is in evaluation. Move it out? Since according to line 145 it does something else.",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 0
+      },
+      "revId": "fba3568b2cd004cfa186cc7e395f42d7fc4cfc93",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
