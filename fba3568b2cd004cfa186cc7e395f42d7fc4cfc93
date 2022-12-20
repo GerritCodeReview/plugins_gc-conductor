@@ -24,6 +24,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e957f62_dd885bcb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-12-20T12:56:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9892292f_26dbc1b9",
+      "range": {
+        "startLine": 7,
+        "startChar": 21,
+        "endLine": 7,
+        "endChar": 22
+      },
+      "revId": "fba3568b2cd004cfa186cc7e395f42d7fc4cfc93",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c1e742b_54359e4a",
@@ -41,6 +65,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6896914b_23b2e636",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/executor/ExecutorConfig.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-12-20T12:56:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c1e742b_54359e4a",
+      "revId": "fba3568b2cd004cfa186cc7e395f42d7fc4cfc93",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f654935_c380199b",
@@ -54,6 +96,24 @@
       "writtenOn": "2022-11-30T22:31:06Z",
       "side": 1,
       "message": "group together with line 63",
+      "revId": "fba3568b2cd004cfa186cc7e395f42d7fc4cfc93",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68b67947_db515c42",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/executor/ExecutorConfig.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-12-20T12:56:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f654935_c380199b",
       "revId": "fba3568b2cd004cfa186cc7e395f42d7fc4cfc93",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
@@ -105,6 +165,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f090d55_fd9810aa",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/executor/GcWorker.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-12-20T12:56:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d91a75ac_5d048724",
+      "range": {
+        "startLine": 136,
+        "startChar": 13,
+        "endLine": 136,
+        "endChar": 20
+      },
+      "revId": "fba3568b2cd004cfa186cc7e395f42d7fc4cfc93",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e308c54_53091080",
@@ -122,6 +206,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb29e515_f7d5f7a3",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/executor/GcWorker.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-12-20T12:56:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e308c54_53091080",
+      "revId": "fba3568b2cd004cfa186cc7e395f42d7fc4cfc93",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90dad1a0_99c240af",
@@ -135,6 +237,24 @@
       "writtenOn": "2022-11-30T22:31:06Z",
       "side": 1,
       "message": "Native gc",
+      "revId": "fba3568b2cd004cfa186cc7e395f42d7fc4cfc93",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb5881d6_3f148aa9",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/executor/GcWorker.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-12-20T12:56:17Z",
+      "side": 1,
+      "message": "Already part of monitoring prefer not to fork it since we deliver to open source. At least not in 1st version.",
+      "parentUuid": "90dad1a0_99c240af",
       "revId": "fba3568b2cd004cfa186cc7e395f42d7fc4cfc93",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
@@ -162,6 +282,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb26cb06_2dd4ed8b",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-12-20T12:56:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b74e9bc1_64eba3cf",
+      "range": {
+        "startLine": 119,
+        "startChar": 77,
+        "endLine": 119,
+        "endChar": 79
+      },
+      "revId": "fba3568b2cd004cfa186cc7e395f42d7fc4cfc93",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6701eb7d_674c279b",
@@ -175,6 +319,30 @@
       "writtenOn": "2022-11-30T22:31:06Z",
       "side": 1,
       "message": "weird that this conf is in evaluation. Move it out? Since according to line 145 it does something else.",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 0
+      },
+      "revId": "fba3568b2cd004cfa186cc7e395f42d7fc4cfc93",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b89b456_a305f851",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-12-20T12:56:17Z",
+      "side": 1,
+      "message": "it was not introduce by this change at least the feature this was added only because of it is missing and it is a part of internal fork. It is already a part of evaluation section read in config. Changing this will need to be part of separate change",
+      "parentUuid": "6701eb7d_674c279b",
       "range": {
         "startLine": 183,
         "startChar": 0,
