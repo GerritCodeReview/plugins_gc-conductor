@@ -259,6 +259,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcd1ed3c_eb84df82",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/gcconductor/executor/GcWorker.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-12-21T14:52:43Z",
+      "side": 1,
+      "message": "ack",
+      "parentUuid": "eb5881d6_3f148aa9",
+      "revId": "fba3568b2cd004cfa186cc7e395f42d7fc4cfc93",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b74e9bc1_64eba3cf",
@@ -343,6 +361,30 @@
       "side": 1,
       "message": "it was not introduce by this change at least the feature this was added only because of it is missing and it is a part of internal fork. It is already a part of evaluation section read in config. Changing this will need to be part of separate change",
       "parentUuid": "6701eb7d_674c279b",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 0
+      },
+      "revId": "fba3568b2cd004cfa186cc7e395f42d7fc4cfc93",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6e4142d_b9291cad",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-12-21T14:52:43Z",
+      "side": 1,
+      "message": "So maybe in a followup move it to core section instead.",
+      "parentUuid": "7b89b456_a305f851",
       "range": {
         "startLine": 183,
         "startChar": 0,
