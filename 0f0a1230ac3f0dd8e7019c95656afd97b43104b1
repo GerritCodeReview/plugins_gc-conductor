@@ -70,6 +70,30 @@
       },
       "revId": "0f0a1230ac3f0dd8e7019c95656afd97b43104b1",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93250864_9070888e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2023-01-23T16:54:54Z",
+      "side": 1,
+      "message": "I implemented another performance improvement for jgit gc, see https://git.eclipse.org/r/c/jgit/jgit/+/199468",
+      "parentUuid": "8b79a9f2_41e081a4",
+      "range": {
+        "startLine": 9,
+        "startChar": 29,
+        "endLine": 9,
+        "endChar": 61
+      },
+      "revId": "0f0a1230ac3f0dd8e7019c95656afd97b43104b1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
