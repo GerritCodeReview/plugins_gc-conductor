@@ -142,6 +142,30 @@
       },
       "revId": "0f0a1230ac3f0dd8e7019c95656afd97b43104b1",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "675e7909_fc37b8ba",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2023-02-14T22:34:56Z",
+      "side": 1,
+      "message": "- Can you share stats (use e.g. git-sizer) for this repo ?\n- Which git configuration did you use for running jgit gc ?\n- Which Java configuration did you use for running jgit gc ?",
+      "parentUuid": "36e94676_66a1a123",
+      "range": {
+        "startLine": 9,
+        "startChar": 29,
+        "endLine": 9,
+        "endChar": 61
+      },
+      "revId": "0f0a1230ac3f0dd8e7019c95656afd97b43104b1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
