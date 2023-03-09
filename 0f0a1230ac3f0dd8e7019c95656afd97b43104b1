@@ -166,6 +166,30 @@
       },
       "revId": "0f0a1230ac3f0dd8e7019c95656afd97b43104b1",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f56d3e3_3cb95d8d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-03-09T23:37:22Z",
+      "side": 1,
+      "message": "We are performing another update, I will share the git-sizer date once that is done. \nas for java configuration, I am not sure how to check it, but we are using openjdk11. I tried with both aggressive and not aggressive, aggressive took longer than 10h so I stopped it. I ran gc from gerrit and from gc-conductor while not having any traffic. GC-conductor uses the same jgit version as master. Is it better to create a discussion for us to track and work on this?",
+      "parentUuid": "675e7909_fc37b8ba",
+      "range": {
+        "startLine": 9,
+        "startChar": 29,
+        "endLine": 9,
+        "endChar": 61
+      },
+      "revId": "0f0a1230ac3f0dd8e7019c95656afd97b43104b1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
