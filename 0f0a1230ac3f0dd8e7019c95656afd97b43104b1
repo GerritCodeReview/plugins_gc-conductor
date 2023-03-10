@@ -214,6 +214,30 @@
       },
       "revId": "0f0a1230ac3f0dd8e7019c95656afd97b43104b1",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b924a48_50483c11",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-03-10T21:30:58Z",
+      "side": 1,
+      "message": "gitsizer:\n\nProcessing blobs: 1390168                        \nProcessing trees: 1402667                        \nProcessing commits: 1809235                        \nMatching commits to trees: 1809235                        \nProcessing annotated tags: 0                        \nProcessing references: 280301                        \n| Name                         | Value     | Level of concern               |\n| ---------------------------- | --------- | ------------------------------ |\n| Overall repository size      |           |                                |\n| * Commits                    |           |                                |\n|   * Count                    |  1.81 M   | ***                            |\n|   * Total size               |   525 MiB | **                             |\n| * Trees                      |           |                                |\n|   * Count                    |  1.40 M   |                                |\n|   * Total size               |   225 MiB |                                |\n|   * Total tree entries       |  6.30 M   |                                |\n| * Blobs                      |           |                                |\n|   * Count                    |  1.39 M   |                                |\n|   * Total size               |  5.08 GiB |                                |\n| * Annotated tags             |           |                                |\n|   * Count                    |     0     |                                |\n| * References                 |           |                                |\n|   * Count                    |   280 k   | ***********                    |\n|     * Changeset refs         |     1     |                                |\n|     * Other                  |   280 k   | ***********                    |\n|                              |           |                                |\n| Biggest objects              |           |                                |\n| * Commits                    |           |                                |\n|   * Maximum size         [1] |  5.20 MiB | !!!!!!!!!!!!!!!!!!!!!!!!!!!!!! |\n|   * Maximum parents      [2] |     1     |                                |\n| * Trees                      |           |                                |\n|   * Maximum entries      [3] |   256     |                                |\n| * Blobs                      |           |                                |\n|   * Maximum size         [4] |   226 KiB |                                |\n|                              |           |                                |\n| History structure            |           |                                |\n| * Maximum history depth      |  24.6 k   |                                |\n| * Maximum tag depth          |     0     |                                |\n|                              |           |                                |\n| Biggest checkouts            |           |                                |\n| * Number of directories  [5] |  63.3 k   | !!!!!!!!!!!!!!!!!!!!!!!!!!!!!! |\n| * Maximum path depth     [5] |     3     |                                |\n| * Maximum path length    [5] |    42 B   |                                |\n| * Number of files        [5] |   214 k   | ****                           |\n| * Total size of files    [5] |  16.9 MiB |                                |\n| * Number of symlinks         |     0     |                                |\n| * Number of submodules       |     0     |                                |\n\n[1]  a1d8780246bcbfaf473275d3c35a52ac3952fac0 (refs/meta/external-ids)\n[2]  9b45a7db273fece2bba29a42807f1b3bd3bbc8d6 (refs/users/12/1034212)\n[3]  8df7d32a2ec307f79e8ea2170b8a0df67a68db63 (refs/meta/group-names^{tree})\n[4]  69985502a2d0972cebd0e80c9c8b3b00f2833f8c (5358e56f92e5292b5529f747f0ee1bbabc03e72c:authorized_keys)\n[5]  bb04402c6fbf26325eeffb012c4bfb04bd83752d (refs/meta/external-ids^{tree})",
+      "parentUuid": "3c6d604a_dd922609",
+      "range": {
+        "startLine": 9,
+        "startChar": 29,
+        "endLine": 9,
+        "endChar": 61
+      },
+      "revId": "0f0a1230ac3f0dd8e7019c95656afd97b43104b1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
