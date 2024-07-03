@@ -26,6 +26,7 @@ import com.ericsson.gerrit.plugins.gcconductor.GcQueueException;
 import com.ericsson.gerrit.plugins.gcconductor.RepositoryInfo;
 import java.io.IOException;
 import java.util.Optional;
+import java.util.concurrent.Executor;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -43,6 +44,8 @@ public class GcWorkerTest {
   @Mock private GarbageCollector garbageCollector;
   @Mock private CancellableProgressMonitor cpm;
 
+  DirectExecutor directExecutor;
+
   private RepositoryInfo repoInfo;
 
   private GcWorker gcTask;
@@ -52,31 +55,35 @@ public class GcWorkerTest {
     Thread.interrupted(); // reset the flag
     repoInfo = new RepositoryInfo(REPO_PATH, null, EXEC_NAME, HOSTNAME, true);
     gcTask = new GcWorker(queue, garbageCollector, cpm, QUEUED_FROM, 0, EXEC_NAME);
+    directExecutor = new DirectExecutor();
   }
 
   @Test
+  @SuppressWarnings("DoNotCall")
   public void shouldPickAndRemoveRepository() throws Exception {
     when(queue.pick(EXEC_NAME, 0, QUEUED_FROM)).thenReturn(repoInfo);
     when(cpm.isCancelled()).thenReturn(false).thenReturn(false).thenReturn(true);
-    gcTask.run();
+    directExecutor.execute(gcTask);
     verify(garbageCollector).call();
     verify(queue).remove(REPO_PATH);
     cpm.cancel();
   }
 
   @Test
+  @SuppressWarnings("DoNotCall")
   public void noRepositoryPicked() throws Exception {
     when(cpm.isCancelled()).thenReturn(false).thenReturn(true);
-    gcTask.run();
+    directExecutor.execute(gcTask);
     verifyNoInteractions(garbageCollector);
     verify(queue, never()).remove(any(String.class));
     verify(queue, never()).unpick(any(String.class));
   }
 
   @Test
+  @SuppressWarnings("DoNotCall")
   public void interruptedWhenWaitingToPickRepository() throws Exception {
     when(cpm.isCancelled()).thenReturn(false).thenReturn(true);
-    Thread t = new Thread(() -> gcTask.run());
+    Thread t = new Thread(() -> directExecutor.execute(gcTask));
     t.start();
     t.interrupt();
     verifyNoInteractions(garbageCollector);
@@ -85,53 +92,58 @@ public class GcWorkerTest {
   }
 
   @Test
+  @SuppressWarnings("DoNotCall")
   public void gcFailsOnRepository() throws Exception {
     when(cpm.isCancelled()).thenReturn(false).thenReturn(false).thenReturn(false).thenReturn(true);
     when(queue.pick(EXEC_NAME, 0, QUEUED_FROM)).thenReturn(repoInfo);
     doThrow(new IOException()).when(garbageCollector).call();
-    gcTask.run();
+    directExecutor.execute(gcTask);
     verify(queue).remove(REPO_PATH);
     verify(queue, never()).unpick(any(String.class));
   }
 
   @Test
+  @SuppressWarnings("DoNotCall")
   public void queueThrowsExceptionWhenPickingRepository() throws Exception {
     when(cpm.isCancelled()).thenReturn(false).thenReturn(true);
     doThrow(new GcQueueException("", new Throwable())).when(queue).pick(EXEC_NAME, 0, QUEUED_FROM);
-    gcTask.run();
+    directExecutor.execute(gcTask);
     verifyNoInteractions(garbageCollector);
     verify(queue, never()).remove(any(String.class));
     verify(queue, never()).unpick(any(String.class));
   }
 
   @Test
+  @SuppressWarnings("DoNotCall")
   public void gcRepositoryIsInterrupted() throws Exception {
     when(cpm.isCancelled()).thenReturn(false).thenReturn(true).thenReturn(true).thenReturn(true);
     when(queue.pick(EXEC_NAME, 0, QUEUED_FROM)).thenReturn(repoInfo);
     doThrow(new IOException()).when(garbageCollector).call();
-    gcTask.run();
+    directExecutor.execute(gcTask);
     verify(queue).unpick(REPO_PATH);
     verify(queue, never()).remove(REPO_PATH);
   }
 
   @Test
+  @SuppressWarnings("DoNotCall")
   public void queueThrowsExceptionWhenRemovingRepository() throws Exception {
     when(cpm.isCancelled()).thenReturn(false).thenReturn(false).thenReturn(true);
     when(queue.pick(EXEC_NAME, 0, QUEUED_FROM)).thenReturn(repoInfo);
     doThrow(new GcQueueException("", new Throwable())).when(queue).remove(REPO_PATH);
-    gcTask.run();
+    directExecutor.execute(gcTask);
     verify(garbageCollector).call();
     verify(queue).remove(REPO_PATH);
     verify(queue, never()).unpick(REPO_PATH);
   }
 
   @Test
+  @SuppressWarnings("DoNotCall")
   public void queueThrowsExceptionWhenUnpickingRepository() throws Exception {
     when(cpm.isCancelled()).thenReturn(false).thenReturn(true).thenReturn(true).thenReturn(true);
     when(queue.pick(EXEC_NAME, 0, QUEUED_FROM)).thenReturn(repoInfo);
     doThrow(new IOException()).when(garbageCollector).call();
     doThrow(new GcQueueException("", new Throwable())).when(queue).unpick(REPO_PATH);
-    gcTask.run();
+    directExecutor.execute(gcTask);
     verify(queue).unpick(REPO_PATH);
     verify(queue, never()).remove(REPO_PATH);
   }
@@ -140,5 +152,11 @@ public class GcWorkerTest {
   public void callingShutdownSetsCancellableToTrue() {
     gcTask.shutdown();
     verify(cpm).cancel();
+  }
+
+  final class DirectExecutor implements Executor {
+    public void execute(Runnable r) {
+      r.run();
+    }
   }
 }
