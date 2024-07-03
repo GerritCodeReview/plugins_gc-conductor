@@ -15,7 +15,6 @@
 package com.ericsson.gerrit.plugins.gcconductor.executor;
 
 import static com.google.common.truth.Truth.assertThat;
-import static com.google.common.truth.Truth8.assertThat;
 import static org.mockito.Mockito.when;
 
 import com.google.inject.Binder;
