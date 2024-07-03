@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b0fea1b_d356e2c2",
+        "filename": "src/test/java/com/ericsson/gerrit/plugins/gcconductor/executor/GcWorkerTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2024-07-03T22:07:46Z",
+      "side": 1,
+      "message": "Rather than hiding the problem, I would suggest to:\n\n- Create a direct executor (https://guava.dev/releases/19.0/api/docs/com/google/common/util/concurrent/MoreExecutors.html#directExecutor())\n- Replace `gcTask.run()` with `executor.execute(gcTask)`",
+      "range": {
+        "startLine": 58,
+        "startChar": 2,
+        "endLine": 58,
+        "endChar": 32
+      },
+      "revId": "d7312c49f0976d6f6c5f4f10a04bd1615dd5e728",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
