@@ -15,7 +15,7 @@
 package com.ericsson.gerrit.plugins.gcconductor.executor;
 
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.verifyNoInteractions;
 
 import java.util.concurrent.TimeUnit;
 import org.junit.Test;
@@ -43,6 +43,6 @@ public class ScheduledEvaluatorTest {
   public void testOnShutdown() {
     scheduledEvaluator = new ScheduledEvaluator(evaluationTask);
     scheduledEvaluator.onShutdown();
-    verifyZeroInteractions(evaluationTask);
+    verifyNoInteractions(evaluationTask);
   }
 }

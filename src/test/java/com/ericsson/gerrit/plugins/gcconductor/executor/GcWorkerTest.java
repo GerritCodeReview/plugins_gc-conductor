@@ -18,7 +18,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 
 import com.ericsson.gerrit.plugins.gcconductor.GcQueue;
@@ -68,7 +68,7 @@ public class GcWorkerTest {
   public void noRepositoryPicked() throws Exception {
     when(cpm.isCancelled()).thenReturn(false).thenReturn(true);
     gcTask.run();
-    verifyZeroInteractions(garbageCollector);
+    verifyNoInteractions(garbageCollector);
     verify(queue, never()).remove(any(String.class));
     verify(queue, never()).unpick(any(String.class));
   }
@@ -79,7 +79,7 @@ public class GcWorkerTest {
     Thread t = new Thread(() -> gcTask.run());
     t.start();
     t.interrupt();
-    verifyZeroInteractions(garbageCollector);
+    verifyNoInteractions(garbageCollector);
     verify(queue, never()).remove(any(String.class));
     verify(queue, never()).unpick(any(String.class));
   }
@@ -99,7 +99,7 @@ public class GcWorkerTest {
     when(cpm.isCancelled()).thenReturn(false).thenReturn(true);
     doThrow(new GcQueueException("", new Throwable())).when(queue).pick(EXEC_NAME, 0, QUEUED_FROM);
     gcTask.run();
-    verifyZeroInteractions(garbageCollector);
+    verifyNoInteractions(garbageCollector);
     verify(queue, never()).remove(any(String.class));
     verify(queue, never()).unpick(any(String.class));
   }

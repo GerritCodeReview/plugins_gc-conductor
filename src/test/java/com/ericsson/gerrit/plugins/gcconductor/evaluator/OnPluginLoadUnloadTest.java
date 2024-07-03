@@ -16,7 +16,7 @@ package com.ericsson.gerrit.plugins.gcconductor.evaluator;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.verifyNoInteractions;
 
 import com.ericsson.gerrit.plugins.gcconductor.ShutdownNotifier;
 import org.junit.Before;
@@ -36,7 +36,7 @@ public class OnPluginLoadUnloadTest {
   @Test
   public void testStart() {
     onPluginLoadUnload.start();
-    verifyZeroInteractions(shutdownNotifierMock);
+    verifyNoInteractions(shutdownNotifierMock);
   }
 
   @Test

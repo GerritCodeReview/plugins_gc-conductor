@@ -17,7 +17,7 @@ package com.ericsson.gerrit.plugins.gcconductor.executor;
 import static com.google.gerrit.testing.GerritJUnit.assertThrows;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 
 import com.ericsson.gerrit.plugins.gcconductor.EvaluationTask;
@@ -81,7 +81,7 @@ public class ScheduledEvaluationTaskTest {
     Thread t = new Thread(() -> periodicEvaluator.run());
     t.start();
     t.interrupt();
-    verifyZeroInteractions(evaluationTaskFactory);
+    verifyNoInteractions(evaluationTaskFactory);
   }
 
   private Repository createRepository(String repoName) throws Exception {
