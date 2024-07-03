@@ -55,6 +55,7 @@ public class GcWorkerTest {
   }
 
   @Test
+  @SuppressWarnings("DoNotCall")
   public void shouldPickAndRemoveRepository() throws Exception {
     when(queue.pick(EXEC_NAME, 0, QUEUED_FROM)).thenReturn(repoInfo);
     when(cpm.isCancelled()).thenReturn(false).thenReturn(false).thenReturn(true);
@@ -65,6 +66,7 @@ public class GcWorkerTest {
   }
 
   @Test
+  @SuppressWarnings("DoNotCall")
   public void noRepositoryPicked() throws Exception {
     when(cpm.isCancelled()).thenReturn(false).thenReturn(true);
     gcTask.run();
@@ -74,6 +76,7 @@ public class GcWorkerTest {
   }
 
   @Test
+  @SuppressWarnings("DoNotCall")
   public void interruptedWhenWaitingToPickRepository() throws Exception {
     when(cpm.isCancelled()).thenReturn(false).thenReturn(true);
     Thread t = new Thread(() -> gcTask.run());
@@ -85,6 +88,7 @@ public class GcWorkerTest {
   }
 
   @Test
+  @SuppressWarnings("DoNotCall")
   public void gcFailsOnRepository() throws Exception {
     when(cpm.isCancelled()).thenReturn(false).thenReturn(false).thenReturn(false).thenReturn(true);
     when(queue.pick(EXEC_NAME, 0, QUEUED_FROM)).thenReturn(repoInfo);
@@ -95,6 +99,7 @@ public class GcWorkerTest {
   }
 
   @Test
+  @SuppressWarnings("DoNotCall")
   public void queueThrowsExceptionWhenPickingRepository() throws Exception {
     when(cpm.isCancelled()).thenReturn(false).thenReturn(true);
     doThrow(new GcQueueException("", new Throwable())).when(queue).pick(EXEC_NAME, 0, QUEUED_FROM);
@@ -105,6 +110,7 @@ public class GcWorkerTest {
   }
 
   @Test
+  @SuppressWarnings("DoNotCall")
   public void gcRepositoryIsInterrupted() throws Exception {
     when(cpm.isCancelled()).thenReturn(false).thenReturn(true).thenReturn(true).thenReturn(true);
     when(queue.pick(EXEC_NAME, 0, QUEUED_FROM)).thenReturn(repoInfo);
@@ -115,6 +121,7 @@ public class GcWorkerTest {
   }
 
   @Test
+  @SuppressWarnings("DoNotCall")
   public void queueThrowsExceptionWhenRemovingRepository() throws Exception {
     when(cpm.isCancelled()).thenReturn(false).thenReturn(false).thenReturn(true);
     when(queue.pick(EXEC_NAME, 0, QUEUED_FROM)).thenReturn(repoInfo);
@@ -126,6 +133,7 @@ public class GcWorkerTest {
   }
 
   @Test
+  @SuppressWarnings("DoNotCall")
   public void queueThrowsExceptionWhenUnpickingRepository() throws Exception {
     when(cpm.isCancelled()).thenReturn(false).thenReturn(true).thenReturn(true).thenReturn(true);
     when(queue.pick(EXEC_NAME, 0, QUEUED_FROM)).thenReturn(repoInfo);
