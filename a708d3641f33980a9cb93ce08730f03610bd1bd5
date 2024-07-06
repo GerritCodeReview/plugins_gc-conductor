@@ -1,12 +1,13 @@
 {
   "checks": {
     "zuul-check:plugins_gc-conductor-1": {
-      "state": "RUNNING",
-      "message": "Jobs have started running",
-      "url": "https://ci.gerritcodereview.com/t/gerrit/status/change/349996,5",
+      "state": "FAILED",
+      "message": "Change failed",
+      "url": "https://ci.gerritcodereview.com/t/gerrit/buildset/c2222523cf954c30b6c415ac0185cdf7",
       "started": "2024-07-06T17:41:39Z",
+      "finished": "2024-07-06T17:49:00Z",
       "created": "2024-07-06T17:41:39Z",
-      "updated": "2024-07-06T17:42:46Z"
+      "updated": "2024-07-06T17:49:00Z"
     }
   }
 }
