@@ -1,0 +1,12 @@
+{
+  "checks": {
+    "zuul-check:plugins_gc-conductor-1": {
+      "state": "SCHEDULED",
+      "message": "Change has been enqueued in check",
+      "url": "https://ci.gerritcodereview.com/t/gerrit/status/change/432279,2",
+      "started": "2024-07-06T17:41:37Z",
+      "created": "2024-07-06T17:41:38Z",
+      "updated": "2024-07-06T17:41:38Z"
+    }
+  }
+}
