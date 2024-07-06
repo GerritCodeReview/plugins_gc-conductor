@@ -1,12 +1,13 @@
 {
   "checks": {
     "zuul-check:plugins_gc-conductor-1": {
-      "state": "SCHEDULED",
-      "message": "Change has been enqueued in check",
-      "url": "https://ci.gerritcodereview.com/t/gerrit/status/change/340834,1",
+      "state": "FAILED",
+      "message": "Change failed",
+      "url": "https://ci.gerritcodereview.com/t/gerrit/buildset/37d72ee259af42d3b4d1af2fe1e62dbb",
       "started": "2024-07-06T17:41:40Z",
+      "finished": "2024-07-06T17:41:45Z",
       "created": "2024-07-06T17:41:41Z",
-      "updated": "2024-07-06T17:41:41Z"
+      "updated": "2024-07-06T17:41:45Z"
     }
   }
 }
