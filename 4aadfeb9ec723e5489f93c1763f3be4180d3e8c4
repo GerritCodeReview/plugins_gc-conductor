@@ -1,12 +1,12 @@
 {
   "checks": {
     "zuul-check:plugins_gc-conductor-1": {
-      "state": "SCHEDULED",
-      "message": "Change has been enqueued in check",
+      "state": "RUNNING",
+      "message": "Jobs have started running",
       "url": "https://ci.gerritcodereview.com/t/gerrit/status/change/432279,3",
       "started": "2024-09-04T20:33:50Z",
       "created": "2024-09-04T20:33:50Z",
-      "updated": "2024-09-04T20:33:50Z"
+      "updated": "2024-09-04T20:34:06Z"
     }
   }
 }
