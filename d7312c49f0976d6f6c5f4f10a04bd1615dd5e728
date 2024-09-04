@@ -22,6 +22,30 @@
       },
       "revId": "d7312c49f0976d6f6c5f4f10a04bd1615dd5e728",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "570a0d41_b7b73d88",
+        "filename": "src/test/java/com/ericsson/gerrit/plugins/gcconductor/executor/GcWorkerTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2024-09-04T20:33:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b0fea1b_d356e2c2",
+      "range": {
+        "startLine": 58,
+        "startChar": 2,
+        "endLine": 58,
+        "endChar": 32
+      },
+      "revId": "d7312c49f0976d6f6c5f4f10a04bd1615dd5e728",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
