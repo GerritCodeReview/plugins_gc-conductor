@@ -1,13 +1,9 @@
 {
   "checks": {
     "zuul-check:plugins_gc-conductor-1": {
-      "state": "FAILED",
-      "message": "Change failed",
-      "url": "https://ci.gerritcodereview.com/t/gerrit/buildset/29513a22a7c54fb0b4ac2e4094c245c9",
-      "started": "2024-09-04T20:35:17Z",
-      "finished": "2024-09-04T20:44:00Z",
+      "state": "NOT_STARTED",
       "created": "2024-09-04T20:35:18Z",
-      "updated": "2024-09-04T20:44:00Z"
+      "updated": "2024-09-04T20:52:01Z"
     }
   }
 }
